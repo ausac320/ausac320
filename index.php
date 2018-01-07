@@ -18,8 +18,25 @@
 				</h1>
 			</div>
 		</div>
-	
 
+		<div class ="row">
+			<h2>
+				This is Alex' local website right now!
+			</h2>
+		</div>
+	
+		<div class ="row">
+<form action="process.php" method="post">
+	<input name = "name" type="text">
+	<input name = "lName" type = "text">
+	<input type = "submit">
+</form>
+</div>
+
+
+
+<address>Made 07 January 2018<br>
+  by Alex Ho, Connor Maschke, Sheldon Grundberg.</address>
 
 	</body>
 
