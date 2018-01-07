@@ -21,17 +21,19 @@
 
 		<div class ="row">
 			<h3>
-				Please register here
+				Please Login Here
 			</h3>
 		</div>
 	
 		<div class ="row">
-			<form action="process.php" method="post">
+			<form action="userpage.php" method="post">
 				<input name="name" type="text" placeholder="Alex" required>
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input type="submit">
 			</form>
 		</div>
+
+
 
 
 
