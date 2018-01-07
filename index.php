@@ -20,23 +20,25 @@
 		</div>
 
 		<div class ="row">
-			<h2>
-				This is Alex' local website right now!
-			</h2>
+			<h3>
+				Please register here
+			</h3>
 		</div>
 	
 		<div class ="row">
-<form action="process.php" method="post">
-	<input name = "name" type="text">
-	<input name = "lName" type = "text">
-	<input type = "submit">
-</form>
-</div>
+			<form action="process.php" method="post">
+				<input name="name" type="text" placeholder="Alex" required>
+				<input name="lName" type = "text" placeholder="Ho" required>
+				<input type="submit">
+			</form>
+		</div>
 
 
 
-<address>Made 07 January 2018<br>
-  by Alex Ho, Connor Maschke, Sheldon Grundberg.</address>
+		<address>
+			Made 07 January 2018<br>
+  			by Alex Ho, Connor Maschke, Sheldon Grundberg.
+		</address>
 
 	</body>
 
