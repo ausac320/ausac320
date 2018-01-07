@@ -34,6 +34,10 @@
 </div>
 
 
+
+<address>Made 07 January 2018<br>
+  by Alex Ho, Connor Maschke, Sheldon Grundberg.</address>
+
 	</body>
 
 
