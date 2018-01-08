@@ -26,22 +26,18 @@
 				<h3 class="text-center">
 					Login
 				</h3>
-				<form method="post">
+				<form method="post" class="text-center">
 					<input name="name" type="text" placeholder="Alex" required>
 					<input name="lName" type = "text" placeholder="Ho" required>
 					<a href="userpage.php" class="button">Login</a>
-					<a href="register.php" class="button">Register</a>
+					<ul>
+						<a href="register.php">Don't have an account? Register Here</a>
+					</ul>
 				</form>
 			</div>
 		</div>
 
-		<div class ="row">
-				<form action="register.php">
-    				<input type="submit" class="button" name="registerButton" value="Register" />
-				</form>
-		</div>
-
-		<address>
+		<address class="text-center">
 			Made 07 January 2018<br>
   			by Alex Ho, Connor Maschke, Sheldon Grundberg.
 		</address>
