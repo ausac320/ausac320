@@ -8,13 +8,15 @@
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
+		<link rel="stylesheet" href="resources/css/foundation.css">
+    	<link rel="stylesheet" href="resources/css/app.css">
 	</head>
 
 	<body>
 		<div class="row">
 			<div class="large-12 columns">
 				<h1>
-					Welcome to the Augustana Student Academic Conference!
+					Augustana Student Academic Conference
 				</h1>
 			</div>
 		</div>
@@ -43,6 +45,9 @@
 			Made 07 January 2018<br>
   			by Alex Ho, Connor Maschke, Sheldon Grundberg.
 		</address>
+
+		<script src="js/vendor/foundation.js"></script>
+    	<script src="js/app.js"></script>
 
 	</body>
 
