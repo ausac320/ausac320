@@ -34,9 +34,9 @@
 		</div>
 
 		<div class ="row">
-			<form action="register.php">
-    			<input type="submit" class="button" name="registerButton" value="Register" />
-			</form>
+				<form action="register.php">
+    				<input type="submit" class="button" name="registerButton" value="Register" />
+				</form>
 		</div>
 
 		<address>
