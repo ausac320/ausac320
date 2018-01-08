@@ -22,14 +22,15 @@
 		</div>
 
 		<div class ="row">
-			<div class="primary callout">
+			<div class="callout secondary">
 				<h3 class="text-center">
 					Login
 				</h3>
-				<form action="userpage.php" method="post">
+				<form method="post">
 					<input name="name" type="text" placeholder="Alex" required>
 					<input name="lName" type = "text" placeholder="Ho" required>
-					<input type="submit">
+					<a href="userpage.php" class="button">Login</a>
+					<a href="register.php" class="button">Register</a>
 				</form>
 			</div>
 		</div>
