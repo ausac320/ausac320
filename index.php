@@ -29,7 +29,7 @@
 			<form action="userpage.php" method="post">
 				<input name="name" type="text" placeholder="Alex" required>
 				<input name="lName" type = "text" placeholder="Ho" required>
-				<input type="submit">
+				<input type="submit" name = "login" value = "login">
 			</form>
 		</div>
 
