@@ -21,29 +21,26 @@
 
 		<div class ="row">
 			<h3>
-				Please Login Here
+				Register Here
 			</h3>
 		</div>
 	
 		<div class ="row">
-			<form action="userpage.php" method="post">
+			<form action="index.php" method="post">
 				<input name="name" type="text" placeholder="Alex" required>
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input type="submit">
 			</form>
 		</div>
 
-		<div class ="row">
-				<form action="register.php">
-    				<input type="submit" class="button" name="registerButton" value="Register" />
-				</form>
-		</div>
+
 
 		<address>
 			Made 07 January 2018<br>
   			by Alex Ho, Connor Maschke, Sheldon Grundberg.
 		</address>
 
-
 	</body>
+
+
 </html>
