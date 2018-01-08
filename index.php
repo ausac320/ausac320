@@ -22,17 +22,16 @@
 		</div>
 
 		<div class ="row">
-			<h3>
-				Please Login Here
-			</h3>
-		</div>
-	
-		<div class ="row">
-			<form action="userpage.php" method="post">
-				<input name="name" type="text" placeholder="Alex" required>
-				<input name="lName" type = "text" placeholder="Ho" required>
-				<input type="submit">
-			</form>
+			<div class="primary callout">
+				<h3 class="text-center">
+					Login
+				</h3>
+				<form action="userpage.php" method="post">
+					<input name="name" type="text" placeholder="Alex" required>
+					<input name="lName" type = "text" placeholder="Ho" required>
+					<input type="submit">
+				</form>
+			</div>
 		</div>
 
 		<div class ="row">
