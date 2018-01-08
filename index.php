@@ -23,10 +23,10 @@
 
 		<div class ="row">
 			<div id="loginField" class="callout secondary">
-				<h3 class="text-center">
+				<h3>
 					Login
 				</h3>
-				<form action="userpage.php" method="post" class="text-center">
+				<form id="loginForm" action="userpage.php" method="post">
 					<input name="name" type="text" placeholder="Alex" required>
 					<input name="lName" type = "text" placeholder="Ho" required>
 					<input value="Submit" type="submit">

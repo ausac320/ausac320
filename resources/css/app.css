@@ -19,4 +19,11 @@ div.footer {
 
 div#loginField{
 	margin: 0px;
+	text-align: center;
+}
+
+form#loginForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
 }
