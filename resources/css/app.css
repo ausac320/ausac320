@@ -1,0 +1,8 @@
+div.box {
+	width: auto;
+	min-height: 50px;
+	background-color: #007c41;
+	color: #fff;
+	padding: 15px;
+	border-bottom: 2px solid #ffdb05;
+}
