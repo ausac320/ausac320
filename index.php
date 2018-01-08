@@ -8,6 +8,7 @@
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
+		<link rel="stylesheet" href="resources\css\app.css">
 	</head>
 
 	<body>
@@ -21,7 +22,23 @@
 
 		<div class ="row">
 			<h2>
-				This is Alex' local website right now!
+				This is Sheldon's local website right <i>now</i>!
+			</h2>
+			<h2>
+				<p>
+					This website will help me:
+					<ul>
+						<li>
+							learn new skills
+						</li>
+						<li>
+							build my portfolio
+						</li>
+						<li>
+							achieve a great mark
+						</li>
+					</ul>
+				</p>
 			</h2>
 		</div>
 	

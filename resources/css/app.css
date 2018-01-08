@@ -1,0 +1,13 @@
+body {
+	background: gold;
+}
+
+h1 {
+	color: black;
+	background: green;
+	border: 5px solid gold; 
+}
+
+h2 {
+	color: blue;
+}
