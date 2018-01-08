@@ -26,7 +26,7 @@
 		</div>
 	
 		<div class ="row">
-			<form action="process.php" method="post">
+			<form action="index.php" method="post">
 				<input name="name" type="text" placeholder="Alex" required>
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input type="submit">
