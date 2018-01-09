@@ -40,3 +40,8 @@ form#loginForm{
 	margin-right: auto;
 	margin-left: auto;
 }
+
+div#userPageField{
+	margin: 0px;
+	height: 80%;
+}
