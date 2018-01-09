@@ -20,9 +20,6 @@
 		</div>
 
 		<div id="submissionPageField" class="callout secondary">
-			<h3>
-				
-			</h3>
 			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">

@@ -20,9 +20,6 @@
 		</div>
 
 		<div id="userPageField" class="callout secondary">
-			<h3 class="text-center">
-				User's Name Displays Here
-			</h3>
 			<div class="row.fullsizerow">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">
@@ -41,11 +38,14 @@
 					</ul>
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
+					<h4>
+						User's Name Displays Here
+					</h4>
 					<div class="schedule">
 						This is where our schedule will display.
 					</div>
-					<div id="scheduledSub">
-						This is where our user scheduled submissions will show.
+					<div id="importantDisplay">
+						Add display for deadline and other important dates here.
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
