@@ -15,7 +15,7 @@
 	<body>
 		<div class="header">
 			<h1>
-				Augustana Student Academic Conference
+				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
 

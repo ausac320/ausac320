@@ -15,7 +15,7 @@
 	<body>
 		<div class="header">
 			<h1>
-				Augustana Student Academic Conference
+				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
 
@@ -52,6 +52,5 @@
     	<script src="js/app.js"></script>
 
 	</body>
-
 
 </html>

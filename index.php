@@ -15,7 +15,7 @@
 	<body>
 		<div class="header">
 			<h1>
-				Augustana Student Academic Conference
+				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
 
@@ -28,7 +28,7 @@
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input value="Submit" type="submit">
 				<ul>
-					<a href="registration.php">Don't have an account yet?/a>
+					<a href="registration.php">Don't have an account yet?</a>
 				</ul>
 			</form>
 		</div>

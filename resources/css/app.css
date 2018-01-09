@@ -14,6 +14,10 @@ div.header {
 	border-bottom: 2px solid #ffdb05;
 }
 
+div.header a{
+	color: #fff;
+}
+
 div.footer {
 	width: auto;
 	min-height: 10%;
