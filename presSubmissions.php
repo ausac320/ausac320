@@ -23,7 +23,7 @@
 			<h3 class="text-center">
 				Submissions Page
 			</h3>
-			<div class="row">
+			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">
 				  		<li>
@@ -40,6 +40,17 @@
 				  		</li>
 					</ul>
 				</div>
+				<div class="large-8 medium-8 small-8 columns">
+					<div id="submissionsDisplayBox">
+						<h4>
+							Submissions
+						</h4>
+						Name
+					</div>
+				</div>
+				<div class="large-2 medium-2 small-2 columns">
+				</div>
+
 			</div>	
 		</div>
 

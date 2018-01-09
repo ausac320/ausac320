@@ -114,6 +114,10 @@ div#submissionPageField{
 	height: 80%;
 }
 
+div#submissionsDisplayBox{
+	border: 3px solid #000;
+}
+
 div#scheduleSetupPageField{
 	margin: 0px;
 	height: 80%;
