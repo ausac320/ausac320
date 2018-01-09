@@ -8,41 +8,46 @@
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
+		<link rel="stylesheet" href="resources/css/foundation.css">
+    	<link rel="stylesheet" href="resources/css/app.css">
 	</head>
 
 	<body>
 		<div class="row">
-			<div class="large-12 columns">
+			<div class="header">
 				<h1>
-					Welcome to the Augustana Student Academic Conference!
+					Augustana Student Academic Conference
 				</h1>
 			</div>
 		</div>
 
 		<div class ="row">
-			<h3>
-				Please Login Here
-			</h3>
-		</div>
-	
-		<div class ="row">
-			<form action="userpage.php" method="post">
-				<input name="name" type="text" placeholder="Alex" required>
-				<input name="lName" type = "text" placeholder="Ho" required>
-				<input type="submit" name = "login" value = "login">
-			</form>
-		</div>
 
-		<div class ="row">
-				<form action="register.php">
-    				<input type="submit" class="button" name="registerButton" value="Register" />
+			<div id="loginField" class="callout secondary">
+				<h3>
+					Login
+				</h3>
+				<form id="loginForm" action="userpage.php" method="post">
+					<input name="name" type="text" placeholder="Alex" required>
+					<input name="lName" type = "text" placeholder="Ho" required>
+					<input value="Submit" type="submit">
+					<ul>
+						<a href="register.php">Don't have an account? Register Here</a>
+					</ul>
 				</form>
+			</div>
+
 		</div>
 
-		<address>
-			Made 07 January 2018<br>
-  			by Alex Ho, Connor Maschke, Sheldon Grundberg.
-		</address>
+		<div class="row">
+			<div class="footer">
+				Designed January 7th, 2018<br>
+  				by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			</div>
+		</div>
+
+		<script src="js/vendor/foundation.js"></script>
+    	<script src="js/app.js"></script>
 
 
 	</body>
