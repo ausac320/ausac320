@@ -26,8 +26,8 @@
 			<form id="submitForm" action="index.php" method="GET">
 				<input name="username" type="text" placeholder="Username" required>
 				<input name="name" type = "text" placeholder="Name" required>
-				<input name="email" type="text" placeholder="Email" required>
-				<input name="confirmEmail" type="text" placeholder="Confirm Email" required>
+				<input name="email" type="text" placeholder="UAlberta Email" required>
+				<input name="confirmEmail" type="text" placeholder="Confirm UAlberta Email" required>
 				<input name="password" type="text" placeholder="Password" required>
 				<input name="confirmPassword" type="text" placeholder="Confirm Password" required>
 				<input value="Register" type="submit">

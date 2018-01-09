@@ -13,6 +13,7 @@
 	</head>
 
 	<body>
+
 		<div class="header">
 			<h1>
 				<a href="index.php">Augustana Student Academic Conference</a>
@@ -28,7 +29,7 @@
 				<input name="password" type = "text" placeholder="Password" required>
 				<input value="Submit" type="submit">
 				<ul>
-					<a href="registration.php">Don't have an account yet?</a>
+					<a href="registration.php">Don't have an account yet? Register Here</a>
 				</ul>
 			</form>
 		</div>
