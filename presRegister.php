@@ -20,10 +20,7 @@
 		</div>
 
 		<div id="registerPageField" class="callout secondary">
-			<h3 class="text-center">
-				Register Page
-			</h3>
-			<div class="row">
+			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">
 				  		<li>
@@ -39,6 +36,13 @@
 				  			<a href="scheduleSetup.php" >Schedule Setup</a>
 				  		</li>
 					</ul>
+				</div>
+				<div class="large-8 medium-8 small-8 columns">
+					<div class="newSubmission">
+						Add [New Submission] Section Here
+					</div>
+				</div>
+				<div class="large-2 medium-2 small-2 columns">
 				</div>
 			</div>	
 		</div>
