@@ -28,21 +28,16 @@
 				<input name="name" type = "text" placeholder="Name" required>
 				<input name="email" type="text" placeholder="UAlberta Email" required>
 				<input name="confirmEmail" type="text" placeholder="Confirm UAlberta Email" required>
-				<input name="password" type="text" placeholder="Password" required>
-				<input name="confirmPassword" type="text" placeholder="Confirm Password" required>
+				<input name="password" type="password" placeholder="Password" required>
+				<input name="confirmPassword" type="password" placeholder="Confirm Password" required>
 				<input value="Register" type="submit">
 			</form>
 		</div>
-
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
-
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
-
 	</body>
-
-
 </html>
