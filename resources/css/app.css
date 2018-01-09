@@ -1,14 +1,7 @@
-body {
-	background: gold;
-<<<<<<< HEAD
 html, body{
 	height: 100%;
 }
 
-h1 {
-	color: black;
-	background: green;
-	border: 5px solid gold; 
 div.header {
 	width: auto;
 	min-height: 10%;
@@ -21,8 +14,6 @@ div.header {
 	border-bottom: 2px solid #ffdb05;
 }
 
-h2 {
-	color: blue;
 div.header a{
 	color: #fff;
 }
@@ -109,5 +100,4 @@ div#submissionPageField{
 div#scheduleSetupPageField{
 	margin: 0px;
 	height: 80%;
->>>>>>> 67584355420d6bbb885ae9ed678c45868de13258
 }
