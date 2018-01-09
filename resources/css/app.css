@@ -45,6 +45,23 @@ form#loginForm{
 	margin-left: auto;
 }
 
+div#submitField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+h3#registerDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#submitForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 div#userPageField{
 	margin: 0px;
 	height: 80%;

@@ -18,15 +18,12 @@
 				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
-
-		<div class ="row">
-			<h3>
+	
+		<div id="submitField" class ="callout secondary">
+			<h3 id="registerDisplay">
 				Register Here
 			</h3>
-		</div>
-	
-		<div class ="row">
-			<form action="index.php" method="post">
+			<form id="submitForm" action="index.php" method="GET">
 				<input name="name" type="text" placeholder="Alex" required>
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input type="submit">
