@@ -28,7 +28,7 @@
 				<input name="lName" type = "text" placeholder="Ho" required>
 				<input value="Submit" type="submit">
 				<ul>
-					<a href="registration.php">Don't have an account? Register Here</a>
+					<a href="registration.php">Don't have an account yet?/a>
 				</ul>
 			</form>
 		</div>
