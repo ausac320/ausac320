@@ -22,6 +22,7 @@
 		</div>
 
 		<div class ="row">
+
 			<div id="loginField" class="callout secondary">
 				<h3>
 					Login
@@ -35,6 +36,7 @@
 					</ul>
 				</form>
 			</div>
+
 		</div>
 
 		<div class="row">
@@ -47,7 +49,6 @@
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
 
+
 	</body>
-
-
 </html>
