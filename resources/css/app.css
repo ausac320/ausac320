@@ -1,15 +1,22 @@
+html, body{
+	height: 100%;
+}
+
 div.header {
 	width: auto;
-	min-height: 50px;
+	min-height: 10%;
 	background-color: #007c41;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
 	color: #fff;
-	padding: 15px;
+	text-align: center;
 	border-bottom: 2px solid #ffdb05;
 }
 
 div.footer {
 	width: auto;
-	min-height: 50px;
+	min-height: 10%;
 	background-color: #007c41;
 	color: #fff;
 	text-align: center;
@@ -19,7 +26,13 @@ div.footer {
 
 div#loginField{
 	margin: 0px;
+	height: 80%;
 	text-align: center;
+}
+
+h3#loginDisplay{
+	margin-top: 5%;
+	padding-bottom: 5px;
 }
 
 form#loginForm{

@@ -13,37 +13,30 @@
 	</head>
 
 	<body>
-		<div class="row">
-			<div class="header">
-				<h1>
-					Augustana Student Academic Conference
-				</h1>
-			</div>
+		<div class="header">
+			<h1>
+				Augustana Student Academic Conference
+			</h1>
 		</div>
 
-		<div class ="row">
 
-			<div id="loginField" class="callout secondary">
-				<h3>
-					Login
-				</h3>
-				<form id="loginForm" action="userpage.php" method="post">
-					<input name="name" type="text" placeholder="Alex" required>
-					<input name="lName" type = "text" placeholder="Ho" required>
-					<input value="Submit" type="submit">
-					<ul>
-						<a href="register.php">Don't have an account? Register Here</a>
-					</ul>
-				</form>
-			</div>
-
+		<div id="loginField" class="callout secondary">
+			<h3 id="loginDisplay">
+				Login
+			</h3>
+			<form id="loginForm" action="userpage.php" method="GET">
+				<input name="name" type="text" placeholder="Alex" required>
+				<input name="lName" type = "text" placeholder="Ho" required>
+				<input value="Submit" type="submit">
+				<ul>
+					<a href="register.php">Don't have an account? Register Here</a>
+				</ul>
+			</form>
 		</div>
 
-		<div class="row">
-			<div class="footer">
-				Designed January 7th, 2018<br>
-  				by Sheldon Grundberg, Alex Ho, and Connor Maschke.
-			</div>
+		<div class="footer">
+			Designed January 7th, 2018<br>
+  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
 		<script src="js/vendor/foundation.js"></script>
