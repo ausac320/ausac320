@@ -18,18 +18,19 @@
 				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
-
-		<div id="loginField" class="callout secondary">
-			<h3 id="loginDisplay">
-				Login
+	
+		<div id="submitField" class ="callout secondary">
+			<h3 id="registerDisplay">
+				Register Here
 			</h3>
-			<form id="loginForm" action="userpage.php" method="GET">
+			<form id="submitForm" action="index.php" method="GET">
 				<input name="username" type="text" placeholder="Username" required>
-				<input name="password" type = "text" placeholder="Password" required>
-				<input value="Submit" type="submit">
-				<ul>
-					<a href="registration.php">Don't have an account yet?</a>
-				</ul>
+				<input name="name" type = "text" placeholder="Name" required>
+				<input name="email" type="text" placeholder="Email" required>
+				<input name="confirmEmail" type="text" placeholder="Confirm Email" required>
+				<input name="password" type="text" placeholder="Password" required>
+				<input name="confirmPassword" type="text" placeholder="Confirm Password" required>
+				<input value="Register" type="submit">
 			</form>
 		</div>
 
@@ -41,6 +42,7 @@
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
 
-
 	</body>
+
+
 </html>

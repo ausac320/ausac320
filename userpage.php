@@ -8,29 +8,49 @@
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
+		<link rel="stylesheet" href="resources/css/foundation.css">
+    	<link rel="stylesheet" href="resources/css/app.css">
 	</head>
 
 	<body>
-		<div class="row">
-			<div class="large-12 columns">
-				<h1>
-					Welcome to the Augustana Student Academic Conference!
-				</h1>
-			</div>
+		<div class="header">
+			<h1>
+				<a href="index.php">Augustana Student Academic Conference</a>
+			</h1>
 		</div>
 
-		<div class ="row">
-			<h3>
-				User Page
+		<div id="userPageField" class="callout secondary">
+			<h3 class="text-center">
+				User's Name Displays Here
 			</h3>
+			<div class="row">
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+				  		<li class="active">
+				  			<a href="userpage.php" >Home</a>
+				  		</li>
+				  		<li>
+				  			<a href="presRegister.php" >Register</a>
+				  		</li>
+				  		<li>
+				  			<a href="presSubmissions.php" >Submissions</a>
+				  		</li>
+				  		<li>
+				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+			
+		<div class="footer">
+			Designed January 7th, 2018<br>
+  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<address>
-			Made 07 January 2018<br>
-  			by Alex Ho, Connor Maschke, Sheldon Grundberg.
-		</address>
+		<script src="js/vendor/foundation.js"></script>
+    	<script src="js/app.js"></script>
 
 	</body>
-
 
 </html>
