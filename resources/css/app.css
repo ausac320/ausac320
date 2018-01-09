@@ -1,0 +1,127 @@
+html, body{
+	height: 100%;
+}
+
+div.header {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #fff;
+	text-align: center;
+	border-bottom: 2px solid #ffdb05;
+}
+
+div.header a{
+	color: #fff;
+}
+
+div.footer {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	color: #fff;
+	text-align: center;
+	padding-top: 10px;
+	border-top: 2px solid #ffdb05;
+}
+
+div#loginField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+h3#loginDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#loginForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div#submitField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+h3#registerDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#submitForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div#userPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+.fullsizerow{
+	width: 100%;
+}
+
+div#navMenuFill{
+	background-color: #007c41;
+}
+
+ul#navMenu{
+	border: 2px solid #000;
+	list-style-type: none;
+	text-align: center;
+}
+
+ul#navMenu li{
+	border: 2px solid #000;
+	padding: 15px;
+	background-color: #007c41;
+}
+
+ul#navMenu li.active{
+	background-color: #004222;
+}
+
+ul#navMenu a{
+	color: #fff;
+}
+
+div.schedule{
+	border: 3px solid #000;
+	padding: 5px;
+}
+
+div#importantDisplay{
+	border: 3px solid #000;
+	margin-top: 5px;
+	padding: 5px;	
+}
+
+div#registerPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#submissionPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#submissionsDisplayBox{
+	border: 3px solid #000;
+	height: 500px;
+	overflow: scroll;
+}
+
+div#scheduleSetupPageField{
+	margin: 0px;
+	height: 80%;
+}
