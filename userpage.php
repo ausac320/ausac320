@@ -23,7 +23,7 @@
 			<h3 class="text-center">
 				User's Name Displays Here
 			</h3>
-			<div class="row">
+			<div class="row.fullsizerow">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">
 				  		<li class="active">
@@ -39,6 +39,17 @@
 				  			<a href="scheduleSetup.php" >Schedule Setup</a>
 				  		</li>
 					</ul>
+				</div>
+				<div class="large-8 medium-8 small-8 columns">
+					<div class="schedule">
+						This is where our schedule will display.
+					</div>
+					<div id="scheduledSub">
+						This is where our user scheduled submissions will show.
+					</div>
+				</div>
+				<div class="large-2 medium-2 small-2 columns">
+
 				</div>
 			</div>	
 		</div>
