@@ -24,9 +24,13 @@
 				Register Here
 			</h3>
 			<form id="submitForm" action="index.php" method="GET">
-				<input name="name" type="text" placeholder="Alex" required>
-				<input name="lName" type = "text" placeholder="Ho" required>
-				<input type="submit">
+				<input name="username" type="text" placeholder="Username" required>
+				<input name="name" type = "text" placeholder="Name" required>
+				<input name="email" type="text" placeholder="Email" required>
+				<input name="confirmEmail" type="text" placeholder="Confirm Email" required>
+				<input name="password" type="text" placeholder="Password" required>
+				<input name="confirmPassword" type="text" placeholder="Confirm Password" required>
+				<input value="Register" type="submit">
 			</form>
 		</div>
 

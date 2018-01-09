@@ -24,8 +24,8 @@
 				Login
 			</h3>
 			<form id="loginForm" action="userpage.php" method="GET">
-				<input name="name" type="text" placeholder="Alex" required>
-				<input name="lName" type = "text" placeholder="Ho" required>
+				<input name="username" type="text" placeholder="Username" required>
+				<input name="password" type = "text" placeholder="Password" required>
 				<input value="Submit" type="submit">
 				<ul>
 					<a href="registration.php">Don't have an account yet?</a>
