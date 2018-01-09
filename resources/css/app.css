@@ -1,13 +1,113 @@
 body {
 	background: gold;
+<<<<<<< HEAD
+html, body{
+	height: 100%;
 }
 
 h1 {
 	color: black;
 	background: green;
 	border: 5px solid gold; 
+div.header {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
+	color: #fff;
+	text-align: center;
+	border-bottom: 2px solid #ffdb05;
 }
 
 h2 {
 	color: blue;
+div.header a{
+	color: #fff;
+}
+
+div.footer {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+	border-top: 2px solid #ffdb05;
+}
+
+div#loginField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+h3#loginDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#loginForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div#submitField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+h3#registerDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#submitForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div#userPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+ul#navMenu{
+	border: 2px solid #000;
+	list-style-type: none;
+	text-align: center;
+}
+
+ul#navMenu li{
+	border: 2px solid #000;
+	padding: 15px;
+	background-color: #007c41;
+}
+
+ul#navMenu li.active{
+	background-color: #004222;
+}
+
+ul#navMenu a{
+	color: #fff;
+}
+
+div#registerPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#submissionPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#scheduleSetupPageField{
+	margin: 0px;
+	height: 80%;
+>>>>>>> 67584355420d6bbb885ae9ed678c45868de13258
 }
