@@ -19,6 +19,30 @@
 			</h1>
 		</div>
 
+		<div id="registerPageField" class="callout secondary">
+			<h3 class="text-center">
+				Register Page
+			</h3>
+			<div class="row">
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+				  		<li>
+				  			<a href="userpage.php" >Home</a>
+				  		</li>
+				  		<li class="active">
+				  			<a href="presRegister.php" >Register</a>
+				  		</li>
+				  		<li>
+				  			<a href="presSubmissions.php" >Submissions</a>
+				  		</li>
+				  		<li>
+				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.

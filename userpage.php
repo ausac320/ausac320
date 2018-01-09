@@ -20,11 +20,9 @@
 		</div>
 
 		<div id="userPageField" class="callout secondary">
-			
 			<h3 class="text-center">
 				User's Name Displays Here
 			</h3>
-			
 			<div class="row">
 				<div class="large-2 medium-2 small-2 columns">
 					<ul id="navMenu">
