@@ -20,8 +20,8 @@
 		</div>
 
 		<div id="submissionPageField" class="callout secondary">
-			<h3 class="text-center">
-				Submissions Page
+			<h3>
+				
 			</h3>
 			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
@@ -43,9 +43,42 @@
 				<div class="large-8 medium-8 small-8 columns">
 					<div id="submissionsDisplayBox">
 						<h4>
-							Submissions
+							Submissions 
 						</h4>
-						Name
+						<table>
+							<thead>
+								<tr>
+							     	<th width="200">Name</th>
+							        <th width="150">Student Number</th>
+							        <th width="100">Class</th>
+							        <th>Title</th>
+							        <th width="150">Abstract Submitted</th>
+							    </tr>
+							</thead>
+							<tbody>
+							   	<tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSC 401</td>
+							      	<td>My Practicum and How It Affected My Professional Career</td>
+							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSC 450</td>
+							      	<td>Database System Implementation And How To Properly Maintain</td>
+							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
