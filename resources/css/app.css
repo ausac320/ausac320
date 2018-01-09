@@ -45,3 +45,23 @@ div#userPageField{
 	margin: 0px;
 	height: 80%;
 }
+
+ul#navMenu{
+	border: 2px solid #000;
+	list-style-type: none;
+	text-align: center;
+}
+
+ul#navMenu li{
+	border: 2px solid #000;
+	padding: 15px;
+	background-color: #007c41;
+}
+
+ul#navMenu li.active{
+	background-color: #004222;
+}
+
+ul#navMenu a{
+	color: #fff;
+}

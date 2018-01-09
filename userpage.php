@@ -26,9 +26,8 @@
 			</h3>
 			
 			<div class="row">
-				
 				<div class="large-2 medium-2 small-2 columns">
-					<ul id="navMenu" class="vertical menu">
+					<ul id="navMenu">
 				  		<li class="active">
 				  			<a href="userpage.php" >Home</a>
 				  		</li>
