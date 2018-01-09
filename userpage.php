@@ -19,20 +19,30 @@
 			</h1>
 		</div>
 
-		<div id="loginField" class="callout secondary">
-			<h3 id="loginDisplay">
-				Login
+		<div id="userPageField" class="callout secondary">
+			<h3 class="text-center">
+				User's Name Displays Here
 			</h3>
-			<form id="loginForm" action="userpage.php" method="GET">
-				<input name="username" type="text" placeholder="Username" required>
-				<input name="password" type = "text" placeholder="Password" required>
-				<input value="Submit" type="submit">
-				<ul>
-					<a href="registration.php">Don't have an account yet?</a>
-				</ul>
-			</form>
+			<div class="row">
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+				  		<li class="active">
+				  			<a href="userpage.php" >Home</a>
+				  		</li>
+				  		<li>
+				  			<a href="presRegister.php" >Register</a>
+				  		</li>
+				  		<li>
+				  			<a href="presSubmissions.php" >Submissions</a>
+				  		</li>
+				  		<li>
+				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+					</ul>
+				</div>
+			</div>	
 		</div>
-
+			
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
@@ -41,6 +51,6 @@
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
 
-
 	</body>
+
 </html>
