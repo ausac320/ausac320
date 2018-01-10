@@ -38,7 +38,7 @@
 					</ul>
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
-					<div class="newSubmission">
+					<div id="newSubmission">
 						Presentation Registration Page
 						<form id="presRegistration" action="presSubmissions.php" method="GET">
 							<input name="studentName" type="text" placeholder="Student's name" required>
