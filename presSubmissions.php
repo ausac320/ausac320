@@ -10,6 +10,7 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+    	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
 	</head>
 
 	<body>
@@ -46,10 +47,10 @@
 							<thead>
 								<tr>
 							     	<th width="200">Name</th>
-							        <th width="150">Student Number</th>
+							        <th width="100">Student Number</th>
 							        <th width="100">Class</th>
 							        <th>Title</th>
-							        <th width="150">Abstract Submitted</th>
+							        <th width="100">Abstract Submitted</th>
 							    </tr>
 							</thead>
 							<tbody>

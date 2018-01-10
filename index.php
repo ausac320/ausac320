@@ -5,6 +5,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="google-signin-client_id" content="542589201868-f27cbc4oq5l9709lbqtbq3a68k7dd64q.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
@@ -22,8 +24,9 @@
 			<h3 id="loginDisplay">
 				Login
 			</h3>
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 			<form id="loginForm" action="userpage.php" method="GET">
-				<input name="username" type="text" placeholder="Username" required>
+				<input name="username" type="text" placeholder="CCID" required>
 				<input name="password" type = "password" placeholder="Password" required>
 				<input value="Submit" type="submit">
 				<ul>
