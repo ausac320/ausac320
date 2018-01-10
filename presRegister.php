@@ -10,7 +10,9 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+
     	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
+    
 	</head>
 
 	<body>
@@ -41,8 +43,8 @@
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
-					<div class="newSubmission">
+				<div id="newSubmission" class="large-8 medium-8 small-8 columns">
+					<div>
 						Presentation Registration Page
 						<form id="presRegistration" action="presSubmissions.php" method="GET">
 							<input name="studentName" type="text" placeholder="Student's name" required>
@@ -53,6 +55,8 @@
 							<input name="profName3" type="text" placeholder="Third professor's name (if there is one)">
 							<input name="presentationType" type="text" placeholder="Presentation type" required>
 							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" required>
+							<input name="studentAbstract" type="text" placeholder="Student abstract">
+							<input name="studentAbstract" type="text" placeholder="Student abstract">
 							<input name="studentAbstract" type="text" placeholder="Student abstract">
 							<input value="Submit Presentation" type="submit">
 						</form>

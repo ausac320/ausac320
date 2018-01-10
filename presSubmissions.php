@@ -10,7 +10,9 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+
     	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
+
 	</head>
 
 	<body>
@@ -41,11 +43,19 @@
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
-					<div id="submissionsDisplayBox">
-						<h4>
-							Submissions 
-						</h4>
+				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns">
+					<div class="row">
+						<div id="subHead" class="large-4 medium-4 small-4 columns">
+							<h4>
+								Submissions 
+							</h4>
+						</div>
+						<div id="editSubs" class="large-2 medium-2 small-2 columns">
+							<a class="button success small expanded" href="presRegister.php">Edit Submissions</a>
+						</div>					
+					</div>
+
+					<div id="submissionTable">
 						<table>
 							<thead>
 								<tr>
@@ -70,6 +80,41 @@
 							      	<td>AUCSC 450</td>
 							      	<td>Database System Implementation And How To Properly Maintain</td>
 							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
 							    </tr>
 							    <tr>
 							    	<td>Connor Maschke</td>
