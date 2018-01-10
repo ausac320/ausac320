@@ -115,7 +115,7 @@ div#importantDisplay{
 
 div#registerPageField{
 	margin: 0px;
-	height: 90%;
+	height: 80%;
 }
 
 div#submissionPageField{
@@ -146,6 +146,6 @@ div#scheduleSetupPageField{
 }
 
 div#newSubmission{
-	height: 100px;
-	overflow: scroll;
+	height: 500px;
+	overflow: auto;
 }
