@@ -36,6 +36,9 @@
 				  		<li class="active">
 				  			<a href="scheduleSetup.php" >Schedule Setup</a>
 				  		</li>
+						<li>
+				  			<a href="index.php" onclick="signOut();">Sign out</a>
+				  		</li>
 					</ul>
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
