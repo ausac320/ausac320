@@ -26,7 +26,7 @@
 			</h3>
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 			<form id="loginForm" action="userpage.php" method="GET">
-				<input name="username" type="text" placeholder="Username" required>
+				<input name="username" type="text" placeholder="CCID" required>
 				<input name="password" type = "password" placeholder="Password" required>
 				<input value="Submit" type="submit">
 				<ul>
