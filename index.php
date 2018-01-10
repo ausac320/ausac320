@@ -6,8 +6,8 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-signin-client_id" content="542589201868-f27cbc4oq5l9709lbqtbq3a68k7dd64q.apps.googleusercontent.com">
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<title> 
+		
+    <title> 
 			Augustana Student Academic Conference Website
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
@@ -24,7 +24,11 @@
 			<h3 id="loginDisplay">
 				Login
 			</h3>
-			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+			<div class="g-signin2" data-onsuccess="onSignIn">
+				<! this is where it will link automatically to user page once authen if done>
+			</div>
+      
 			<form id="loginForm" action="userpage.php" method="GET">
 				<input name="username" type="text" placeholder="CCID" required>
 				<input name="password" type = "password" placeholder="Password" required>
@@ -39,8 +43,8 @@
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
-
 		<script src="js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="js/app.js"></script>
 	</body>
 </html>

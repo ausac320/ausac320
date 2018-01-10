@@ -10,7 +10,8 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
-    	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
+    	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
+
 	</head>
 
 	<body>
@@ -35,6 +36,9 @@
 				  		</li>
 				  		<li class="active">
 				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+						<li>
+				  			<a href="index.php" onclick="signOut();">Sign out</a>
 				  		</li>
 					</ul>
 				</div>
