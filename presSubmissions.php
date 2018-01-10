@@ -46,7 +46,7 @@
 							</h4>
 						</div>
 						<div id="editSubs" class="large-2 medium-2 small-2 columns">
-							<a class="button success small expanded" href="#">Edit Submissions</a>
+							<a class="button success small expanded" href="presRegister.php">Edit Submissions</a>
 						</div>					
 					</div>
 
