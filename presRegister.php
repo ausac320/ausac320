@@ -47,7 +47,8 @@
 							<input name="profName" type="text" placeholder="Professor's name" required>
 							<input name="profName2" type="text" placeholder="Second professor's name (if there is one)">
 							<input name="profName3" type="text" placeholder="Third professor's name (if there is one)">
-							<input name="titleOfPres" type="text" placeholder="Title of presentation" required>
+							<input name="presentationType" type="text" placeholder="Presentation type" required>
+							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" required>
 							<input name="studentAbstract" type="text" placeholder="Student abstract">
 							<input value="Submit Presentation" type="submit">
 						</form>
