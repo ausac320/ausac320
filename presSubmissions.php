@@ -50,7 +50,7 @@
 						</div>					
 					</div>
 
-					<div>
+					<div id="submissionTable">
 						<table>
 							<thead>
 								<tr>
@@ -75,6 +75,41 @@
 							      	<td>AUCSC 450</td>
 							      	<td>Database System Implementation And How To Properly Maintain</td>
 							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
 							    </tr>
 							    <tr>
 							    	<td>Connor Maschke</td>
