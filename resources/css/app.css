@@ -129,6 +129,17 @@ div#submissionsDisplayBox{
 	overflow: scroll;
 }
 
+div#subHead{
+	padding-top: 15px;
+	padding-left: 5px;
+	text-align: left;
+}
+
+div#editSubs{
+	padding-top: 15px;
+	padding-right: 0px;
+}
+
 div#scheduleSetupPageField{
 	margin: 0px;
 	height: 80%;

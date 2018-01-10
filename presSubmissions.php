@@ -38,11 +38,19 @@
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
-					<div id="submissionsDisplayBox">
-						<h4>
-							Submissions 
-						</h4>
+				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns">
+					<div class="row">
+						<div id="subHead" class="large-4 medium-4 small-4 columns">
+							<h4>
+								Submissions 
+							</h4>
+						</div>
+						<div id="editSubs" class="large-2 medium-2 small-2 columns">
+							<a class="button success small expanded" href="#">Edit Submissions</a>
+						</div>					
+					</div>
+
+					<div>
 						<table>
 							<thead>
 								<tr>
