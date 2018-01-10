@@ -23,7 +23,9 @@
 			<h3 id="loginDisplay">
 				Login
 			</h3>
-			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			<div class="g-signin2" data-onsuccess="onSignIn">
+				<! this is where it will link automatically to user page once authen if done>
+			</div>
 			<form id="loginForm" action="userpage.php" method="GET">
 				<input name="username" type="text" placeholder="CCID" required>
 				<input name="password" type = "password" placeholder="Password" required>
