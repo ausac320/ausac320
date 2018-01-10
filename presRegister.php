@@ -10,6 +10,9 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+
+    	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
+    
 	</head>
 
 	<body>
@@ -35,10 +38,13 @@
 				  		<li>
 				  			<a href="scheduleSetup.php" >Schedule Setup</a>
 				  		</li>
+				  		<li>
+				  			<a href="index.php" onclick="signOut();">Sign out</a>
+				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
-					<div id="newSubmission">
+				<div id="newSubmission" class="large-8 medium-8 small-8 columns">
+					<div>
 						Presentation Registration Page
 						<form id="presRegistration" action="presSubmissions.php" method="GET">
 							<input name="studentName" type="text" placeholder="Student's name" required>
