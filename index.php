@@ -6,7 +6,6 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-signin-client_id" content="542589201868-f27cbc4oq5l9709lbqtbq3a68k7dd64q.apps.googleusercontent.com">
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<title> 
 			Augustana Student Academic Conference Website
 		</title>
@@ -39,8 +38,8 @@
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
-
 		<script src="js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="js/app.js"></script>
 	</body>
 </html>
