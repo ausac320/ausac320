@@ -56,8 +56,6 @@
 							<input name="presentationType" type="text" placeholder="Presentation type" required>
 							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" required>
 							<input name="studentAbstract" type="text" placeholder="Student abstract">
-							<input name="studentAbstract" type="text" placeholder="Student abstract">
-							<input name="studentAbstract" type="text" placeholder="Student abstract">
 							<input value="Submit Presentation" type="submit">
 						</form>
 					</div>
