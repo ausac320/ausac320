@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
 
-    	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
+    	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
     
 	</head>
 
