@@ -44,7 +44,16 @@
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
 					<div class="setup">
-						Add [Admin Settings] Here
+						<form data-abide novalidate>
+							<div data-abide-error class="alert callout" style="display: none;">
+								<p><i class="fi-alert"></i> There are errors in your form.</p>
+							</div>
+							<div class="grid-x grid-padding-x">
+								<div class="small-12 cell">
+									<label> Start Date
+										<input type="date" name="date" required pattern= "MM/DD/YYYY"placeholder="MM/DD/YYYY">
+								</div>
+							</div>
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
