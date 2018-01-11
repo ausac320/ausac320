@@ -48,8 +48,8 @@
 							<div data-abide-error class="alert callout" style="display: none;">
 								<p><i class="fi-alert"></i> There are errors in your form.</p>
 							</div>
-
-							<div class="medium-6 cell">
+							<div class ="row">
+							<div class="large-6 medium-6 small-6 columns">
 								<label> SAC presentation term occurence:
 									<select id="termSelect" required>
 										<option value=""></option>
@@ -58,6 +58,7 @@
 										<option value="winterTerm">Winter Term</option>
 									</select>
 								</label>
+							</div>
 							</div>		
 
 
@@ -79,7 +80,9 @@
 								</div>
 							</div>
 							<div class="row">
-							<input id="scheduleSubmit" value="Submit" type="submit">
+								<div class="large-4 medium-4 small-4 columns">
+								<input id="scheduleSubmit" value="Submit" type="submit">
+								</div>
 							</div>
 						</form>
 					</div>
