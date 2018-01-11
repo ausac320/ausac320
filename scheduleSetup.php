@@ -44,7 +44,7 @@
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
 					<div class="setup">
-						<form data-abide novalidate action="scheduleSetup.php" method="GET">
+						<form data-abide action="scheduleSetup.php" method="GET">
 							<div data-abide-error class="alert callout" style="display: none;">
 								<p><i class="fi-alert"></i> There are errors in your form.</p>
 							</div>
@@ -65,17 +65,17 @@
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
 									<label> Start Date
-										<input type="date" name="date" pattern= "MM/DD/YYYY" placeholder="startDate" required>
+										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate" required>
 									</label>									
 									<label> End Date
-										<input type="date" name="date" pattern= "MM/DD/YYYY" placeholder="endDate" required>
+										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						<label> Start Time
-										<input type="time" name="startTime" pattern= "HH:MM:" placeholder="startTime" required>
+										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
 									</label>
 									<label> End Time
-										<input type="time" name="endTime" pattern= "HH:MM" placeholder="endTime" required>
+										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
 									</label>
 								</div>
 							</div>
