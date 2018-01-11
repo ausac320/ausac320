@@ -46,7 +46,7 @@
 					<h4>
 						User's Name Displays Here
 					</h4>
-					<div id="scheduleDisplayBox" class="schedule">
+					<div class="schedule">
 						<div>
 							<div class="row">
 								<div class="subHead">
@@ -67,7 +67,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>2:00 p.m. Feb. 7</td>
+											<td>2:00 p.m. Feb 7</td>
 											<td>Oral</td>
 											<td>Palo, Rani-Villem</td>
 											<td>Sheldon Grundberg</td>
@@ -75,7 +75,7 @@
 											<td>The Minutemen: The first American Army</td>
 										</tr>
 										<tr>
-											<td>2:00 p.m. Feb. 7</td>
+											<td>2:00 p.m. Feb 7</td>
 											<td>Music</td>
 											<td>Alexander, Carpenter</td>
 											<td>Alex Ho</td>
@@ -83,7 +83,7 @@
 											<td>Abba on Violin</td>
 										</tr>
 										<tr>
-											<td>3:00 p.m. Feb. 7</td>
+											<td>3:00 p.m. Feb 7</td>
 											<td>Poster</td>
 											<td>Professor Professor</td>
 											<td>Conner Maschke</td>
@@ -91,7 +91,7 @@
 											<td>The Presentation</td>
 										</tr>
 										<tr>
-											<td>4:00 p.m. Feb. 7</td>
+											<td>4:00 p.m. Feb 7</td>
 											<td>BREAK</td>
 											<td>N/A</td>
 											<td>N/A</td>
@@ -99,7 +99,7 @@
 											<td>N/A</td>
 										</tr>
 										<tr>
-											<td>5:00 p.m. Feb. 7</td>
+											<td>5:00 p.m. Feb 7</td>
 											<td>Poster</td>
 											<td>Neil Hepburn</td>
 											<td>Sheldon Grundberg</td>
@@ -128,19 +128,18 @@
 						</div> 
 					</div>
 					<div id="importantDisplay"> 
-					Deadlines and Important Dates:
-					<ul>
-						<li>
-							Prototype Deadline - January 12, 2018
-						</li>
-						<li>
-							Final Product - January 19, 2018
-						</li>
-					</ul>
+						Deadlines and Important Dates:
+						<ul>
+							<li>
+								Prototype Deadline - January 12, 2018
+							</li>
+							<li>
+								Final Product - January 19, 2018
+							</li>
+						</ul>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns">
-				</div>
+				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
 		</div>
 			
@@ -153,5 +152,4 @@
     	<script src="js/app.js"></script>
 
 	</body>
-
 </html>
