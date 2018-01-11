@@ -44,13 +44,38 @@
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
 					<div class="setup">
-						Add [Admin Settings] Here
+						<form data-abide novalidate>
+							<div data-abide-error class="alert callout" style="display: none;">
+								<p><i class="fi-alert"></i> There are errors in your form.</p>
+							</div>
+
+
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label> Start Date
+										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate">
+									</label>									
+									<label> End Date
+										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate">
+									</label>
+								</div>
+								<div class="large-6 medium-6 small-6 columns">						<label> Start Time
+										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime">
+									</label>
+									<label> End Time
+										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime">
+									</label>
+								</div>
+							</div>
+							<div class="row">
+							<input id="scheduleSubmit" value="Submit" type="submit">
+							</div>
+						</form>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns">
-				</div>
-			</div>	
-		</div>
+				<div class="large-2 medium-2 small-2 columns"></div>
+			</div>
+		</div>	
 
 		<div class="footer">
 			Designed January 7th, 2018<br>
