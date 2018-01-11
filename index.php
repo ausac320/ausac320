@@ -25,10 +25,11 @@
 			<h3 id="loginDisplay">Login</h3>
       
 			<form id="loginForm" action="userpage.php" method="POST">
-				<div class="g-signin2" data-onsuccess="onSignIn">
-				</div>
-				<input name="username" type="text" placeholder="CCID">
-				<input name="password" type = "password" placeholder="Password">
+				<div class="g-signin2" data-onsuccess="onSignIn" required>
+			</div>
+				<input name="username" type="text" placeholder="CCID" required>
+				<input name="password" type = "password" placeholder="Password" required>
+
 				<input value="Submit" type="submit">
 				<ul>
 					<a href="registration.php">Don't have an account yet? Register Here</a>
