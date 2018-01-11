@@ -46,8 +46,8 @@
 					<h4>
 						User's Name Displays Here
 					</h4>
-					<div class="schedule">
-						<div id="scheduleDisplayBox">
+					<div id="scheduleDisplayBox" class="schedule">
+						<div>
 							<div class="row">
 								<div class="subHead">
 									Schedule
@@ -72,12 +72,12 @@
 											<td>Palo, Rani-Villem</td>
 											<td>Sheldon Grundberg</td>
 											<td>AUHIS 250</td>
-											<td>The Minutemen: The first American army</td>
+											<td>The Minutemen: The first American Army</td>
 										</tr>
 										<tr>
 											<td>2:00 p.m. Feb. 7</td>
 											<td>Music</td>
-											<td>Professor Professor</td>
+											<td>Alexander, Carpenter</td>
 											<td>Alex Ho</td>
 											<td>AUMUS 410</td>
 											<td>Abba on Violin</td>
@@ -87,7 +87,7 @@
 											<td>Poster</td>
 											<td>Professor Professor</td>
 											<td>Conner Maschke</td>
-											<td>AUABC</td>
+											<td>AUABC 120</td>
 											<td>The Presentation</td>
 										</tr>
 										<tr>
@@ -100,11 +100,27 @@
 										</tr>
 										<tr>
 											<td>5:00 p.m. Feb. 7</td>
+											<td>Poster</td>
+											<td>Neil Hepburn</td>
+											<td>Sheldon Grundberg</td>
+											<td>AUECO 101</td>
+											<td>Microeconomics and You</td>
+										</tr>
+										<tr>
+											<td>5:00 p.m. Feb 7</td>
 											<td>Oral</td>
 											<td>Professor Professor</td>
-											<td>Sheldon Grundberg</td>
-											<td>AUABC</td>
+											<td>Conner Maschke</td>
+											<td>AUABC 240</td>
 											<td>The Presentation: The Second</td>
+										</tr>
+										<tr>
+											<td>5:00 p.m. Feb 7</td>
+											<td>Oral</td>
+											<td>Professor Professor</td>
+											<td>Alex Ho</td>
+											<td>AUABC 250</td>
+											<td>The Presentation: The Final</td>
 										</tr>
 									</tbody>
 								</table>
