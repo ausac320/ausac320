@@ -107,6 +107,11 @@ div.schedule{
 	padding: 5px;
 }
 
+div.scheduleDisplayBox{
+	height: 300px;
+	overflow: auto;
+}
+
 div#importantDisplay{
 	border: 3px solid #000;
 	margin-top: 5px;
