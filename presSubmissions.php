@@ -47,7 +47,7 @@
 					<div class="row">
 						<div id="subHead" class="large-4 medium-4 small-4 columns">
 							<h4>
-								Submissions 
+								Submissions
 							</h4>
 						</div>
 						<div id="editSubs" class="large-2 medium-2 small-2 columns">
@@ -129,7 +129,6 @@
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
 				</div>
-
 			</div>	
 		</div>
 
