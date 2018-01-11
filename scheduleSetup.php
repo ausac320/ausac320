@@ -44,13 +44,52 @@
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
 					<div class="setup">
-						Add [Admin Settings] Here
+						<form data-abide novalidate action="scheduleSetup.php" method="GET">
+							<div data-abide-error class="alert callout" style="display: none;">
+								<p><i class="fi-alert"></i> There are errors in your form.</p>
+							</div>
+							<div class ="row">
+							<div class="large-6 medium-6 small-6 columns">
+								<label> SAC presentation term occurence:
+									<select id="termSelect" required>
+										<option value=""></option>
+										<option value="fallTerm">Fall Term
+										</option>
+										<option value="winterTerm">Winter Term</option>
+									</select>
+								</label>
+							</div>
+							</div>		
+
+
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label> Start Date
+										<input type="date" name="date" pattern= "MM/DD/YYYY" placeholder="startDate" required>
+									</label>									
+									<label> End Date
+										<input type="date" name="date" pattern= "MM/DD/YYYY" placeholder="endDate" required>
+									</label>
+								</div>
+								<div class="large-6 medium-6 small-6 columns">						<label> Start Time
+										<input type="time" name="startTime" pattern= "HH:MM:" placeholder="startTime" required>
+									</label>
+									<label> End Time
+										<input type="time" name="endTime" pattern= "HH:MM" placeholder="endTime" required>
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="large-4 medium-4 small-4 columns">
+								<input id="scheduleSubmit" value="Submit" type="submit">
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns">
-				</div>
-			</div>	
-		</div>
+				<div class="large-2 medium-2 small-2 columns"></div>
+			</div>
+		</div>	
 
 		<div class="footer">
 			Designed January 7th, 2018<br>
