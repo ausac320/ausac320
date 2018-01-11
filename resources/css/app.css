@@ -146,7 +146,10 @@ div#scheduleSetupPageField{
 }
 
 div#scheduleSubmit{
-	  margin: 0 auto;
+	position:absolute;
+    transition: .5s ease;
+    top: 50%;
+    left: 50%;
 	}
 
 div#newSubmission{

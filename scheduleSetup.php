@@ -56,7 +56,7 @@
 										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate">
 									</label>									
 									<label> End Date
-										<input type="date" name="date" required pattern= "MM/DD/YYYY"placeholder="endDate">
+										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate">
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						<label> Start Time
