@@ -145,6 +145,10 @@ div#scheduleSetupPageField{
 	height: 80%;
 }
 
+div#scheduleSubmit{
+	  margin: 0 auto;
+	}
+
 div#newSubmission{
 	height: 500px;
 	overflow: auto;
