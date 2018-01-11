@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="google-signin-client_id" content="542589201868-f27cbc4oq5l9709lbqtbq3a68k7dd64q.apps.googleusercontent.com">
+		<meta name="google-signin-client_id" content="514360117392-qkk1ff10ud9svjk0mm08piuvmncregp6.apps.googleusercontent.com">
 		
     <title> 
 			Augustana Student Academic Conference Website
@@ -25,20 +25,18 @@
 				Login
 			</h3>
 
-			<div class="g-signin2" data-onsuccess="onSignIn">
-				<!-- this is where it will link automatically to user page once authen if done-->
-			</div>
       
 			<form id="loginForm" action="userpage.php" method="POST">
-				<input name="username" type="text" placeholder="CCID" required>
-				<input name="password" type = "password" placeholder="Password" required>
+				<div class="g-signin2" data-onsuccess="onSignIn">
+			</div>
+				<input name="username" type="text" placeholder="CCID">
+				<input name="password" type = "password" placeholder="Password">
 				<input value="Submit" type="submit">
 				<ul>
 					<a href="registration.php">Don't have an account yet? Register Here</a>
 				</ul>
 			</form>
 		</div>
-
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
