@@ -91,16 +91,15 @@ round of .
 								</div>
 							</div>
 							<div class="row">
-								<div class="large-8 medium-8 small-8 columns">
-									<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
-									<div id="room_fields">
-	            						<div id="content">
-	                					<span>Break Time <input type="time" name="breakTime" requried pattern="HH:MM" placeholder="breakTime" required>
-	                					</span>
-	            						</div>
-        							</div>
+								<div class="large-4 medium-4 small-4 columns">
+									<form method="POST">
+     <div id="dynamicInput">
+          Entry 1<br><input type="text" class="myInputs[]">
+     </div>
+     <button onClick="myFunction()"> Add New </button>
+</form>							
 								</div>
-							</div>	
+							</div>
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 								<input id="scheduleSubmit" value="Submit" type="submit">
@@ -119,7 +118,7 @@ round of .
 		</div>
 
 		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+    	<script src="js/scheduleSetup.js"></script>
 
 	</body>
 
