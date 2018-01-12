@@ -91,22 +91,25 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
+<!--
+							<div class="row">
+								<div class="large-4 medium-4 small-4 columns">
+									<form method="POST">
+     									
+          								Entry 1<br><input type="text" class="myInputs[]">
+     								
+     									<button onClick="addInput()"> Add New </button>
+									</form>							
+								</div>
+							</div>
+-->
+
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 								<input id="scheduleSubmit" value="Submit" type="submit">
 								</div>
 							</div>
 						</form>
-							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">
-									<form method="POST">
-     									<div id="dynamicInput">
-          								Entry 1<br><input type="text" class="myInputs[]">
-     									</div>
-     									<button onClick="addInput()"> Add New </button>
-									</form>							
-								</div>
-							</div>
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
