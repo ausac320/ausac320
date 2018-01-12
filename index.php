@@ -16,7 +16,6 @@
 	</head>
 	
 	<body>
-		
 		<div class="header">
 			<h1>
 				<a href="index.php">Augustana Student Academic Conference</a>
@@ -45,6 +44,5 @@
 		<script src="js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="js/app.js"></script>
-	
 	</body>
 </html>

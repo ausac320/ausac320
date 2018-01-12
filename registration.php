@@ -10,6 +10,7 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+    	<link rel="stylesheet" href="resources/css/registration.css">
     	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
 
 	</head>
@@ -35,10 +36,12 @@
 				<input value="Register" type="submit">
 			</form>
 		</div>
+
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
+
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
 	</body>
