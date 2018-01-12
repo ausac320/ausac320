@@ -1,6 +1,6 @@
 var counter = 1;
 var limit = 3;
-function addInput(divName){
+function addInput(){
      if (counter == limit)  {
           alert("You have reached the limit of adding " + counter + " inputs");
      }

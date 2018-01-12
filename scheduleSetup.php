@@ -4,9 +4,10 @@ AUCSC320 - Augustana Student Academic Conference
 Last Reviewed: January 11, 2018
 
 scheduleSetup.php is the webpage that will be displayed when setting up a new
-round of .
+session of presentations.
 
-
+There will be a variety of variables that will be required in order to set restraints
+for the schedule organization.  
 -->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -92,20 +93,20 @@ round of .
 							</div>
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
-									<form method="POST">
-     <div id="dynamicInput">
-          Entry 1<br><input type="text" class="myInputs[]">
-     </div>
-     <button onClick="myFunction()"> Add New </button>
-</form>							
-								</div>
-							</div>
-							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">
 								<input id="scheduleSubmit" value="Submit" type="submit">
 								</div>
 							</div>
 						</form>
+							<div class="row">
+								<div class="large-4 medium-4 small-4 columns">
+									<form method="POST">
+     									<div id="dynamicInput">
+          								Entry 1<br><input type="text" class="myInputs[]">
+     									</div>
+     									<button onClick="addInput()"> Add New </button>
+									</form>							
+								</div>
+							</div>
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
