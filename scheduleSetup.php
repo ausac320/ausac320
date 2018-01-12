@@ -81,14 +81,26 @@ round of .
 										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
 									</label>
 								</div>
-								<div class="large-6 medium-6 small-6 columns">						<label> Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
+								<div class="large-6 medium-6 small-6 columns">						
+									<label> Start Time
+										<input type="time" name="startTime" required pattern= "HH:MM" placeholder="startTime" required>
 									</label>
 									<label> End Time
 										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
 									</label>
 								</div>
 							</div>
+							<div class="row">
+								<div class="large-8 medium-8 small-8 columns">
+									<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
+									<div id="room_fields">
+	            						<div id="content">
+	                					<span>Break Time <input type="time" name="breakTime" requried pattern="HH:MM" placeholder="breakTime" required>
+	                					</span>
+	            						</div>
+        							</div>
+								</div>
+							</div>	
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 								<input id="scheduleSubmit" value="Submit" type="submit">
