@@ -5,12 +5,10 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> 
-			Augustana Student Academic Conference Website
-		</title>
+		<title> Augustana Student Academic Conference Website</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
-
+    	<link rel="stylesheet" href="resources/css/presRegister.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
     
 	</head>
@@ -46,7 +44,7 @@
 				<div id="newSubmission" class="large-8 medium-8 small-8 columns">
 					<div>
 						Presentation Registration Page
-						<form id="presRegistration" action="presSubmissions.php" method="GET">
+						<form action="presSubmissions.php" method="GET">
 							<input name="studentName" type="text" placeholder="Student's name" required>
 							<input name="studentCCID" type="text" placeholder="Student's CCID" required>
 							<input name="courseName" type="text" placeholder="Course name" required>
@@ -72,7 +70,5 @@
 
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
-
 	</body>
-
 </html>
