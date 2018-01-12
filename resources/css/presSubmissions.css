@@ -1,0 +1,29 @@
+/**
+	presSubmissions.css
+
+	This file contains all the css that is manipulating the 
+	presSubmissions.php page.
+
+*/
+
+div#submissionPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#submissionsDisplayBox{
+	border: 3px solid #000;
+	height: 500px;
+	overflow: auto;
+}
+
+div#subHead{
+	padding-top: 15px;
+	padding-left: 5px;
+	text-align: left;
+}
+
+div#editSubs{
+	padding-top: 15px;
+	padding-right: 0px;
+}
