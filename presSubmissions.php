@@ -1,3 +1,16 @@
+<!--
+	presSubmissions.php
+	
+	Description: 
+	This page is for the user to be able to see all of their student submissions
+	in one place as well as the information that was submitted for those students.
+	If the information needs to be editted, there is an included edit button. 
+
+	File Contents:
+	This file contains the layout elements for the design of the submissions page 
+	as well as the UI interactions that occur with the user.
+-->
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -44,16 +57,13 @@
 				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns">
 					<div class="row">
 						<div id="subHead" class="large-4 medium-4 small-4 columns">
-							<h4>
-								Submissions
-							</h4>
+							<h4>Submissions</h4>
 						</div>
 						<div id="editSubs" class="large-2 medium-2 small-2 columns">
 							<a class="button success small expanded" href="presRegister.php">Edit Submissions</a>
 						</div>					
 					</div>
-
-					<div>
+					<div class="row">
 						<table>
 							<thead>
 								<tr>
@@ -125,8 +135,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns">
-				</div>
+				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
 		</div>
 
