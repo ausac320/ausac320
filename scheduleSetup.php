@@ -1,3 +1,13 @@
+<!-- 
+AUCSC320 - Augustana Student Academic Conference
+
+Last Reviewed: January 11, 2018
+
+scheduleSetup.php is the webpage that will be displayed when setting up a new
+round of .
+
+
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
