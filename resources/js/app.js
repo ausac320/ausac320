@@ -17,10 +17,3 @@ function signOut(googleUser) {
     console.log('User signed out.');
   });
 }
-
-
-function add_fields() {
-   var d = document.getElementById("content");
-  
-   d.innerHTML += "<br /><span>Break Time <input type="time" name="breakTime" requried pattern="HH:MM" placeholder="breakTime" required></span>;"
- }
