@@ -1,3 +1,13 @@
+<!-- 
+AUCSC320 - Augustana Student Academic Conference
+
+Last Reviewed: January 11, 2018
+
+scheduleSetup.php is the webpage that will be displayed when setting up a new
+round of .
+
+
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -71,9 +81,14 @@
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
+<<<<<<< HEAD
 									<label> 
 										Start Time
 										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
+=======
+									<label> Start Time
+										<input type="time" name="startTime" required pattern= "HH:MM" placeholder="startTime" required>
+>>>>>>> development
 									</label>
 									<label> 
 										End Time
@@ -81,6 +96,17 @@
 									</label>
 								</div>
 							</div>
+							<div class="row">
+								<div class="large-8 medium-8 small-8 columns">
+									<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
+									<div id="room_fields">
+	            						<div id="content">
+	                					<span>Break Time <input type="time" name="breakTime" requried pattern="HH:MM" placeholder="breakTime" required>
+	                					</span>
+	            						</div>
+        							</div>
+								</div>
+							</div>	
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">

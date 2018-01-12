@@ -1,3 +1,20 @@
+<!-- 
+AUCSC320 - Augustana Student Academic Conference
+
+January 11, 2018
+
+registration.php is the registration page that will be displayed when registering a new
+account for the website.
+
+Basic information will be collected in order to properly create authentication
+for the user. 
+
+userName || name || Ualberta email || confirmation email|| password || confirmation password
+
+Those are the required attributes before a user will be able to properly register in the program
+If any of this information is improperly filled out it will give an error message and will not
+register the user which will not allow user to be able to authenticate. 
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 

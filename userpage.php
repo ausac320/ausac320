@@ -84,7 +84,7 @@
 											<td>3:00 p.m. Feb 7</td>
 											<td>Poster</td>
 											<td>Professor Professor</td>
-											<td>Conner Maschke</td>
+											<td>Connor Maschke</td>
 											<td>AUABC 120</td>
 											<td>The Presentation</td>
 										</tr>
@@ -108,7 +108,7 @@
 											<td>5:00 p.m. Feb 7</td>
 											<td>Oral</td>
 											<td>Professor Professor</td>
-											<td>Conner Maschke</td>
+											<td>Connor Maschke</td>
 											<td>AUABC 240</td>
 											<td>The Presentation: The Second</td>
 										</tr>

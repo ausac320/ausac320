@@ -1,3 +1,23 @@
+<!-- 
+AUCSC320 - Augustana Student Academic Conference
+
+January 11, 2018
+
+index.php is the basic page that will be displayed when the website is called 
+in the browser. 
+
+It is the login screen that will authentication to allow access to the rest of
+the program. 
+
+Contained is a google authentication that will be linked to @ualberta.ca emails
+this is to ensure that the user is registered with the University of Alberta.
+
+In order for the Google authentication to function properly, the webhost server is 
+set to a localhost named  augsac.
+If the local webhost is not named this way, google will not be able to authenticate due 
+to the program being hosted offline and not a live site. 
+-->
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -39,6 +59,10 @@
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 		<script src="js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="js/app.js"></script>
