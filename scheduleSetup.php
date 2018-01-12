@@ -16,11 +16,10 @@ for the schedule organization.
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> 
-			Augustana Student Academic Conference Website
-		</title>
+		<title> Augustana Student Academic Conference Website</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+    	<link rel="stylesheet" href="resources/css/scheduleSetup.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
 
 	</head>
@@ -61,32 +60,34 @@ for the schedule organization.
 							</div>
 							<div class ="row">
 							<div class="large-6 medium-6 small-6 columns">
-								<label> SAC presentation term occurence:
+								<label> 
+									SAC presentation term occurence:
 									<select id="termSelect" required>
 										<option value=""></option>
-										<option value="fallTerm">Fall Term
-										</option>
+										<option value="fallTerm">Fall Term</option>
 										<option value="winterTerm">Winter Term</option>
 									</select>
 								</label>
 							</div>
 							</div>		
-
-
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
-									<label> Start Date
+									<label> 
+										Start Date
 										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate" required>
 									</label>									
-									<label> End Date
+									<label> 
+										End Date
 										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
-									<label> Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM" placeholder="startTime" required>
+									<label> 
+										Start Time
+										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
 									</label>
-									<label> End Time
+									<label> 
+										End Time
 										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
 									</label>
 								</div>
@@ -106,7 +107,7 @@ for the schedule organization.
 
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
-								<input id="scheduleSubmit" value="Submit" type="submit">
+									<input id="scheduleSubmit" value="Submit" type="submit">
 								</div>
 							</div>
 						</form>
@@ -122,8 +123,6 @@ for the schedule organization.
 		</div>
 
 		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/scheduleSetup.js"></script>
-
+    <script src="js/app.js"></script>
 	</body>
-
 </html>

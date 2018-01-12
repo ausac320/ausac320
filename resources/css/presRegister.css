@@ -1,0 +1,17 @@
+/**
+	presRegister.css
+
+	This file contains all the css that is manipulating the 
+	presRegister.php page.
+
+*/
+
+div#registerPageField{
+	margin: 0px;
+	height: 80%;
+}
+
+div#newSubmission{
+	height: 500px;
+	overflow: auto;
+}
