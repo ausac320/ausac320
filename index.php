@@ -45,6 +45,7 @@ to the program being hosted offline and not a live site.
 			<form id="loginForm" action="userpage.php" method="POST">
 				<div class="g-signin2" data-onsuccess="onSignIn" required>
 				</div>
+			
 				<input name="username" type="text" placeholder="CCID" required>
 				<input name="password" type = "password" placeholder="Password" required>
 				<input value="Submit" type="submit">
@@ -60,6 +61,7 @@ to the program being hosted offline and not a live site.
 		</div>
 
 		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    	<script src="js/index.js"></script>
 	</body>
 </html>
