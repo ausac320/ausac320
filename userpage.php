@@ -145,8 +145,8 @@
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
-
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    	<script src="resources/js/app.js"></script>
 	</body>
 </html>
