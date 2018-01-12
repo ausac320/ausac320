@@ -1,0 +1,34 @@
+/**
+	index.css
+
+	This file contains all the css that is manipulating the 
+	index.php page.
+
+*/
+
+div#loginField{
+	margin: 0px;
+	height: 80%;
+	text-align: center;
+}
+
+/* Google Sign-In css */
+.g-signin2{
+  width: 100%;
+  padding-bottom: 10px;
+}
+.g-signin2 > div{
+  margin: 0 auto;
+}
+/*                    */
+
+h3#loginDisplay{
+	margin-top: 25px;
+	padding-bottom: 5px;
+}
+
+form#loginForm{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
