@@ -10,6 +10,7 @@
 		</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
+    	<link rel="stylesheet" href="resources/css/registration.css">
     	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
 
 	</head>
