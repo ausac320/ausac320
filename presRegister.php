@@ -48,7 +48,7 @@
 						Presentation Registration Page
 						<form id="presRegistration" action="presSubmissions.php" method="GET">
 							<input name="studentName" type="text" placeholder="Student's name" required>
-							<input name="studentCCID" type="text" placeholder="Student's CCID" required>
+							<input name="studentNum" type="text" placeholder="Student's number" required>
 							<input name="courseName" type="text" placeholder="Course name" required>
 							<input name="profName" type="text" placeholder="Professor's name" required>
 							<input name="profName2" type="text" placeholder="Second professor's name (if there is one)">
