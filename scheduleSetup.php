@@ -81,14 +81,9 @@ round of .
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
-<<<<<<< HEAD
 									<label> 
 										Start Time
 										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
-=======
-									<label> Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM" placeholder="startTime" required>
->>>>>>> development
 									</label>
 									<label> 
 										End Time

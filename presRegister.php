@@ -10,10 +10,7 @@
 		<title> Augustana Student Academic Conference Website</title>
 		<link rel="stylesheet" href="resources/css/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
-<<<<<<< HEAD
     	<link rel="stylesheet" href="resources/css/presRegister.css">
-=======
->>>>>>> development
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
 	</head>
 
