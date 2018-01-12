@@ -15,6 +15,7 @@ Those are the required attributes before a user will be able to properly registe
 If any of this information is improperly filled out it will give an error message and will not
 register the user which will not allow user to be able to authenticate. 
 -->
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
