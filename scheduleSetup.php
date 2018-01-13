@@ -92,18 +92,12 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-<!--
+
 							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">
-									<form method="POST">
-     									
-          								Entry 1<br><input type="text" class="myInputs[]">
-     								
-     									<button onClick="addInput()"> Add New </button>
-									</form>							
+								<div class="large-4 medium-4 small-4 columns">						
 								</div>
 							</div>
--->
+
 
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
@@ -111,6 +105,12 @@ for the schedule organization.
 								</div>
 							</div>
 						</form>
+									<form method="POST">
+     									
+          								Entry 1<br><input type="text" class="myInputs[]">
+     								
+     									<button onClick="addInput()"> Add New </button>
+									</form>							
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
@@ -122,7 +122,7 @@ for the schedule organization.
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+    <script src="resources/js/app.js"></script>
 	</body>
 </html>

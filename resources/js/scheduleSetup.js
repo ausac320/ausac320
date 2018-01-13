@@ -14,7 +14,7 @@ function addInput(divName){
           alert("You have reached the limit of adding " + counter + " inputs");
      }
      else {
-          var newdiv = document.createElement('TIME');
+          var newdiv = document.createElement('INPUT');
           newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
           document.body.appendChild(newdiv);
           counter++;
