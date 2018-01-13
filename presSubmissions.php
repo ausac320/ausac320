@@ -1,0 +1,150 @@
+<!--
+	presSubmissions.php
+	
+	Description: 
+	This page is for the user to be able to see all of their student submissions
+	in one place as well as the information that was submitted for those students.
+	If the information needs to be editted, there is an included edit button. 
+
+	File Contents:
+	This file contains the layout elements for the design of the submissions page 
+	as well as the UI interactions that occur with the user.
+-->
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Augustana Student Academic Conference Website</title>
+		<link rel="stylesheet" href="resources/css/vendor/foundation.css">
+    	<link rel="stylesheet" href="resources/css/app.css">
+    	<link rel="stylesheet" href="resources/css/presSubmissions.css">
+    	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
+
+	</head>
+
+	<body>
+		<div class="header">
+			<h1>
+				<a href="index.php">Augustana Student Academic Conference</a>
+			</h1>
+		</div>
+
+		<div id="submissionPageField" class="callout secondary">
+			<div class="row.fullsize">
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+				  		<li>
+				  			<a href="userpage.php" >Home</a>
+				  		</li>
+				  		<li>
+				  			<a href="presRegister.php" >Register</a>
+				  		</li>
+				  		<li class="active">
+				  			<a href="presSubmissions.php" >Submissions</a>
+				  		</li>
+				  		<li>
+				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+				  		<li>
+				  			<a href="index.php" onclick="signOut();">Sign out</a>
+				  		</li>
+					</ul>
+				</div>
+				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns">
+					<div class="row">
+						<div id="subHead" class="large-4 medium-4 small-4 columns">
+							<h4>Submissions</h4>
+						</div>
+						<div id="editSubs" class="large-2 medium-2 small-2 columns">
+							<a class="button success small expanded" href="presRegister.php">Edit Submissions</a>
+						</div>					
+					</div>
+					<div class="row">
+						<table>
+							<thead>
+								<tr>
+							     	<th width="200">Name</th>
+							        <th width="100">Student Number</th>
+							        <th width="100">Class</th>
+							        <th>Title</th>
+							        <th width="100">Abstract Submitted</th>
+							    </tr>
+							</thead>
+							<tbody>
+							   	<tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSC 401</td>
+							      	<td>My Practicum and How It Affected My Professional Career</td>
+							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSC 450</td>
+							      	<td>Database System Implementation And How To Properly Maintain</td>
+							      	<td>Yes</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							    <tr>
+							    	<td>Connor Maschke</td>
+							      	<td>1487593</td>
+							      	<td>AUCSL 461</td>
+							      	<td>Leadership In An Electronic Marketplace</td>
+							      	<td>No</td>
+							    </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="large-2 medium-2 small-2 columns"></div>
+			</div>	
+		</div>
+
+		<div class="footer">
+			Designed January 7th, 2018<br>
+  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+		</div>
+
+		<script src="js/vendor/foundation.js"></script>
+    	<script src="js/app.js"></script>
+	</body>
+</html>

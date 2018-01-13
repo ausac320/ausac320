@@ -1,0 +1,64 @@
+/**
+	app.css
+
+	This file contains all the css that is manipulating attritubes
+	that are being used on multiple pages.
+
+*/
+
+html, body{
+	height: 100%;
+}
+
+/* Header for Pages */
+div.header {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #fff;
+	text-align: center;
+	border-bottom: 2px solid #ffdb05;
+}
+
+div.header a{
+	color: #fff;
+}
+
+/* Footer for Pages */
+div.footer {
+	width: auto;
+	min-height: 10%;
+	background-color: #007c41;
+	color: #fff;
+	text-align: center;
+	padding-top: 10px;
+	border-top: 2px solid #ffdb05;
+}
+
+.fullsizerow{
+	width: 100%;
+}
+
+/* Side Navigation Menu */
+ul#navMenu{
+	border: 2px solid #000;
+	list-style-type: none;
+	text-align: center;
+}
+
+ul#navMenu li{
+	border: 2px solid #000;
+	padding: 15px;
+	background-color: #007c41;
+}
+
+ul#navMenu li.active{
+	background-color: #004222;
+}
+
+ul#navMenu a{
+	color: #fff;
+}
+/* -------------------- */
