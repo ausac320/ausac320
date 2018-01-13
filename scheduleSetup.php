@@ -105,12 +105,18 @@ for the schedule organization.
 								</div>
 							</div>
 						</form>
-									<form method="POST">
-     									
-          								Entry 1<br><input type="text" class="myInputs[]">
-     								
-     									<button onClick="addInput()"> Add New </button>
-									</form>							
+
+
+						<form action="">
+						<div id="breakTimes">
+							<input type"time" name="breakTime">
+     					</div>
+     					
+     					<input type="button" value="add breakTime" id="add">
+     					<input type="submit" value="submit">
+     					</form>
+
+
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
@@ -123,6 +129,7 @@ for the schedule organization.
 		</div>
 
 		<script src="resources/js/vendor/foundation.js"></script>
-    <script src="resources/js/app.js"></script>
+    	<script src="resources/js/scheduleSetup.js"></script>
+    	<script src="resources/js/app.js"></script>
 	</body>
 </html>
