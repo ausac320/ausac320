@@ -94,7 +94,16 @@ for the schedule organization.
 							</div>
 
 							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">						
+								<div class="large-4 medium-4 small-4 columns">
+
+									<form action="">
+									<div id="breakTimes">
+										<input type="time" name="breakTime" required pattern="HH:MM" placeholder="breakTime" required>
+			     					</div>
+			     					
+			     					<input type="button" value="add breakTime" id="add">
+			     					<input type="submit" value="submit">
+			     					</form>						
 								</div>
 							</div>
 
@@ -107,14 +116,6 @@ for the schedule organization.
 						</form>
 
 
-						<form action="">
-						<div id="breakTimes">
-							<input type"time" name="breakTime">
-     					</div>
-     					
-     					<input type="button" value="add breakTime" id="add">
-     					<input type="submit" value="submit">
-     					</form>
 
 
 					</div>

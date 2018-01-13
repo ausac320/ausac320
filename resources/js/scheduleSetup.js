@@ -7,21 +7,7 @@
 
 
 //This is the logic for dynamically creating the new time input for the break time. 
-$(document).ready(function()){
 
-$("#add").click(function (e){
-
-$("#items").append('<div><input type="button" value="add breakTime" id="add"><input type="submit" value="submit">'
-     +'<input type="button" value ="delete" id="delete"  /></div>');
-});
-
-$('#delete').click(function(e){
-     $(this).parent('div').remove();
-});
-
-
-
-});
 
 
 
@@ -42,7 +28,7 @@ function addInput(divName){
           var input = document.createElement('INPUT');
           input.type = "text";
           container.appendChild(input);
-          container.apepndChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
           counter++;
      }
 }
