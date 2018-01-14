@@ -21,14 +21,6 @@ for the schedule organization.
     	<link rel="stylesheet" href="resources/css/app.css">
     	<link rel="stylesheet" href="resources/css/scheduleSetup.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
-<!--
-	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
--->
-
-
-
-
-
 	</head>
 
 	<body>
@@ -146,6 +138,11 @@ for the schedule organization.
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
     	<script src="resources/js/scheduleSetup.js"></script>
     	<script src="resources/js/app.js"></script>
+    	
+<!--
+	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
+	has been modified in order for program to use proper information
+-->
     	<script type="text/javascript">
         $(document).ready(function() {
             $('#btnAdd').click(function() {
@@ -164,7 +161,7 @@ for the schedule organization.
                 // enable the "remove" button
                 $('#btnDel').attr('disabled','');
  
-                // business rule: you can only add 5 names
+                // maximum number of breakTimes allowed
                 if (newNum == 10)
                     $('#btnAdd').attr('disabled','disabled');
             });
