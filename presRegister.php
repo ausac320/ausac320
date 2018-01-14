@@ -27,7 +27,6 @@ Contained is a form for submitting presentation information to the "database" (i
 				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
-
 		<div id="registerPageField" class="callout secondary">
 			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
@@ -52,7 +51,7 @@ Contained is a form for submitting presentation information to the "database" (i
 				<div id="newSubmission" class="large-8 medium-8 small-8 columns">
 					<div>
 						Presentation Registration Page
-						<form action="presSubmissions.php" method="POST">
+						<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 							<input name="studentName" type="text" placeholder="Student's name" required>
 							<input name="courseName" type="text" placeholder="Course name" required>
 							<input name="profName" type="text" placeholder="Professor's name" required>
@@ -87,5 +86,60 @@ Contained is a form for submitting presentation information to the "database" (i
 
 		<script src="js/vendor/foundation.js"></script>
     	<script src="js/app.js"></script>
+    	<?php
+		$studentName = "";
+		$courseName = "";
+		$profName = "";
+		$presentationType = "";
+		$OURStatus = "";
+		$titleOfPresentation = "";
+		$studentAbstract = "";
+		$fileName = "";
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$studentName = test_input($_POST["studentName"]);
+			$courseName = test_input($_POST["courseName"]);
+			$profName = test_input($_POST["profName"]);
+			$presentationType = test_input($_POST["presentationType"]);
+			$OURStatus = test_input($_POST["OURStatus"]);
+			$titleOfPresentation = test_input($_POST["titleOfPresentation"]);
+			$studentAbstract = test_input($_POST["studentAbstract"]);
+			$fileName = "$titleOfPresentation.txt";
+			if (fopen($fileName, "x") == false){
+				echo "Submission Failed";
+			}
+			else {
+				create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName);
+				echo "Submission Successful";
+			}
+			
+		}
+
+		function test_input($data) {
+			$data = trim($data); 
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+
+		function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName) {
+			$file = fopen ($fileName, "w+");
+			$txt = $studentName."\n";
+			fwrite($file, $txt);
+			$txt = $courseName."\n";
+			fwrite($file, $txt);
+			$txt = $profName."\n";
+			fwrite($file, $txt);
+			$txt = $presentationType."\n";
+			fwrite($file, $txt);
+			$txt = $OURStatus."\n";
+			fwrite($file, $txt);
+			$txt = $titleOfPresentation."\n";
+			fwrite($file, $txt);
+			$txt = $studentAbstract."\n";
+			fwrite($file, $txt);
+			fclose($file);
+		}
+		?>
 	</body>
 </html>
