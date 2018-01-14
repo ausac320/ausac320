@@ -52,14 +52,23 @@ Contained is a form for submitting presentation information to the "database" (i
 				<div id="newSubmission" class="large-8 medium-8 small-8 columns">
 					<div>
 						Presentation Registration Page
-						<form action="presSubmissions.php" method="GET">
+						<form action="presSubmissions.php" method="POST">
 							<input name="studentName" type="text" placeholder="Student's name" required>
-							<input name="studentNum" type="text" placeholder="Student's number" required>
 							<input name="courseName" type="text" placeholder="Course name" required>
 							<input name="profName" type="text" placeholder="Professor's name" required>
-							<input name="profName2" type="text" placeholder="Second professor's name (if there is one)">
-							<input name="profName3" type="text" placeholder="Third professor's name (if there is one)">
-							<input name="presentationType" type="text" placeholder="Presentation type" required>
+							<div>
+								Presentation Type:
+								<input name="presentationType" type="radio" value="oral" required>Oral
+								<input name="presentationType" type="radio" value="poster" required>Poster
+								<input name="presentationType" type="radio" value="art" required>Art
+								<input name="presentationType" type="radio" value="drama" required>Drama
+								<input name="presentationType" type="radio" value="music" required>Music
+							</div>
+							<div>
+								OURStatus:
+								<input name="OURStatus" type="radio" value="yes" required>Yes
+								<input name="OURStatus" type="radio" value="no" required>No
+							</div> 
 							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" required>
 							<input name="studentAbstract" type="text" placeholder="Student abstract">
 							<input value="Submit Presentation" type="submit">
