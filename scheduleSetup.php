@@ -22,6 +22,49 @@ for the schedule organization.
     	<link rel="stylesheet" href="resources/css/scheduleSetup.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+ 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnAdd').click(function() {
+                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
+ 
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+ 
+                // manipulate the name/id values of the input inside the new element
+                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+ 
+                // insert the new element after the last "duplicatable" input field
+                $('#input' + num).after(newElem);
+ 
+                // enable the "remove" button
+                $('#btnDel').attr('disabled','');
+ 
+                // business rule: you can only add 5 names
+                if (newNum == 5)
+                    $('#btnAdd').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').click(function() {
+                var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                $('#input' + num).remove();     // remove the last element
+ 
+                // enable the "add" button
+                $('#btnAdd').attr('disabled','');
+ 
+                // if only one element remains, disable the "remove" button
+                if (num-1 == 1)
+                    $('#btnDel').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').attr('disabled','disabled');
+        });
+    </script>
+
+
+
 	</head>
 
 	<body>
@@ -95,15 +138,22 @@ for the schedule organization.
 
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
-
-									<form action="">
-									<div id="breakTimes">
-										<input type="time" name="breakTime" required pattern="HH:MM" placeholder="breakTime" required>
-			     					</div>
-			     					
-			     					<input type="button" value="add breakTime" id="add">
-			     					<input type="submit" value="submit">
-			     					</form>						
+									<form id="breakTime">
+									    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+									    	<label>
+									        Break Start Time: 
+									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required>
+									    	</label>
+									    	<label>
+									    	Break End Time: 
+									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
+									 		</label>
+									 	</div>
+									    <div>
+									        <input type="button" id="btnAdd" value="add another break" />
+									        <input type="button" id="btnDel" value="remove break" />
+									    </div>
+									</form>				
 								</div>
 							</div>
 
@@ -114,7 +164,6 @@ for the schedule organization.
 								</div>
 							</div>
 						</form>
-
 
 
 
