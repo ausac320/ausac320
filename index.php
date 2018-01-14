@@ -45,8 +45,9 @@ to the program being hosted offline and not a live site.
 			<form id="loginForm" action="userpage.php" method="POST">
 				<div class="g-signin2" data-onsuccess="onSignIn" required>
 				</div>
-				<input name="username" type="text" placeholder="CCID" required>
-				<input name="password" type = "password" placeholder="Password" required>
+			
+				<input name="username" type="text" placeholder="CCID">
+				<input name="password" type = "password" placeholder="Password">
 				<input value="Submit" type="submit">
 				<ul>
 					<a href="registration.php">Don't have an account yet? Register Here</a>
@@ -59,9 +60,12 @@ to the program being hosted offline and not a live site.
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
+
 		<script src="resources/js/vendor/jquery.js"></script>
-    	<script src="resources/js/vendor/what-input.js"></script>
+    <script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
-    	<script src="resources/js/app.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="resources/js/index.js"></script>
+    <script src="resources/js/app.js"></script>
 	</body>
 </html>
