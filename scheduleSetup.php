@@ -102,9 +102,13 @@ for the schedule organization.
 									<form id="breakTime">
 									    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
 									    	<div class="row">
+									    		<div class="large-4 medium-4 small-4 columns">
+									    			Break Date
+									    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+									    		</div>
 												<div class="large-4 medium-4 small-4 columns">
 											        Break Start Time: 
-											        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required>
+											        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
 											    </div>
 											    <div class="large-4 medium-4 small-4 columns">    
 											    	Break End Time: 
@@ -169,7 +173,7 @@ for the schedule organization.
                 $('#btnDel').attr('disabled','');
  
                 // maximum number of breakTimes allowed
-                if (newNum == 10)
+                if (newNum == 5)
                     $('#btnAdd').attr('disabled','disabled');
             });
  
