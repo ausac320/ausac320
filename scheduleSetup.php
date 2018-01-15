@@ -68,6 +68,14 @@ for the schedule organization.
 									</select>
 								</label>
 							</div>
+							</div>
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Presentation Time Allowed (minutes)
+										<input type="number" name="presTimeSlot" placeholder ="25" required>
+									</label>
+								</div>
 							</div>		
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
@@ -161,7 +169,7 @@ for the schedule organization.
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + (num /2).clone().attr('id', 'input' + newNum);
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
  
                 // manipulate the name/id values of the input inside the new element
                 newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
