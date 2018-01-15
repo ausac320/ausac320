@@ -44,6 +44,17 @@
 					<h4>
 						User's Name Displays Here
 					</h4>
+					<div id="importantDisplay"> 
+						Deadlines and Important Dates:
+						<ul>
+							<li>
+								Prototype Deadline - January 12, 2018
+							</li>
+							<li>
+								Final Product - January 19, 2018
+							</li>
+						</ul>
+					</div>
 					<div class="schedule">
 						<div>
 							<div class="row">
@@ -124,17 +135,6 @@
 								</table>
 							</div>
 						</div> 
-					</div>
-					<div id="importantDisplay"> 
-						Deadlines and Important Dates:
-						<ul>
-							<li>
-								Prototype Deadline - January 12, 2018
-							</li>
-							<li>
-								Final Product - January 19, 2018
-							</li>
-						</ul>
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
