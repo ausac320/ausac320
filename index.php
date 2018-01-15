@@ -27,7 +27,7 @@ to the program being hosted offline and not a live site.
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-signin-client_id" content="514360117392-qkk1ff10ud9svjk0mm08piuvmncregp6.apps.googleusercontent.com">
     	<title>Augustana Student Academic Conference Website</title>
-		<link rel="stylesheet" href="resources/css/foundation.css">
+		<link rel="stylesheet" href="resources/css/vendor/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
     	<link rel="stylesheet" href="resources/css/index.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
@@ -45,8 +45,9 @@ to the program being hosted offline and not a live site.
 			<form id="loginForm" action="userpage.php" method="POST">
 				<div class="g-signin2" data-onsuccess="onSignIn" required>
 				</div>
-				<input name="username" type="text" placeholder="CCID" required>
-				<input name="password" type = "password" placeholder="Password" required>
+			
+				<input name="username" type="text" placeholder="CCID">
+				<input name="password" type = "password" placeholder="Password">
 				<input value="Submit" type="submit">
 				<ul>
 					<a href="registration.php">Don't have an account yet? Register Here</a>
@@ -59,8 +60,12 @@ to the program being hosted offline and not a live site.
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
+
+		<script src="resources/js/vendor/jquery.js"></script>
+    <script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-    	<script src="js/app.js"></script>
+    <script src="resources/js/index.js"></script>
+    <script src="resources/js/app.js"></script>
 	</body>
 </html>

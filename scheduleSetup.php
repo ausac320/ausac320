@@ -4,9 +4,10 @@ AUCSC320 - Augustana Student Academic Conference
 Last Reviewed: January 11, 2018
 
 scheduleSetup.php is the webpage that will be displayed when setting up a new
-round of .
+session of presentations.
 
-
+There will be a variety of variables that will be required in order to set restraints
+for the schedule organization.  
 -->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -16,11 +17,10 @@ round of .
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title> Augustana Student Academic Conference Website</title>
-		<link rel="stylesheet" href="resources/css/foundation.css">
+		<link rel="stylesheet" href="resources/css/vendor/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
     	<link rel="stylesheet" href="resources/css/scheduleSetup.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
-
 	</head>
 
 	<body>
@@ -68,40 +68,71 @@ round of .
 									</select>
 								</label>
 							</div>
+							</div>
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Presentation Time Allowed (minutes)
+										<input type="number" name="presTimeSlot" placeholder ="25" required>
+									</label>
+								</div>
 							</div>		
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
 									<label> 
 										Start Date
-										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate" required>
+										<input type="date" name="startDate" required pattern= "MM/DD/YYYY" required>
 									</label>									
 									<label> 
 										End Date
-										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
+										<input type="date" name="endDate" required pattern= "MM/DD/YYYY" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
 									<label> 
 										Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
+										<input type="time" name="startTime" required pattern= "HH:MM:" required>
 									</label>
 									<label> 
 										End Time
-										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
+										<input type="time" name="endTime" required pattern= "HH:MM" required>
 									</label>
 								</div>
 							</div>
 							<div class="row">
-								<div class="large-8 medium-8 small-8 columns">
-									<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
-									<div id="room_fields">
-	            						<div id="content">
-	                					<span>Break Time <input type="time" name="breakTime" requried pattern="HH:MM" placeholder="breakTime" required>
-	                					</span>
-	            						</div>
-        							</div>
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Registration Deadline
+										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
+									</label>
 								</div>
-							</div>	
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Abstract Deadline
+										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
+									</label>
+									
+								</div>
+							</div>
+							    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+							    		<div class="large-4 medium-4 small-4 columns">
+							    			Break Date
+							    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+							    		</div>
+										<div class="large-4 medium-4 small-4 columns">
+									        Break Start Time: 
+									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
+									    </div>
+									    <div class="large-4 medium-4 small-4 columns">    
+									    	Break End Time: 
+									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
+										</div>
+									 	</div>	
+									    <div>
+									        <input type="button" id="btnAdd" value="Add Break"/>
+									        <input type="button" id="btnDel" value="Remove Break"/>
+									    </div>			
+
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">
@@ -119,7 +150,55 @@ round of .
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+
+		<script src="resources/js/vendor/jquery.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+    	<script src="resources/js/scheduleSetup.js"></script>
+    	<script src="resources/js/app.js"></script>
+    	
+<!--
+	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
+	has been modified in order for program to use proper information
+-->
+    	<script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnAdd').click(function() {
+                var num     = $('.clonedInput').length ; // how many "duplicatable" input fields we currently have
+                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
+ 
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+ 
+                // manipulate the name/id values of the input inside the new element
+                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+ 
+                // insert the new element after the last "duplicatable" input field
+                $('#input' + num).after(newElem);
+ 
+                // enable the "remove" button
+                $('#btnDel').attr('disabled','');
+ 
+                // maximum number of breakTimes allowed
+                if (newNum == 5)
+                    $('#btnAdd').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').click(function() {
+                var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                $('#input' + num).remove();     // remove the last element
+ 
+                // enable the "add" button
+                $('#btnAdd').attr('disabled','');
+ 
+                // if only one element remains, disable the "remove" button
+                if (num-1 == 1)
+                    $('#btnDel').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').attr('disabled','disabled');
+        });
+    </script>
 	</body>
 </html>

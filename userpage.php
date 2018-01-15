@@ -15,7 +15,7 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Augustana Student Academic Conference Website</title>
-		<link rel="stylesheet" href="resources/css/foundation.css">
+		<link rel="stylesheet" href="resources/css/vendor/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
     	<link rel="stylesheet" href="resources/css/userpage.css">
     	<link rel="shortcut icon" href="resources\images\Augfavicon.ico" type="image/x-icon">
@@ -53,6 +53,17 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 					<h4>
 						User's Name Displays Here
 					</h4>
+					<div id="importantDisplay"> 
+						Deadlines and Important Dates:
+						<ul>
+							<li>
+								Prototype Deadline - January 12, 2018
+							</li>
+							<li>
+								Final Product - January 19, 2018
+							</li>
+						</ul>
+					</div>
 					<div class="schedule">
 						<div>
 							<div class="row">
@@ -134,17 +145,6 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 							</div>
 						</div> 
 					</div>
-					<div id="importantDisplay"> 
-						Deadlines and Important Dates:
-						<ul>
-							<li>
-								Prototype Deadline - January 12, 2018
-							</li>
-							<li>
-								Final Product - January 19, 2018
-							</li>
-						</ul>
-					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
@@ -155,7 +155,11 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+
+		<script src="resources/js/vendor/jquery.js"></script>
+    <script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="resources/js/app.js"></script>
 	</body>
 </html>

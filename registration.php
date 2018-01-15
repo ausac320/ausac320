@@ -24,7 +24,7 @@ register the user which will not allow user to be able to authenticate.
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Augustana Student Academic Conference Website</title>
-		<link rel="stylesheet" href="resources/css/foundation.css">
+		<link rel="stylesheet" href="resources/css/vendor/foundation.css">
     	<link rel="stylesheet" href="resources/css/app.css">
     	<link rel="stylesheet" href="resources/css/registration.css">
     	<link rel="shortcut icon" href="resources\Augfavicon.ico" type="image/x-icon">
@@ -58,7 +58,9 @@ register the user which will not allow user to be able to authenticate.
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="resources/js/vendor/jquery.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+    	<script src="resources/js/app.js"></script>
 	</body>
 </html>
