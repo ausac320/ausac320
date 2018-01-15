@@ -122,7 +122,8 @@ Contained is a form for submitting presentation information to the "database" (i
 			echo "Submission Failed, presentation has been previously submitted.";
 		}
 		else {
-			create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName);
+			create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, 
+				$studentAbstract, $fileName);
 			echo "Submission Successful, presentation has been submitted!";
 		}
 	}
@@ -134,7 +135,8 @@ Contained is a form for submitting presentation information to the "database" (i
 		return $data;
 	}
 
-	function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName) {
+	function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, 
+		$studentAbstract, $fileName) {
 		$file = fopen ($fileName, "w+");
 		$txt = $studentName."\n";
 		fwrite($file, $txt);
@@ -151,5 +153,16 @@ Contained is a form for submitting presentation information to the "database" (i
 		$txt = $studentAbstract."\n";
 		fwrite($file, $txt);
 		fclose($file);
+	}
+
+	function add_to_scheduling($courseName, $profName, $studentName){
+		$file = fopen("resources/submissionFolder/registeredSubmissions.csv", "a+");
+		$txt = $courseName."\n";
+		fwrite($file, $txt);
+		$txt = $profName."\n";
+		fwrite($file, $txt);
+		$txt = $studentName."\n";
+		fwrite($file, $txt);
+		fwrite($file, "\n");
 	}
 ?>
