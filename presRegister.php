@@ -140,6 +140,7 @@ Contained is a form for submitting presentation information to the "database" (i
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="resources/js/presRegister.js"></script>
     	<script src="resources/js/app.js"></script>
 
 	</body>

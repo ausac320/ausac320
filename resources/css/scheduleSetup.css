@@ -11,6 +11,10 @@ div#scheduleSetupPageField{
 	height: 80%;
 }
 
+div#scheduleSetup{
+	height: 500px;
+	overflow: auto;
+}
 div#scheduleSubmit{
 	position: absolute;
     transition: .5s ease;
