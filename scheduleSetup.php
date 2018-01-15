@@ -68,51 +68,70 @@ for the schedule organization.
 									</select>
 								</label>
 							</div>
+							</div>
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Presentation Time Allowed (minutes)
+										<input type="number" name="presTimeSlot" placeholder ="25" required>
+									</label>
+								</div>
 							</div>		
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
 									<label> 
 										Start Date
-										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="startDate" required>
+										<input type="date" name="startDate" required pattern= "MM/DD/YYYY" required>
 									</label>									
 									<label> 
 										End Date
-										<input type="date" name="date" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
+										<input type="date" name="endDate" required pattern= "MM/DD/YYYY" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
 									<label> 
 										Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
+										<input type="time" name="startTime" required pattern= "HH:MM:" required>
 									</label>
 									<label> 
 										End Time
-										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
+										<input type="time" name="endTime" required pattern= "HH:MM" required>
 									</label>
 								</div>
 							</div>
-
 							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">
-									<form id="breakTime">
-									    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-									    	<label>
-									        Break Start Time: 
-									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required>
-									    	</label>
-									    	<label>
-									    	Break End Time: 
-									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
-									 		</label>
-									 	</div>
-									    <div>
-									        <input type="button" id="btnAdd" value="add another break" />
-									        <input type="button" id="btnDel" value="remove break" />
-									    </div>
-									</form>				
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Registration Deadline
+										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
+									</label>
+								</div>
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Abstract Deadline
+										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
+									</label>
+									
 								</div>
 							</div>
-
+							    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+							    		<div class="large-4 medium-4 small-4 columns">
+							    			Break Date
+							    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+							    		</div>
+										<div class="large-4 medium-4 small-4 columns">
+									        Break Start Time: 
+									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
+									    </div>
+									    <div class="large-4 medium-4 small-4 columns">    
+									    	Break End Time: 
+									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
+										</div>
+									 	</div>	
+									    <div>
+									        <input type="button" id="btnAdd" value="Add Break"/>
+									        <input type="button" id="btnDel" value="Remove Break"/>
+									    </div>			
 
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
@@ -120,9 +139,6 @@ for the schedule organization.
 								</div>
 							</div>
 						</form>
-
-
-
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
@@ -136,7 +152,7 @@ for the schedule organization.
 
 
 		<script src="resources/js/vendor/jquery.js"></script>
-    <script src="resources/js/vendor/what-input.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
     	<script src="resources/js/scheduleSetup.js"></script>
@@ -149,7 +165,7 @@ for the schedule organization.
     	<script type="text/javascript">
         $(document).ready(function() {
             $('#btnAdd').click(function() {
-                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                var num     = $('.clonedInput').length ; // how many "duplicatable" input fields we currently have
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
@@ -165,7 +181,7 @@ for the schedule organization.
                 $('#btnDel').attr('disabled','');
  
                 // maximum number of breakTimes allowed
-                if (newNum == 10)
+                if (newNum == 5)
                     $('#btnAdd').attr('disabled','disabled');
             });
  
