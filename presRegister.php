@@ -52,9 +52,9 @@ Contained is a form for submitting presentation information to the "database" (i
 					<div>
 						Presentation Registration Page
 						<form method="POST">
-							<input name="studentName" type="text" placeholder="Student's name" pattern="[A-za-z' ]{1,}" required>
-							<input name="courseName" type="text" placeholder="Course name" pattern="[A-Z0-9]{8}" required>
-							<input name="profName" type="text" placeholder="Professor's name" pattern="[A-za-z' .]{1,}" required>
+							<input name="studentName" type="text" placeholder="Student's name" pattern="[A-za-z'- .]{1,}" required>
+							<input name="courseName" type="text" placeholder="Course name (ex. AUMAT250)" pattern="[A-Z0-9]{8}" required>
+							<input name="profName" type="text" placeholder="Professor's name" pattern="[A-za-z'- .]{1,}" required>
 							<div>
 								Presentation Type:
 								<input name="presentationType" type="radio" value="oral" required>Oral
@@ -67,9 +67,9 @@ Contained is a form for submitting presentation information to the "database" (i
 								OURStatus:
 								<input name="OURStatus" type="radio" value="yes" required>Yes
 								<input name="OURStatus" type="radio" value="no" required>No
-							</div> 
-							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" pattern="[A-za-z0-9' .!,]{1,}" required>
-							<input name="studentAbstract" type="text" placeholder="Student abstract" pattern="[A-za-z0-9' .!,]{1,}">
+							</div>
+							<textarea name="titleOfPresentation" placeholder="Title of presentation" rows="2" required></textarea> 
+							<textarea name="studentAbstract" placeholder="Student's abstract" rows="6" cols="30" wrap="hard"></textarea>
 							<input value="Submit Presentation" type="submit">
 						</form>
 					</div>
@@ -78,70 +78,78 @@ Contained is a form for submitting presentation information to the "database" (i
 				</div>
 			</div>	
 		</div>
+		
 		<?php
-			$studentName = "";
-			$courseName = "";
-			$profName = "";
-			$presentationType = "";
-			$OURStatus = "";
-			$titleOfPresentation = "";
-			$studentAbstract = "";
-			$fileName = "";
-
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$studentName = test_input($_POST["studentName"]);
-				$courseName = test_input($_POST["courseName"]);
-				$profName = test_input($_POST["profName"]);
-				$presentationType = test_input($_POST["presentationType"]);
-				$OURStatus = test_input($_POST["OURStatus"]);
-				$titleOfPresentation = test_input($_POST["titleOfPresentation"]);
-				$studentAbstract = test_input($_POST["studentAbstract"]);
-				$fileName = "resources/submissionFolder/$titleOfPresentation.txt";
-				if (fopen($fileName, "x") == false){
-					echo "Submission Failed";
-				}
-				else {
-					create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName);
-					echo "Submission Successful";
-				}
-			}
-
-			function test_input($data) {
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				$data = trim($data); 
-				return $data;
-			}
-
-			function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName) {
-				$file = fopen ($fileName, "w+");
-				$txt = $studentName."\n";
-				fwrite($file, $txt);
-				$txt = $courseName."\n";
-				fwrite($file, $txt);
-				$txt = $profName."\n";
-				fwrite($file, $txt);
-				$txt = $presentationType."\n";
-				fwrite($file, $txt);
-				$txt = $OURStatus."\n";
-				fwrite($file, $txt);
-				$txt = $titleOfPresentation."\n";
-				fwrite($file, $txt);
-				$txt = $studentAbstract."\n";
-				fwrite($file, $txt);
-				fclose($file);
-			}
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			prepare_variables();
+		}
 		?>
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
-    
+    	<script src="resources/js/presRegister.js"></script>
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
-		<script src="resources/js/presRegister.js"></script>
     	<script src="resources/js/app.js"></script>
 
 	</body>
 </html>
+
+<?php
+	$studentName = "";
+	$courseName = "";
+	$profName = "";
+	$presentationType = "";
+	$OURStatus = "";
+	$titleOfPresentation = "";
+	$studentAbstract = "";
+	$fileName = "";
+
+
+	function prepare_variables() {
+		$studentName = test_input($_POST["studentName"]);
+		$courseName = test_input($_POST["courseName"]);
+		$profName = test_input($_POST["profName"]);
+		$presentationType = test_input($_POST["presentationType"]);
+		$OURStatus = test_input($_POST["OURStatus"]);
+		$titleOfPresentation = test_input($_POST["titleOfPresentation"]);
+		$studentAbstract = test_input($_POST["studentAbstract"]);
+		$fileName = "resources/submissionFolder/" . "$courseName" . "_" . "$studentName.csv";
+		
+		if (fopen($fileName, "x") == false){
+			echo "Submission Failed, presentation has been previously submitted.";
+		}
+		else {
+			create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName);
+			echo "Submission Successful, presentation has been submitted!";
+		}
+	}
+
+	function test_input($data) {
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		$data = trim($data); 
+		return $data;
+	}
+
+	function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, $studentAbstract, $fileName) {
+		$file = fopen ($fileName, "w+");
+		$txt = $studentName."\n";
+		fwrite($file, $txt);
+		$txt = $courseName."\n";
+		fwrite($file, $txt);
+		$txt = $profName."\n";
+		fwrite($file, $txt);
+		$txt = $presentationType."\n";
+		fwrite($file, $txt);
+		$txt = $OURStatus."\n";
+		fwrite($file, $txt);
+		$txt = $titleOfPresentation."\n";
+		fwrite($file, $txt);
+		$txt = $studentAbstract."\n";
+		fwrite($file, $txt);
+		fclose($file);
+	}
+?>
