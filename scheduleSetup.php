@@ -51,7 +51,7 @@ for the schedule organization.
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
+				<div id="scheduleSetup" class="large-8 medium-8 small-8 columns">
 					<div class="setup">
 						<form data-abide action="scheduleSetup.php" method="GET">
 							<div data-abide-error class="alert callout" style="display: none;">
