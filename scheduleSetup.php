@@ -64,8 +64,8 @@ for the schedule organization.
 									SAC presentation term:
 									<select id="termSelect" name ="termSelect" required>
 										<option value=""></option>
-										<option value="fallTerm">Fall Term</option>
-										<option value="winterTerm">Winter Term</option>
+										<option value="Fall Term">Fall Term</option>
+										<option value="Winter Term">Winter Term</option>
 									</select>
 								</label>
 							</div>
@@ -74,13 +74,13 @@ for the schedule organization.
 								<div class="large-6 medium-6 small-6 columns">
 									<label>
 										Registration Deadline
-										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
+										<input type="date" name="regEndDate" required pattern = "YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">
 									<label>
 										Abstract Deadline
-										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
+										<input type="date" name="abstractDeadline" required pattern="YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required>
 									</label>
 									
 								</div>
@@ -89,11 +89,11 @@ for the schedule organization.
 								<div class="large-6 medium-6 small-6 columns">
 									<label> 
 										Start Date
-										<input type="date" name="startDate" required pattern= "MM/DD/YYYY" required>
+										<input type="date" name="startDate" required pattern= "YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required>
 									</label>									
 									<label> 
 										End Date
-										<input type="date" name="endDate" required pattern= "MM/DD/YYYY" required>
+										<input type="date" name="endDate" required pattern= "YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
@@ -118,7 +118,7 @@ for the schedule organization.
 							<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 					    		<div class="large-4 medium-4 small-4 columns">
 					    			Break Date
-							   		<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+							   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
 						 		</div>
 								<div class="large-4 medium-4 small-4 columns">
 							        Break Start Time: 
@@ -143,7 +143,13 @@ for the schedule organization.
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>
-		</div>	
+		</div>
+			<?php
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				prepareData();
+			}
+			?>
+		
 
 		<div class="footer">
 			Designed January 7th, 2018<br>
@@ -214,7 +220,9 @@ for the schedule organization.
 			$abstractDeadline = "";
 			$breakDate = "";
 
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+		function prepareData(){
+			
 				global $fileName;
 				$termSelect = test_input($_POST["termSelect"]);
 				$startDate = test_input($_POST["startDate"]);
@@ -225,7 +233,8 @@ for the schedule organization.
 				$regEndDate = test_input($_POST["regEndDate"]);
 				$abstractDeadline = test_input($_POST["abstractDeadline"]);
 				$breakDate = test_input($_POST["breakDate"]);
-				$fileName = "resources/submissionFolder/$termSelect.startDate.txt";
+				$fileTitle= "$termSelect". " " ."$startDate"; 
+				$fileName = "resources/submissionFolder/$fileTitle.txt";
 
 				if (fopen($fileName, "x") == false){
 					echo "Submission Failed";
