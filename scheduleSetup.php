@@ -161,7 +161,7 @@ for the schedule organization.
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + (num /2).clone().attr('id', 'input' + newNum);
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
  
                 // manipulate the name/id values of the input inside the new element
                 newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
