@@ -69,6 +69,21 @@ for the schedule organization.
 									</select>
 								</label>
 							</div>
+							</div>
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Registration Deadline
+										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
+									</label>
+								</div>
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Abstract Deadline
+										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
+									</label>
+									
+								</div>
 							</div>	
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
@@ -90,21 +105,6 @@ for the schedule organization.
 										End Time
 										<input type="time" name="endTime" required pattern= "HH:MM" required>
 									</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="large-6 medium-6 small-6 columns">
-									<label>
-										Registration Deadline
-										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
-									</label>
-								</div>
-								<div class="large-6 medium-6 small-6 columns">
-									<label>
-										Abstract Deadline
-										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
-									</label>
-									
 								</div>
 							</div>
 							<div class="row">
@@ -215,6 +215,7 @@ for the schedule organization.
 			$breakDate = "";
 
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				global $fileName;
 				$termSelect = test_input($_POST["termSelect"]);
 				$startDate = test_input($_POST["startDate"]);
 				$startTime = test_input($_POST["startTime"]);
@@ -223,8 +224,8 @@ for the schedule organization.
 				$presTimeSlot = test_input($_POST["presTimeSlot"]);
 				$regEndDate = test_input($_POST["regEndDate"]);
 				$abstractDeadline = test_input($_POST["abstractDeadline"]);
-				$num = test_input($_POST["breakDate"]);
-				$fileName = "resources/submissionFolder/$startDate.txt";
+				$breakDate = test_input($_POST["breakDate"]);
+				$fileName = "resources/submissionFolder/$termSelect.startDate.txt";
 
 				if (fopen($fileName, "x") == false){
 					echo "Submission Failed";
@@ -243,12 +244,15 @@ for the schedule organization.
 			}
 
 			function create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate) {
+				global $fileName;
 				$file = fopen ($fileName, "w+");
 				$txt = $termSelect."\n";
 				fwrite($file, $txt);
 				$txt = $startDate."\n";
 				fwrite($file, $txt);
 				$txt = $endDate."\n";
+				fwrite($file, $txt);
+				$txt = $startTime."\n";
 				fwrite($file, $txt);
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
