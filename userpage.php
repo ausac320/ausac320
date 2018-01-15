@@ -1,3 +1,12 @@
+<!--
+AUCSC 320 - Augustana Student Academic Conference
+
+Documentation by Sheldon Grundberg on January 12, 2018
+
+userpage.php is the page that displays after the user sucessfully logs in. This page will also be displayed when users click the "Home" button of the navigation column
+
+Contained on this page is a chart and a text box. The chart is our "schedule" and is there primarily for showcasing U.I. elements as it has no logic implemented currently. The text box is our "Warning and Deadlines" banner, it is a text box for displaying information pertaining to the deadlines of the SAC, currently the text has to be modified by code, but in future versions the admin should have an edit button for the box.
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
