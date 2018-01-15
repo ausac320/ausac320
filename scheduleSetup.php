@@ -110,7 +110,7 @@ for the schedule organization.
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
 									<label>
-										Presentation Time Allowed (minutes)
+										Presentation Time Slots (minutes)
 										<input type="number" name="presTimeSlot" placeholder ="25" required>
 									</label>
 								</div>
