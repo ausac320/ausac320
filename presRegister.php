@@ -68,8 +68,8 @@ Contained is a form for submitting presentation information to the "database" (i
 								<input name="OURStatus" type="radio" value="yes" required>Yes
 								<input name="OURStatus" type="radio" value="no" required>No
 							</div> 
-							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" pattern="[A-za-z0-9' .!,:]{1,}" required>
-							<input name="studentAbstract" type="text" placeholder="Student abstract" pattern="[A-za-z0-9' .!,:]{1,}">
+							<input name="titleOfPresentation" type="text" placeholder="Title of presentation" pattern="[A-za-z0-9' .!,]{1,}" required>
+							<input name="studentAbstract" type="text" placeholder="Student abstract" pattern="[A-za-z0-9' .!,]{1,}">
 							<input value="Submit Presentation" type="submit">
 						</form>
 					</div>
