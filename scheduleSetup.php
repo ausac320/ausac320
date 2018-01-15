@@ -73,54 +73,57 @@ for the schedule organization.
 								<div class="large-6 medium-6 small-6 columns">
 									<label> 
 										Start Date
-										<input type="date" name="startDate" required pattern= "MM/DD/YYYY" placeholder="startDate" required>
+										<input type="date" name="startDate" required pattern= "MM/DD/YYYY" required>
 									</label>									
 									<label> 
 										End Date
-										<input type="date" name="endDate" required pattern= "MM/DD/YYYY" placeholder="endDate" required>
+										<input type="date" name="endDate" required pattern= "MM/DD/YYYY" required>
 									</label>
 								</div>
 								<div class="large-6 medium-6 small-6 columns">						
 									<label> 
 										Start Time
-										<input type="time" name="startTime" required pattern= "HH:MM:" placeholder="startTime" required>
+										<input type="time" name="startTime" required pattern= "HH:MM:" required>
 									</label>
 									<label> 
 										End Time
-										<input type="time" name="endTime" required pattern= "HH:MM" placeholder="endTime" required>
+										<input type="time" name="endTime" required pattern= "HH:MM" required>
 									</label>
 								</div>
 							</div>
 							<div class="row">
-								<div class="large-4 medium-4 small-4 columns">
+								<div class="large-6 medium-6 small-6 columns">
 									<label>
 										Registration Deadline
-										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" placeholder="regEndDate" required>
+										<input type="date" name="regEndDate" required pattern = "MM/DD/YYYY" required>
 									</label>
 								</div>
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Abstract Deadline
+										<input type="date" name="abstractDeadline" required pattern="MM/DD/YYYY" required>
+									</label>
+									
+								</div>
 							</div>
-									<form id="breakTime">
-									    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-									    	<div class="row">
-									    		<div class="large-4 medium-4 small-4 columns">
-									    			Break Date
-									    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
-									    		</div>
-												<div class="large-4 medium-4 small-4 columns">
-											        Break Start Time: 
-											        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
-											    </div>
-											    <div class="large-4 medium-4 small-4 columns">    
-											    	Break End Time: 
-											    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
-									 			</div>
-									 		</div>
+							    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+							    		<div class="large-4 medium-4 small-4 columns">
+							    			Break Date
+							    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+							    		</div>
+										<div class="large-4 medium-4 small-4 columns">
+									        Break Start Time: 
+									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
+									    </div>
+									    <div class="large-4 medium-4 small-4 columns">    
+									    	Break End Time: 
+									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
+										</div>
 									 	</div>	
 									    <div>
 									        <input type="button" id="btnAdd" value="Add Break"/>
 									        <input type="button" id="btnDel" value="Remove Break"/>
-									    </div>
-									</form>				
+									    </div>			
 
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
@@ -128,9 +131,6 @@ for the schedule organization.
 								</div>
 							</div>
 						</form>
-
-
-
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
@@ -161,7 +161,7 @@ for the schedule organization.
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+                var newElem = $('#input' + (num /2).clone().attr('id', 'input' + newNum);
  
                 // manipulate the name/id values of the input inside the new element
                 newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
