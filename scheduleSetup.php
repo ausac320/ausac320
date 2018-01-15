@@ -52,31 +52,24 @@ for the schedule organization.
 					</ul>
 				</div>
 				<div id="scheduleSetup" class="large-8 medium-8 small-8 columns">
+					Schedule Setup Page
 					<div class="setup">
-						<form data-abide action="scheduleSetup.php" method="GET">
+						<form data-abide action="scheduleSetup.php" method="POST">
 							<div data-abide-error class="alert callout" style="display: none;">
 								<p><i class="fi-alert"></i> There are errors in your form.</p>
 							</div>
 							<div class ="row">
 							<div class="large-6 medium-6 small-6 columns">
 								<label> 
-									SAC presentation term occurence:
-									<select id="termSelect" required>
+									SAC presentation term:
+									<select id="termSelect" name ="termSelect" required>
 										<option value=""></option>
 										<option value="fallTerm">Fall Term</option>
 										<option value="winterTerm">Winter Term</option>
 									</select>
 								</label>
 							</div>
-							</div>
-							<div class="row">
-								<div class="large-6 medium-6 small-6 columns">
-									<label>
-										Presentation Time Allowed (minutes)
-										<input type="number" name="presTimeSlot" placeholder ="25" required>
-									</label>
-								</div>
-							</div>		
+							</div>	
 							<div class="row">
 								<div class="large-6 medium-6 small-6 columns">
 									<label> 
@@ -114,25 +107,32 @@ for the schedule organization.
 									
 								</div>
 							</div>
-							    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-							    		<div class="large-4 medium-4 small-4 columns">
-							    			Break Date
-							    			<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
-							    		</div>
-										<div class="large-4 medium-4 small-4 columns">
-									        Break Start Time: 
-									        <input type="time" name="startTime1" id="startTime1" required pattern="HH:MM" required/>
-									    </div>
-									    <div class="large-4 medium-4 small-4 columns">    
-									    	Break End Time: 
-									    	<input type="time" name="endTime1" id="endTime1" required pattern="HH:MM" required/>
-										</div>
-									 	</div>	
-									    <div>
-									        <input type="button" id="btnAdd" value="Add Break"/>
-									        <input type="button" id="btnDel" value="Remove Break"/>
-									    </div>			
-
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label>
+										Presentation Time Allowed (minutes)
+										<input type="number" name="presTimeSlot" placeholder ="25" required>
+									</label>
+								</div>
+							</div>	
+							<div id="input1" style="margin-bottom:4px;" class="clonedInput">
+					    		<div class="large-4 medium-4 small-4 columns">
+					    			Break Date
+							   		<input type="date" name="breakDate" id="breakDate" required pattern="MM/DD/YYYY" required/>
+						 		</div>
+								<div class="large-4 medium-4 small-4 columns">
+							        Break Start Time: 
+							        <input type="time" name="breakStart" id="startTime1" required pattern="HH:MM" required/>
+							    </div>
+							    <div class="large-4 medium-4 small-4 columns">    
+							    	Break End Time: 
+							    	<input type="time" name="breakEnd" id="endTime1" required pattern="HH:MM" required/>
+								</div>
+							 </div>	
+								<div>
+								    <input type="button" id="btnAdd" value="Add Break"/>
+							        <input type="button" id="btnDel" value="Remove Break"/>
+							    </div>			
 							<div class="row">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">
@@ -181,7 +181,7 @@ for the schedule organization.
                 $('#btnDel').attr('disabled','');
  
                 // maximum number of breakTimes allowed
-                if (newNum == 5)
+                if (newNum == 10)
                     $('#btnAdd').attr('disabled','disabled');
             });
  
@@ -202,3 +202,64 @@ for the schedule organization.
     </script>
 	</body>
 </html>
+
+		<?php
+			$termSelect = "";
+			$startDate = "";
+			$startTime = "";
+			$endDate = "";
+			$endTime = "";
+			$presTimeSlot = "";
+			$regEndDate = "";
+			$abstractDeadline = "";
+			$breakDate = "";
+
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				$termSelect = test_input($_POST["termSelect"]);
+				$startDate = test_input($_POST["startDate"]);
+				$startTime = test_input($_POST["startTime"]);
+				$endDate = test_input($_POST["endDate"]);
+				$endTime = test_input($_POST["endTime"]);
+				$presTimeSlot = test_input($_POST["presTimeSlot"]);
+				$regEndDate = test_input($_POST["regEndDate"]);
+				$abstractDeadline = test_input($_POST["abstractDeadline"]);
+				$num = test_input($_POST["breakDate"]);
+				$fileName = "resources/submissionFolder/$startDate.txt";
+
+				if (fopen($fileName, "x") == false){
+					echo "Submission Failed";
+				}
+				else {
+					create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate);
+					echo "Submission Successful";
+				}
+			}
+
+			function test_input($data) {
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				$data = trim($data); 
+				return $data;
+			}
+
+			function create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate) {
+				$file = fopen ($fileName, "w+");
+				$txt = $termSelect."\n";
+				fwrite($file, $txt);
+				$txt = $startDate."\n";
+				fwrite($file, $txt);
+				$txt = $endDate."\n";
+				fwrite($file, $txt);
+				$txt = $endTime."\n";
+				fwrite($file, $txt);
+				$txt = $presTimeSlot."\n";
+				fwrite($file, $txt);
+				$txt = $regEndDate."\n";
+				fwrite($file, $txt);
+				$txt = $abstractDeadline."\n";
+				fwrite($file, $txt);
+				$txt = $breakDate."\n";
+				fwrite($file, $txt);
+				fclose($file);
+			}
+		?>
