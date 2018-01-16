@@ -21,3 +21,6 @@ div#scheduleSubmit{
     top: 50%;
     left: 50%;
 }
+div#scheduleButton{
+	padding-top: 10px;
+}

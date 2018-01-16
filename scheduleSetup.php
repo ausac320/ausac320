@@ -122,18 +122,18 @@ for the schedule organization.
 						 		</div>
 								<div class="large-4 medium-4 small-4 columns">
 							        Break Start Time: 
-							        <input type="time" name="breakStart" id="startTime1" required pattern="HH:MM" required/>
+							        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
 							    </div>
 							    <div class="large-4 medium-4 small-4 columns">    
 							    	Break End Time: 
-							    	<input type="time" name="breakEnd" id="endTime1" required pattern="HH:MM" required/>
+							    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
 								</div>
 							 </div>	
 								<div>
 								    <input type="button" id="btnAdd" value="Add Break"/>
 							        <input type="button" id="btnDel" value="Remove Break"/>
 							    </div>			
-							<div class="row">
+							<div class="row" id="scheduleButton">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">
 								</div>
@@ -181,8 +181,7 @@ for the schedule organization.
                 newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
  
                 // insert the new element after the last "duplicatable" input field
-                $('#input' + num).after(newElem);
- 
+                $('#input' + num).after(newElem); 
                 // enable the "remove" button
                 $('#btnDel').attr('disabled','');
  
@@ -219,6 +218,8 @@ for the schedule organization.
 			$regEndDate = "";
 			$abstractDeadline = "";
 			$breakDate = "";
+			$breakStart = "";
+			$breakEnd = "";
 
 
 		function prepareData(){
@@ -233,6 +234,8 @@ for the schedule organization.
 				$regEndDate = test_input($_POST["regEndDate"]);
 				$abstractDeadline = test_input($_POST["abstractDeadline"]);
 				$breakDate = test_input($_POST["breakDate"]);
+				$breakStart = test_input($_POST["breakStart"]);
+				$breakEnd = test_input($_POST["breakEnd"]);
 				$fileTitle= "$termSelect". " " ."$startDate"; 
 				$fileName = "resources/submissionFolder/$fileTitle.txt";
 
@@ -240,7 +243,7 @@ for the schedule organization.
 					echo "Submission Failed";
 				}
 				else {
-					create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate);
+					create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate, $breakStart, $breakEnd);
 					echo "Submission Successful";
 				}
 			}
@@ -252,27 +255,33 @@ for the schedule organization.
 				return $data;
 			}
 
-			function create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate) {
+			function create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate, $breakStart, $breakEnd) {
 				global $fileName;
 				$file = fopen ($fileName, "w+");
 				$txt = $termSelect."\n";
-				fwrite($file, $txt);
-				$txt = $startDate."\n";
-				fwrite($file, $txt);
-				$txt = $endDate."\n";
-				fwrite($file, $txt);
-				$txt = $startTime."\n";
-				fwrite($file, $txt);
-				$txt = $endTime."\n";
-				fwrite($file, $txt);
-				$txt = $presTimeSlot."\n";
 				fwrite($file, $txt);
 				$txt = $regEndDate."\n";
 				fwrite($file, $txt);
 				$txt = $abstractDeadline."\n";
 				fwrite($file, $txt);
-				$txt = $breakDate."\n";
+				$txt = $startDate." ";
 				fwrite($file, $txt);
+				$txt = $startTime."\n";
+				fwrite($file, $txt);
+				$txt = $endDate." ";
+				fwrite($file, $txt);
+				$txt = $endTime."\n";
+				fwrite($file, $txt);
+				$txt = $presTimeSlot."\n";
+				fwrite($file, $txt);
+				//for ( $i=0; $i < newNum; $i++) {
+				$txt = $breakDate." ";
+				fwrite($file, $txt);
+				$txt = $breakStart." ";
+				fwrite($file, $txt);
+				$txt = $breakEnd."\n";
+				fwrite($file, $txt);
+				//}
 				fclose($file);
 			}
 		?>
