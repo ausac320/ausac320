@@ -115,19 +115,19 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-							<div class="row' id ="breakTimes" name ="breakTimes">	
+							<div class="row" id ="breakTimes" name ="breakTimes">	
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
-								   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
+								   		<input type="date" name="breakDate" id="breakDate1" required pattern="YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required/>
 							 		</div>
 									<div class="large-4 medium-4 small-4 columns">
 								        Break Start Time: 
-								        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
+								        <input type="time" name="breakStart" id="breakStart1" required pattern="HH:MM" required/>
 								    </div>
 								    <div class="large-4 medium-4 small-4 columns">    
 								    	Break End Time: 
-								    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
+								    	<input type="time" name="breakEnd" id="breakEnd1" required pattern="HH:MM" required/>
 									</div>
 								 </div>	
 							</div> 
