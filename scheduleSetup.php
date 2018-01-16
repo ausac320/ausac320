@@ -114,21 +114,23 @@ for the schedule organization.
 										<input type="number" name="presTimeSlot" placeholder ="25" required>
 									</label>
 								</div>
-							</div>	
-							<div id="input1" style="margin-bottom:4px;" class="clonedInput">
-					    		<div class="large-4 medium-4 small-4 columns">
-					    			Break Date
-							   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
-						 		</div>
-								<div class="large-4 medium-4 small-4 columns">
-							        Break Start Time: 
-							        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
-							    </div>
-							    <div class="large-4 medium-4 small-4 columns">    
-							    	Break End Time: 
-							    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
-								</div>
-							 </div>	
+							</div>
+							<div id ="breakTimes" name ="breakTimes">	
+								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
+						    		<div class="large-4 medium-4 small-4 columns">
+						    			Break Date
+								   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
+							 		</div>
+									<div class="large-4 medium-4 small-4 columns">
+								        Break Start Time: 
+								        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
+								    </div>
+								    <div class="large-4 medium-4 small-4 columns">    
+								    	Break End Time: 
+								    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
+									</div>
+								 </div>	
+							</div> 
 								<div>
 								    <input type="button" id="btnAdd" value="Add Break"/>
 							        <input type="button" id="btnDel" value="Remove Break"/>
@@ -170,29 +172,34 @@ for the schedule organization.
 -->
     	<script type="text/javascript">
         $(document).ready(function() {
+        	var breakList = ["1"];
             $('#btnAdd').click(function() {
                 var num     = $('.clonedInput').length ; // how many "duplicatable" input fields we currently have
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
- 
+                var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
+                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
+                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
+
                 // manipulate the name/id values of the input inside the new element
-                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
- 
+                newInput.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);				
+ 				//add the newElem to the list which will be used to print to text in php
+ 				breakList.push('input'+newNum);
                 // insert the new element after the last "duplicatable" input field
-                $('#input' + num).after(newElem); 
+                $('#input' + num).after(newInput); 
                 // enable the "remove" button
                 $('#btnDel').attr('disabled','');
  
                 // maximum number of breakTimes allowed
                 if (newNum == 10)
                     $('#btnAdd').attr('disabled','disabled');
-            });
- 
+            }); 
             $('#btnDel').click(function() {
                 var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
                 $('#input' + num).remove();     // remove the last element
+                breakList.pop();
+                console.log(breakList);
  
                 // enable the "add" button
                 $('#btnAdd').attr('disabled','');
@@ -217,6 +224,7 @@ for the schedule organization.
 			$presTimeSlot = "";
 			$regEndDate = "";
 			$abstractDeadline = "";
+			$breakTimes = "";
 			$breakDate = "";
 			$breakStart = "";
 			$breakEnd = "";
@@ -273,15 +281,20 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
+				foreach('#input'){
+					fwrite($file, $txt);
+					$txt = $breakDate." ";
+					fwrite($file, $txt);
+					$txt = $breakStart." ";
+					fwrite($file, $txt);
+					$txt = $breakEnd."\n";
+					fwrite($file, $txt);
+				}
+				/**
+				$txt= $breakTimes."\n"
 				fwrite($file, $txt);
-				//for ( $i=0; $i < newNum; $i++) {
-				$txt = $breakDate." ";
-				fwrite($file, $txt);
-				$txt = $breakStart." ";
-				fwrite($file, $txt);
-				$txt = $breakEnd."\n";
-				fwrite($file, $txt);
-				//}
+				*/
+
 				fclose($file);
 			}
 		?>
