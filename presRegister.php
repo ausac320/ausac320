@@ -69,7 +69,7 @@ Contained is a form for submitting presentation information to the "database" (i
 								<input name="OURStatus" type="radio" value="no" required>No
 							</div>
 							<textarea name="titleOfPresentation" placeholder="Title of presentation" rows="2" required></textarea> 
-							<textarea name="studentAbstract" placeholder="Student's abstract" rows="6" cols="30" wrap="hard"></textarea>
+							<textarea name="studentAbstract" placeholder="Student's abstract" rows="6"></textarea>
 							<input value="Submit Presentation" type="submit">
 						</form>
 					</div>
@@ -118,7 +118,7 @@ Contained is a form for submitting presentation information to the "database" (i
 		$studentAbstract = test_input($_POST["studentAbstract"]);
 		$fileName = "resources/submissionFolder/" . "$courseName" . "_" . "$studentName.csv";
 		
-		if (fopen($fileName, "x") == false){
+		if (@fopen($fileName, "x") == false){
 			echo "Submission Failed, presentation has been previously submitted.";
 		}
 		else {
