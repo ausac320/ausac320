@@ -29,7 +29,7 @@ function get_schedule_time(scheduleTimes){
 	$fileData = fread($file, filesize($file));
 	$fileDataArray = explode("\n", $fileData, strlen($fileData));
 	eventLength = fileDataArray[endTime] - fileDataArray[startTime];
-	timePeriods = eventLength / periodLength;
+	dailyPresentation = eventLength / periodLength;
 	fclose($file);
 	return timePeriods;
 }

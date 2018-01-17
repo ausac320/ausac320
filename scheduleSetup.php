@@ -115,7 +115,8 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-							<div class="row' id ="breakTimes" name ="breakTimes">	
+							<div id ="breakTimes" name ="breakTimes">	
+
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
@@ -131,12 +132,13 @@ for the schedule organization.
 									</div>
 								 </div>	
 							</div> 
+
 								<div class ="row" id="addFields">
 									<div class="large-6 medium-6 small-6 columns">
 								    	<input type="button" id="btnAdd" value="Add Break"/>
 							        	<input type="button" id="btnDel" value="Remove Break"/>
-							        </div>
-							    </div>			
+							     </div>
+							  </div>			
 							<div class="row" id="scheduleButton">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">
@@ -218,22 +220,7 @@ for the schedule organization.
 </html>
 
 		<?php
-			$termSelect = "";
-			$startDate = "";
-			$startTime = "";
-			$endDate = "";
-			$endTime = "";
-			$presTimeSlot = "";
-			$regEndDate = "";
-			$abstractDeadline = "";
-			$breakTimes = "";
-			$breakDate = "";
-			$breakStart = "";
-			$breakEnd = "";
-
-
 		function prepareData(){
-			
 				global $fileName;
 				$termSelect = test_input($_POST["termSelect"]);
 				$startDate = test_input($_POST["startDate"]);
@@ -283,7 +270,6 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
-				foreach('#input' as $key){
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
@@ -291,12 +277,6 @@ for the schedule organization.
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
-				}
-				/**
-				$txt= $breakTimes."\n"
-				fwrite($file, $txt);
-				*/
-
 				fclose($file);
 			}
 		?>
