@@ -64,7 +64,7 @@ Contained is a form for submitting presentation information to the "database" (i
 								<input name="presentationType" type="radio" value="music" required>Music
 							</div>
 							<div>
-								OURStatus:
+								Would you like to nominate the student for the Outstanding Undergraduate Research Award?:
 								<input name="OURStatus" type="radio" value="yes" required>Yes
 								<input name="OURStatus" type="radio" value="no" required>No
 							</div>
