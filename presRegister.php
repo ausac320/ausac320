@@ -98,15 +98,6 @@ Contained is a form for submitting presentation information to the "database" (i
 </html>
 
 <?php
-	$studentName = "";
-	$courseName = "";
-	$profName = "";
-	$presentationType = "";
-	$OURStatus = "";
-	$titleOfPresentation = "";
-	$studentAbstract = "";
-	$fileName = "";
-
 
 	function prepare_variables() {
 		$studentName = test_input($_POST["studentName"]);
