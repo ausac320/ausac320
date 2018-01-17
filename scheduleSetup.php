@@ -115,27 +115,25 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-							<div class="row" id ="breakTimes" name ="breakTimes">	
+							<div id ="breakTimes" name ="breakTimes">	
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
-								   		<input type="date" name="breakDate" id="breakDate1" required pattern="YYYY/MM/DD" max= "9999-12-31" min="1111-01-01" required/>
+								   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
 							 		</div>
 									<div class="large-4 medium-4 small-4 columns">
 								        Break Start Time: 
-								        <input type="time" name="breakStart" id="breakStart1" required pattern="HH:MM" required/>
+								        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
 								    </div>
 								    <div class="large-4 medium-4 small-4 columns">    
 								    	Break End Time: 
-								    	<input type="time" name="breakEnd" id="breakEnd1" required pattern="HH:MM" required/>
+								    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
 									</div>
 								 </div>	
 							</div> 
-								<div class ="row" id="addFields">
-									<div class="large-6 medium-6 small-6 columns">
-								    	<input type="button" id="btnAdd" value="Add Break"/>
-							        	<input type="button" id="btnDel" value="Remove Break"/>
-							        </div>
+								<div>
+								    <input type="button" id="btnAdd" value="Add Break"/>
+							        <input type="button" id="btnDel" value="Remove Break"/>
 							    </div>			
 							<div class="row" id="scheduleButton">
 								<div class="large-4 medium-4 small-4 columns">
@@ -182,7 +180,7 @@ for the schedule organization.
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
                 var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
-                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
+                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+ newNum);
 
                 // manipulate the name/id values of the input inside the new element
                 newInput.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);				
@@ -283,7 +281,11 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
+<<<<<<< HEAD
 				//foreach('#input' as $key){
+=======
+				foreach('#input'){
+>>>>>>> 97c4846781a2da8502f4a1d74598db12755c9ead
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
