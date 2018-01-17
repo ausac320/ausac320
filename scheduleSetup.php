@@ -216,20 +216,6 @@ for the schedule organization.
 </html>
 
 		<?php
-			$termSelect = "";
-			$startDate = "";
-			$startTime = "";
-			$endDate = "";
-			$endTime = "";
-			$presTimeSlot = "";
-			$regEndDate = "";
-			$abstractDeadline = "";
-			$breakTimes = "";
-			$breakDate = "";
-			$breakStart = "";
-			$breakEnd = "";
-
-
 		function prepareData(){
 			
 				global $fileName;
@@ -281,11 +267,7 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
-<<<<<<< HEAD
-				//foreach('#input' as $key){
-=======
-				foreach('#input'){
->>>>>>> 97c4846781a2da8502f4a1d74598db12755c9ead
+
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
@@ -293,11 +275,6 @@ for the schedule organization.
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
-				//}
-				/**
-				$txt= $breakTimes."\n"
-				fwrite($file, $txt);
-				*/
 
 				fclose($file);
 			}
