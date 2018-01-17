@@ -115,7 +115,12 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
+<<<<<<< HEAD
 							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
+=======
+							<div id ="breakTimes" name ="breakTimes">	
+
+>>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
@@ -135,6 +140,13 @@ for the schedule organization.
 								    <input type="button" id="btnAdd" value="Add Break"/>
 							        <input type="button" id="btnDel" value="Remove Break"/>
 							    </div>			
+
+								<div class ="row" id="addFields">
+									<div class="large-6 medium-6 small-6 columns">
+								    	<input type="button" id="btnAdd" value="Add Break"/>
+							        	<input type="button" id="btnDel" value="Remove Break"/>
+							     </div>
+							  </div>			
 							<div class="row" id="scheduleButton">
 								<div class="large-4 medium-4 small-4 columns">
 									<input id="scheduleSubmit" value="Submit" type="submit">
@@ -178,6 +190,11 @@ for the schedule organization.
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
+<<<<<<< HEAD
+=======
+                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
+                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
+>>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 
                 // manipulate the name/id values of the input inside the new element
                 newInput.children(':first').children(':first').attr('id', 'breakDate' + newNum).attr('name', 'breakDate' + newNum);
