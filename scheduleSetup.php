@@ -136,10 +136,6 @@ for the schedule organization.
 									</div>
 								 </div>	
 							</div> 
-								<div>
-								    <input type="button" id="btnAdd" value="Add Break"/>
-							        <input type="button" id="btnDel" value="Remove Break"/>
-							    </div>			
 
 								<div class ="row" id="addFields">
 									<div class="large-6 medium-6 small-6 columns">
@@ -229,7 +225,6 @@ for the schedule organization.
 
 		<?php
 		function prepareData(){
-			
 				global $fileName;
 				$termSelect = test_input($_POST["termSelect"]);
 				$startDate = test_input($_POST["startDate"]);
@@ -279,7 +274,10 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
+<<<<<<< HEAD
 				//$(".breakTimes")
+=======
+>>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
@@ -287,7 +285,6 @@ for the schedule organization.
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
-
 				fclose($file);
 			}
 		?>
