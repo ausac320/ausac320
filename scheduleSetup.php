@@ -283,7 +283,7 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
-				foreach('#input' as $key){
+				//foreach('#input' as $key){
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
@@ -291,7 +291,7 @@ for the schedule organization.
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
-				}
+				//}
 				/**
 				$txt= $breakTimes."\n"
 				fwrite($file, $txt);
