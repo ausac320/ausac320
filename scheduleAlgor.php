@@ -8,7 +8,7 @@ function create_schedule(){
 
 function create_schedule_matrix(scheduleTimes){
 	get_schedule_time(scheduleTimes);
-	$scheduleMatrix = array(timePeriods);
+	$scheduleMatrix = array(numOfPresentations);
 	while (i = 0; i > timePeriods; i++){
 		scheduleMatrix [i] = Array();
 	}
@@ -24,16 +24,33 @@ function create_submissions_array(scheduleTimes, submissionData){
 	fclose($file);
 }
 
+function fill_schedule_matrix(scheduleTimes, $scheduleMatrix, $submissionsArray){
+	get_schedule_time(scheduleTimes)
+	get_num_of_rooms(scheduleTimes)
+	while (i = 0; i > numOfPresentations; i++){
+		while(n = 0; n > numOfRooms; n++){
+			
+		}
+	}
+}
+
 function get_schedule_time(scheduleTimes){
 	$file = fopen(scheduleTimes, "r");
 	$fileData = fread($file, filesize($file));
 	$fileDataArray = explode("\n", $fileData, strlen($fileData));
 	eventLength = fileDataArray[endTime] - fileDataArray[startTime];
-	timePeriods = eventLength / periodLength;
+	numOfPresentations = eventLength / periodLength;
 	fclose($file);
-	return timePeriods;
+	return numOfPresentations;
 }
 
-function fill_schedule_matrix($scheduleMatrix, $submissionsArray )
+function get_num_of_rooms(scheduleTimes){
+	$file = fopen(scheduleTimes, "r");
+	$fileData = fread($file, filesize($file));
+	$fileDataArray = explode("\n", $fileData, strlen($fileData));
+	$numOfRooms = $fileDataArray[numOfRooms];
+	fclose($file);
+	return $numOfRooms;	 
+}
 
 ?>
