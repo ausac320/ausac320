@@ -1,8 +1,22 @@
 //Head Of File
 
+$('body').on('focus', '[contenteditable]', function() {
+    var $this = $(this);
+    $this.data('before', $this.html());
+    return $this;
+}).on('blur keyup paste input', '[contenteditable]', function() {
+    var $this = $(this);
+    if ($this.data('before') !== $this.html()) {
+        $this.data('before', $this.html());
+        $this.trigger('change');
+    }
+    return $this;
+});
+
 function grabData(){
 	$.ajax({
   	url: '/resources/data/testData.csv',
+  	//url: 'testsave.csv',
   	dataType: 'text',
 	}).done(createSubTable);
 }
@@ -158,7 +172,7 @@ function makeEdit(){
 	}
 }
 
-function tableToCSV(filename){
+function tableToCSV(){
 	var finalCSV = [];
 	var totalRows = document.querySelectorAll("table tr");
 	var tableRow = [];
@@ -179,22 +193,29 @@ function tableToCSV(filename){
 			for(var x = 0; x < tableColms.length - 2; x++){
 				tableRow.push(tableColms[x].innerHTML);
 			}
-			profName = tableColms[tableColms.length -1].innerHTML.slice(0, -2);;
+			//slide removes the new line at the end of prof name so it doesn't
+			//get written in.
+			profName = tableColms[tableColms.length -1].innerHTML.slice(0, -1);;
 		}
 
+		//i starts at 1 to avoid header row and we only want it so save 
+		//every other row starting at 2
 		if(i%2==0){
 			finalCSV.push(tableRow);
 			var tableRow = [];	
 		}
 	}
-
-	$.ajax({
-		type: 'POST',
-		data: 'finalCSV',
-		dataType: 'json',
-		url: 'createCSV.php',
-	});
-
-	alert("Changes Saved")
+	sendArrayToPHP(finalCSV);
 	window.location.href=window.location.href;
 }
+
+function sendArrayToPHP(data){
+
+	$.ajax({
+		type: "POST",
+		url: "createCSV.php",
+		data: {array : JSON.stringify(data)},
+		dataType: "json",
+	});
+}
+	

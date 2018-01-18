@@ -1,12 +1,16 @@
 <?php
-$csvFromPost = filter_input(INPUT_POST, 'finalCSV', FILTER_SANITIZE_STRING);
-$phpArray = json_decode($csvFromPost);
+$phpArray = json_decode($_POST['array']);
 
-$fp = fopen('testsave.csv', 'w');
+$fp = fopen('testsave.csv', 'w+');
 
 foreach($phpArray as $fields){
 	fputcsv($fp, $fields);
 }
 
 fclose($fp);
+
+//Supposed to be safer code but can't get it to work
+//
+//$csvFromPost = filter_input(INPUT_POST, 'array', FILTER_SANITIZE_STRING);
+//$phpArray = json_decode($csvFromPost);
 ?>
