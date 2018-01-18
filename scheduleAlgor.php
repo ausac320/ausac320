@@ -16,7 +16,7 @@ $submissionData = createSubmissionsArray($submissionDataFile);
 				$breakEndTime = 9*60;//break end @ 9:00
 				$numOfRooms = 5;
 				$oralPresRooms;
-				$fileName = "resources/submissionsFolder/TestMethod.txt";
+				$fileLocation = "resources/submissionsFolder/TestMethod.txt";
 
 
 /**
@@ -25,18 +25,21 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
-function createSubmissionsArray($fileName){
-
-	$openFile = fopen($fileName, "r");
+function createSubmissionsArray($dataFile){
+	global $submissionsData;
+	global $fileLocation;
+	$openFile = fopen($dataFile, "r");
+	$fileWrite = fopen($fileLocation, "w");
 	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
 	foreach($submissionData as &$Row){
 		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
 		//each parse in the row is have these attributes as follows:
 		// studentName || class || category || O.U.R || title || abstract || profName
 	}
+	fwrite($fileWrite, $submissionData);
+	fclose($fileWrite);
 	fclose($openFile);
-	return $submissionData;
-	echo $submissionData;
+	
 }
 
 
