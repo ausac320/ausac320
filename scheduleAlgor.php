@@ -7,9 +7,9 @@ All functions here will pertain to getting the data that is submitted and will
 organize it in a way that will be turned into a csv file that will represent the schedule. 
 */
 
-$filename = "scheduleTest.csv";
+$submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 $roomsArray = []; //global array where each index is a different room 
-$submissionData = createSubmissionsArray($fileName)
+$submissionData = createSubmissionsArray($submissionDataFile)
 
 /**
 csvToArray() takes the csv file (how we are storing without the use of a database)
