@@ -115,7 +115,13 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
+<<<<<<< HEAD
 							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
+=======
+
+							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
+
+>>>>>>> e8e3aee398c615a5f72525dac937c1b36b6d62f8
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
@@ -149,12 +155,11 @@ for the schedule organization.
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>
 		</div>
-			<?php
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				prepareData();
-			}
-			?>
-		
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			prepareData();
+		}
+		?>
 
 		<div class="footer">
 			Designed January 7th, 2018<br>
