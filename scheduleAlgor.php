@@ -1,6 +1,6 @@
 <?php
 
-function create_schedule(){
+function compile_schedule(){
 	create_schedule_matrix(scheduleTimes);
 	create_submissions_array(submissionData);
 	populate_schedule_matrix($scheduleMatrix, $submissionsArray);

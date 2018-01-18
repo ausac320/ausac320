@@ -146,10 +146,16 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 						</div> 
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns"></div>
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+						<li>
+				  			<a onclick="compile_schedule();">Compile Schedule</a>
+				  		</li>
+				  	</ul>
+				</div>
 			</div>	
 		</div>
-			
+
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
@@ -157,9 +163,9 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 
 
 		<script src="resources/js/vendor/jquery.js"></script>
-    <script src="resources/js/vendor/what-input.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="resources/js/app.js"></script>
+    	<script src="resources/js/app.js"></script>
 	</body>
 </html>
