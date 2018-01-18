@@ -7,7 +7,6 @@ organize it in a way that will be turned into a csv file that will represent the
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 $submissionData = createSubmissionsArray($submissionDataFile);
-				global $fileName;
 				$scheduleArray = []; //global array where each index is a different room 
 				$presLength = 5;
 				$eventStartTime = 6*60;//start @ 6:00
@@ -25,6 +24,16 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
+function createSubmissionsArray($fileName){
+	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
+	foreach($presentationReg as &$Row){
+		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
+		//each parse in the row is have these attributes as follows:
+		// studentName || class || category || O.U.R || title || abstract || profName
+	}
+	return $submissionData
+}
+
 
 __halt_compiler();
 
