@@ -70,5 +70,10 @@
     	<script src="resources/js/app.js"></script>
     	<script src="resources/js/editableSubTable.js"></script>
 
+    	<script type="text/javascript">
+      		grabData();
+    	</script>
+
+
 	</body>
 </html>

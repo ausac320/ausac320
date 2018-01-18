@@ -1,6 +1,6 @@
 function grabData(){
 	$.ajax({
-  	url: 'testData.csv',
+  	url: '/resources/data/testData.csv',
   	dataType: 'text',
 	}).done(createSubTable);
 }
