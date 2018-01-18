@@ -170,6 +170,7 @@ function tableToCSV(filename){
 		//Only grabs the actual abstract, not the word abstract
 		if(tableColms.length==2){
 			tableRow.push(tableColms[1].innerHTML);
+			tableRow.push(profName);
 		}
 		else{
 			//length - 2 is to remove the abstract yes/no so it 
@@ -177,7 +178,7 @@ function tableToCSV(filename){
 			for(var x = 0; x < tableColms.length - 2; x++){
 				tableRow.push(tableColms[x].innerHTML);
 			}
-			tableRow.push(tableColms[tableColms.length -1].innerHTML);
+			profName = tableColms[tableColms.length -1].innerHTML;
 		}
 
 		if(i%2==0){
@@ -185,7 +186,7 @@ function tableToCSV(filename){
 			var tableRow = [];	
 		}
 	}
-	finalCSV.push(csv.join("\n"));
+	finalCSV.push(csv.join(""));
 
 	downloadCSV(finalCSV, filename);
 }
