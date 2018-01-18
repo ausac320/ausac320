@@ -1,22 +1,8 @@
 //Head Of File
 
-$('body').on('focus', '[contenteditable]', function() {
-    var $this = $(this);
-    $this.data('before', $this.html());
-    return $this;
-}).on('blur keyup paste input', '[contenteditable]', function() {
-    var $this = $(this);
-    if ($this.data('before') !== $this.html()) {
-        $this.data('before', $this.html());
-        $this.trigger('change');
-    }
-    return $this;
-});
-
 function grabData(){
 	$.ajax({
-  	url: '/resources/data/testData.csv',
-  	//url: 'testsave.csv',
+  	url: 'testsave.csv',
   	dataType: 'text',
 	}).done(createSubTable);
 }
@@ -95,13 +81,20 @@ function createSubTable(data){
 			innerEle = document.createElement('td');
 			innerEle.className = "makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
-			innerEle.innerHTML = rowCells[i];
+			if(rowCells[i].charAt(0) == '"'){
+				innerEle.innerHTML = rowCells[i].slice(1, -1);
+			}
+			else{
+				innerEle.innerHTML = rowCells[i];
+			}
 			tabRow2.appendChild(innerEle);
 		}
 		//Abstract Display Yes/no
 		innerEle = document.createElement('td');
 		innerEle.className = "format";
-		if(rowCells[i].length > 1){
+		//Empty last still have ""\ from the csv file
+		//use i since i iterates to abstract and then stops in for loop
+		if(rowCells[i].length > 3){
 			innerEle.innerHTML = "Yes";
 		}
 		else{
@@ -112,7 +105,12 @@ function createSubTable(data){
 		//Creates hidden prof so that we can save the values for csv write to
 		innerEle = document.createElement('td');
 		innerEle.className = "hidden";
-		innerEle.innerHTML = rowCells[rowCells.length - 1];
+		if(rowCells[rowCells.length -1].charAt(0) == '"'){
+			innerEle.innerHTML = rowCells[rowCells.length - 1].slice(1, -1);
+		}
+		else{
+			innerEle.innerHTML = rowCells[rowCells.length - 1];
+		}
 		tabRow2.appendChild(innerEle);
 		//----------------------------------
 
@@ -121,6 +119,7 @@ function createSubTable(data){
 		/** Create invisible abstract display row */
 		innerRow = document.createElement('tr');
 
+		//Abstract Title
 		innerEle = document.createElement('td');
 		innerEle.className = "abstractTitle";
 		innerEle.setAttribute("colspan", "1");
@@ -128,11 +127,17 @@ function createSubTable(data){
 		innerEle.innerHTML = "Abstract:";
 		innerRow.appendChild(innerEle);
 
+		//Abstract 
 		innerEle = document.createElement('td');
 		innerEle.className = "changeDisplay";
 		innerEle.setAttribute("colspan", "5");
 		innerEle.setAttribute("style", " display: none");
-		innerEle.innerHTML = rowCells[i];
+		if(rowCells[i].charAt(0) == '"'){
+			innerEle.innerHTML = rowCells[i].slice(1, -1);
+		}
+		else{
+			innerEle.innerHTML = rowCells[i];
+		}
 		innerRow.appendChild(innerEle);
 		//------------------------
 
@@ -158,6 +163,9 @@ function makeEdit(){
 		edit[x].setAttribute("contenteditable", "true");
 		edit[x].style.border = "1px solid #1779ba";
 		edit[x].style.backgroundColor = "#d7ecfa";
+		edit[x].addEventListener("input", function(){
+			edit[x].value = edit[x].innerHTML;
+		});
 	}
 	var abstractDisplay = document.getElementsByClassName('changeDisplay');
 	for(var i=0; i<abstractDisplay.length; i++){
