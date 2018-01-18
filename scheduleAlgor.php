@@ -6,51 +6,10 @@
 */
 
 $filename = "scheduleTest.csv";
-$csvArray = ImportCSV2Array($filename);
-foreach ($csvArray as $row){
-    echo $row['profName'];
-    echo $row['studentName'];
-    echo $row['class'];
-    echo $row['category'];
-    echo $row['oUR'];
-    echo $row['title'];
-    echo $row['abstract'];
-	}
-
-/**
-openCSV code was written with the help of this page: http://www.oodlestechnologies.com/blogs/Converting-CSV-file-into-an-Array-in-PHP
-*/
-	function openCSV($fileToOpen){
-    $row = 0;
-    $col = 0;
-    $fileHandler = @fopen($filename, "r");
-    if ($fileHandler) 
-    {
-        while (($row = fgetcsv($fileHandler, 4096)) !== false) 
-        {
-            if (empty($fields)) 
-            {
-                $fields = $row;
-                continue;
-            }
- 
-            foreach ($row as $k=>$value) 
-            {
-                $results[$col][$fields[$k]] = $value;
-            }
-            $col++;
-            unset($row);
-        }
-        if (!feof($fileHandler)) 
-        {
-            echo "Error: unexpected fgets() failn";
-        }
-        fclose($fileHandler);
-    }
-    //This is where the next function will be called......
-    return $results;
+$Data = str_getcsv($fileName, "\n"); //parse the rows 
+foreach($Data as &$Row){
+	$Row = str_getcsv($Row, ";"); //parse the items in rows 
 }
-
 
 
 
