@@ -32,29 +32,33 @@ function createSubTable(data){
 	table.setAttribute("style", "width:100%")
 	tabRow1 = document.createElement('tr');
 	tabRow1.className = "success callout ";
-	var rowCells = allRows[0].split(',');
-	for(var i=0; i<rowCells.length; i++){
+	for(var i=0; i<6; i++){
 		head = document.createElement('th');
-		head.innerHTML = rowCells[i];
 		head.className = "format";
 		tabRow1.appendChild(head);
 		switch(i){
 				case 0:
+					head.innerHTML = "Name";
 					head.setAttribute("style", "width:20%");
 					break;
 				case 1:
+					head.innerHTML = "Class";
 					head.setAttribute("style", "width:12%");
 					break;
 				case 2:
+					head.innerHTML = "Type";
 					head.setAttribute("style", "width:8%");
 					break;
 				case 3:
+					head.innerHTML = "O.U.R.";
 					head.setAttribute("style", "width:10%");
 					break;
 				case 4:
+					head.innerHTML = "Title";
 					head.setAttribute("style", "width:40%");
 					break;
 				case 5:
+					head.innerHTML = "Abstract";
 					head.setAttribute("style", "width:10%");
 					break;
 			}
@@ -64,7 +68,7 @@ function createSubTable(data){
 	//Added -1 to allRows.length because with the .split("\n") there is a 
 	//hidden row at the bottom that it grabs and ends up creating an extra
 	//'tr'
-	for(var x=1; x<allRows.length - 1; x++){
+	for(var x=0; x<allRows.length - 1; x++){
 		tabRow2 = document.createElement('tr');
 		rowCells = allRows[x].split(',');
 
