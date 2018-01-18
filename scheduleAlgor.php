@@ -12,7 +12,7 @@ $roomsArray = []; //global array where each index is a different room
 $submissionData = createSubmissionsArray($submissionDataFile)
 
 /**
-csvToArray() takes the csv file (how we are storing without the use of a database)
+createSubmissionArray() takes the csv file (how we are storing without the use of a database)
 and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
