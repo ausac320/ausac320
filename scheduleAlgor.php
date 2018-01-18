@@ -47,84 +47,66 @@ function testMethod(){
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
 
-		for($i=0; $i < count($submissionsArray); $i++){
-			if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
-				timeCalculator($submissionsArray[$i], 0, );
-			}
-			if($submissionArray[$i][2] === "Poster" or "Art"){
-				timeCalculator($submissionsArray[$i], 1);
+	for($i=0; $i < count($submissionsArray); $i++){
+		if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
+			schedulePlacement($submissionsArray[$i], 0, );
+		}
+		if($submissionArray[$i][2] == "Poster" or "Art"){
+			schedulePlacement($submissionsArray[$i], 1);
+		}
+		elseif($submissionArray[$i][2] == "Drama"){
+			schedulePlacement($submissionsArray[$i], 2);
 
-			}
-			elseif($submissionArray[$i][2] === "Drama"){
-				timeCalculator($submissionsArray[$i], 2);
+		}
+		else{//General oral Presentations go here
 
-			}
-			else{//this else will place all other presentations into the other rooms accordingly........ so we will work on this else structure together and then we will do schedule presentation together
-				//we will create a new function that does the calculation for the rooms for the Oral presentations
-				
-				while ($presEndTime < $breakStartTime){ #while the end of presentations for the first set is before the end of the event
-					if ($i > 0) { #checks to see if there is presentation before it.
-						if ($submissionsArray[$i][6] === $submissionsArray[$i-1][6]){ #checks to see if prev prof is same as current
-							schedulePresentation($submissionsArray[$i], 1 );
-							break; #stops since there are no more submissions, the schedule is complete!
-						}//if
-						else{ #since there is still a professor's submission array, schedule a presentation
-							schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-						}//else
-					}//if
-					else{ #since the professor's submission array isnt empty, schedule a presentation
-						schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-					}//else	
-				}//while
+					
 			}//else
 		}//forLoop
 }//placeInRoom
 
 
 
-// 1 === Poster / Art 2 == Drama
-function timeCalculator($presentationInfo, $roomNumber){
+function schedulePlacement($presentationInfo, $roomNumber){
 	global $scheduleArray;
 	global $eventStartTime;
+	global $eventEndTime;
 	global $presLength;
 	global $breakStartTime;
 	global $breakEndTime;
-	$numOfPres = count($scheduleArray[$roomNumber]);
-	$prevPresEnd = ($numOfPres*$presLength) + $eventStartTime;
-	$presEndTime = $lastPresEnd + $presLength
+	$prevPresRef = count($scheduleArray[$roomNumber][]) -1;
+	if($prevPresRef == 0){//if it's first element in the presentation listing
+		$presentationInfo[] = $presentationStartTime;
+		$presentationInfo[] = $presentationStartTime + $presLength;
+	}
+	$prevPresEndTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
+	$presEndTime = $prevPresEndTime + $presLength
 
 
-	if($lastPresEnd < $breakStartTime){
+	elseif($prevPresEndTime < $breakStartTime){//before the break
 		if( $presEndTime > $breakStartTime){//runs into the break - set to after the break
-			$scheduleArray[$roomNumber][] = array("Break Time", ($breakEndTime - $breakStartTime));//enter the Break Time
-			$presentationStartTime = $breakStartTime;
+			$scheduleArray[$roomNumber][] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
+			$presentationStartTime = $breakEndTime;
 			$presentationInfo[] = $presentationStartTime;
 			$presentationInfo[] = $presentationStartTime + $presLength;
-			$scheduleArray[$roomNumber] = 
-
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+		}
+		else{//it can go before the break
+			$presentationInfo[] = $presentationStartTime;
+			$presentationInfo[] = $presentationStartTime + $presLength;
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put the presentation into the proper room.
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-	if($roomNumber === 0){//OUR Presentation
-		$scheduleArray[$roomNumber] = $presentationInfo;
-	}
-	elseif($roomNumber === 1){
-		$scheduleArray[$roomNumber] = $presentationInfo;
-	}
-	elseif($roomNumber === 3){
-		$scheduleArray[$roomNumber] = $presentationInfo;
-	}
-	else{
-
+	else{//After the break
+		$presentationStartTime = $prevPresEndTime;
+		if($presentationStartTime+$presLength < $eventEndTime){//before the end of the presentation end time
+			$presentationInfo = $presentationStartTime;
+			$presentationInfo = $presentationStartTime + $presLength;
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+		}
+		else{//put into the listing of conflicts
+			$scheduleArray[4][] = $presentationInfo;
+		}
 	}
 }
 
