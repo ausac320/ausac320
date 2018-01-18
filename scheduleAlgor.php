@@ -6,6 +6,7 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
+
 $submissionData = createSubmissionsArray($submissionDataFile);
 				$scheduleArray = []; //global array where each index is a different room 
 				$presLength = 5;
@@ -15,7 +16,7 @@ $submissionData = createSubmissionsArray($submissionDataFile);
 				$breakEndTime = 9*60;//break end @ 9:00
 				$numOfRooms = 5;
 				$oralPresRooms;
-				$fileName = "resources/submissionsFolder/TestMethod2.txt";
+				$fileName = "resources/submissionsFolder/TestMethod.txt";
 
 
 /**
@@ -25,12 +26,15 @@ When moving through all the elements of $presentationReg those are all the prese
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
 function createSubmissionsArray($fileName){
+
+	$openFile = fopen($fileName, "r");
 	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
 	foreach($submissionData as &$Row){
 		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
 		//each parse in the row is have these attributes as follows:
 		// studentName || class || category || O.U.R || title || abstract || profName
 	}
+	fclose($openFile);
 	return $submissionData;
 	echo $submissionData;
 }
@@ -116,9 +120,9 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		}
 		else{//what will happen if it doesn't fit.
 			if ($roomNumber > 3) {//this is oral presentations that don't fit.
-				if(count($scheduleArray)-1 > $oralPresRooms){//there is a new room to go in
-					$oralPresRooms+= 1;
-					schedulePlacement($presentationInfo, $oralPresRooms);
+			global $numOfRooms;
+				if($roomNumber-4 < $numOfRooms ){//there is a new room to go in
+					schedulePlacement($presentationInfo, $roomNumber+=1);
 				}//if
 			}//if
 			else{//can't resolve... Send to the Conflicts Array
