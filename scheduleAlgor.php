@@ -33,27 +33,41 @@ function createSubmissionsArray($fileName){
 }
 
 //placing the presentation into the "room"
-function scheduleOrder($breakStartTime, $breakEndTime, $eventStartTime, $eventEndTime, $presLength, $numOfRooms, $scheduleArray, $submissionsArray){
+function placeInRoom($submissionsArray){
 	while ($roomNumber = 4; $roomNumber < ($numOfRooms + 4); $roomNumber ++) {# while there is still rooms
 		$presEndTime = $startTime + $presLength; #reset the time each time the next room is selected
-		for($i=0; $i < submissionsArray.length()){
-			while ($presEndTime < $breakStartTime){ #while the end of presentations for the first set is before the end of the event
-				if ($submissionsArray[0][6] == null) { #checks to see if the professor's submission array is empty
-					array_shift($submissionsArray); #removes the professor array
-					if ($submissionsArray[0] == null){ #checks to see if there are any professor submission arrays
-						export_schedule($scheduleMatrix);
-						break; #stops since there are no more submissions, the schedule is complete!
-					}
-					else{ #since there is still a professor's submission array, schedule a presentation
-						schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-					}
-				}
-				else{ #since the professor's submission array isnt empty, schedule a presentation
-					schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-				}
+		for($i=0; $i < $submissionsArray.length(); $i++){
+			if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
+				schedulePresentation($submissionsArray[$i], 1, );
 			}
-		}
-	}
+			if($submissionArray[$i][2] === "Poster" or "Art"){
+				schedulePresentation($submissionsArray[$i], 0);
+
+			}
+			elseif($submissionArray[$i][2] === "Drama"){
+				schedulePresentation($submissionsArray[$i], 3);
+
+			}
+			else{//this else will place all other presentations into the other rooms accordingly........ so we will work on this else structure together and then we will do schedule presentation together
+				//we will create a new function that does the calculation for the rooms for the Oral presentations
+				
+				while ($presEndTime < $breakStartTime){ #while the end of presentations for the first set is before the end of the event
+					if ($i > 0) { #checks to see if there is presentation before it.
+						if ($submissionsArray[$i][6] == $submissionsArray[$i-1][6]){ #checks to see if prev prof is same as current
+							schedulePresentation($submissionsArray[$i], 1 );
+							break; #stops since there are no more submissions, the schedule is complete!
+						}//if
+						else{ #since there is still a professor's submission array, schedule a presentation
+							schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
+						}//else
+					}//if
+					else{ #since the professor's submission array isnt empty, schedule a presentation
+						schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
+					}//else	
+				}//while
+			}//else
+		}//forLoop
+	}//while
 	if ($submissionsArray[0] != null){ #since there are submissions yet to be scheduled, the schedule creation has failed
 		echo "Schedule creation failed, not enough time, or rooms granted."
 	}
@@ -63,14 +77,9 @@ function scheduleOrder($breakStartTime, $breakEndTime, $eventStartTime, $eventEn
 
 
 
-function schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength){
+function schedulePresentation($presentationInfo, $roomNumber, $presEndTime, $presLength){
 	$submissionData = array_shift($submissionsArray);
-	if($submissionData[Type] == "Poster" or $submissionData[Type] == "Art"){ #Art and Posters go in the forum, "room 0"
-		array_push($scheduleMatrix[0], $submissionData);
-	}
-	elseif ($submissionData[OURStatus] == "Yes") { #OUR events go in the board room, "room 1"
-		array_push($scheduleMatrix[1], $submissionData);
-	}
+
 	elseif ($submissionData[Type] == "Drama") { #Drama goes a theatre, "room 3"
 		array_push($scheduleMatrix[3], $submissionData);
 	}
