@@ -1,3 +1,12 @@
+<!--
+AUCSC 320 - Augustana Student Academic Conference
+
+Documentation by Sheldon Grundberg on January 12, 2018
+
+userpage.php is the page that displays after the user sucessfully logs in. This page will also be displayed when users click the "Home" button of the navigation column
+
+Contained on this page is a chart and a text box. The chart is our "schedule" and is there primarily for showcasing U.I. elements as it has no logic implemented currently. The text box is our "Warning and Deadlines" banner, it is a text box for displaying information pertaining to the deadlines of the SAC, currently the text has to be modified by code, but in future versions the admin should have an edit button for the box.
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -44,6 +53,17 @@
 					<h4>
 						User's Name Displays Here
 					</h4>
+					<div id="importantDisplay"> 
+						Deadlines and Important Dates:
+						<ul>
+							<li>
+								Prototype Deadline - January 12, 2018
+							</li>
+							<li>
+								Final Product - January 19, 2018
+							</li>
+						</ul>
+					</div>
 					<div class="schedule">
 						<div>
 							<div class="row">
@@ -125,17 +145,6 @@
 							</div>
 						</div> 
 					</div>
-					<div id="importantDisplay"> 
-						Deadlines and Important Dates:
-						<ul>
-							<li>
-								Prototype Deadline - January 12, 2018
-							</li>
-							<li>
-								Final Product - January 19, 2018
-							</li>
-						</ul>
-					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
@@ -146,7 +155,11 @@
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+
+		<script src="resources/js/vendor/jquery.js"></script>
+    <script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="resources/js/app.js"></script>
 	</body>
 </html>

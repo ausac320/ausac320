@@ -54,87 +54,7 @@
 				  		</li>
 					</ul>
 				</div>
-				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns">
-					<div class="row">
-						<div id="subHead" class="large-4 medium-4 small-4 columns">
-							<h4>Submissions</h4>
-						</div>
-						<div id="editSubs" class="large-2 medium-2 small-2 columns">
-							<a class="button success small expanded" href="presRegister.php">Edit Submissions</a>
-						</div>					
-					</div>
-					<div class="row">
-						<table>
-							<thead>
-								<tr>
-							     	<th width="200">Name</th>
-							        <th width="100">Student Number</th>
-							        <th width="100">Class</th>
-							        <th>Title</th>
-							        <th width="100">Abstract Submitted</th>
-							    </tr>
-							</thead>
-							<tbody>
-							   	<tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSC 401</td>
-							      	<td>My Practicum and How It Affected My Professional Career</td>
-							      	<td>Yes</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSC 450</td>
-							      	<td>Database System Implementation And How To Properly Maintain</td>
-							      	<td>Yes</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							    <tr>
-							    	<td>Connor Maschke</td>
-							      	<td>1487593</td>
-							      	<td>AUCSL 461</td>
-							      	<td>Leadership In An Electronic Marketplace</td>
-							      	<td>No</td>
-							    </tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns"></div>					
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
 		</div>
@@ -144,7 +64,15 @@
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="resources/js/vendor/jquery.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+    	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableSubTable.js"></script>
+
+    	<script type="text/javascript">
+      		grabData();
+    	</script>
+
 	</body>
 </html>
