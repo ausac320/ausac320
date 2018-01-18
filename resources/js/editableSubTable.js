@@ -93,6 +93,13 @@ function createSubTable(data){
 		}
 		tabRow2.appendChild(innerEle);
 		//------------------------
+		//Creates hidden prof so that we can save the values for csv write to
+		innerEle = document.createElement('td');
+		innerEle.className = "hidden";
+		innerEle.innerHTML = rowCells[rowCells.length - 1];
+		tabRow2.appendChild(innerEle);
+		//----------------------------------
+
 		table.appendChild(tabRow2);
 		
 		/** Create invisible abstract display row */
@@ -154,6 +161,7 @@ function tableToCSV(filename){
 	var csv = [];
 	var totalRows = document.querySelectorAll("table tr");
 	var tableRow = [];
+	var profName;
 
 	for(var i = 1; i < totalRows.length; i++){
 		
@@ -164,11 +172,12 @@ function tableToCSV(filename){
 			tableRow.push(tableColms[1].innerHTML);
 		}
 		else{
-			//length - 1 is to remove the abstract yes/no so it 
-			//doesn't get added to submission
-			for(var x = 0; x < tableColms.length - 1; x++){
+			//length - 2 is to remove the abstract yes/no so it 
+			//doesn't get added to submission and the professors name
+			for(var x = 0; x < tableColms.length - 2; x++){
 				tableRow.push(tableColms[x].innerHTML);
 			}
+			tableRow.push(tableColms[tableColms.length -1].innerHTML);
 		}
 
 		if(i%2==0){

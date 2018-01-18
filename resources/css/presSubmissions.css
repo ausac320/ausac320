@@ -63,3 +63,7 @@ td.abstractTitle{
 	text-align: center;
 	background-color: #fff;
 }
+
+td.hidden{
+	display: none;
+}
