@@ -48,7 +48,7 @@ function schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, 
 
 function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$studentConflict = false;
-	$studentName = 0; #This is because the student name is stored constantly in the second element 
+	$studentName = 0; #This is because the student name is stored constantly in the first element 
 	while ($compareRoom = 4; $compareRoom > ($numOfRooms + 4); $compareRoom++) { #since our booked rooms start at 4
 		if($scheduleMatrix[$roomNumber][$presEndTime][$studentName] == $scheduleMatrix[$compareRoom][$presEndTime][$studentName]
 		and $roomNumber != $compareRoom){ #If the student is the same in the two presentations and they arent the same one
@@ -65,7 +65,7 @@ function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, 
 
 function check_for_prof_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$profConflict = false;
-	$profName = 5; #This is because like our student name, the professor name is constantly stored in the first element
+	$profName = 5; #This is because like our student name, the professor name is constantly stored in the last element
 	while ($compareRoom = 4; $compareRoom > ($numOfRooms + 4); $compareRoom++) {
 		if($scheduleMatrix[$roomNumber][$presEndTime][$profName] == $scheduleMatrix[$compareRoom][$presEndTime][$profName]
 		and $roomNumber != $compareRoom){ #If the professor is the same in the two presentations and they arent the same one
