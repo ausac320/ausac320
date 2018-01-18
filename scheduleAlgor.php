@@ -1,5 +1,10 @@
 <?php
 
+function openFile(){
+	$file= fopen("resources/submissionFolder/$fileTitle.txt");
+	echo "file has been opened";
+}
+
 function create_schedule(){
 	create_schedule_matrix(scheduleTimes);
 	create_submissions_array(submissionData);

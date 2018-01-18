@@ -115,12 +115,9 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-<<<<<<< HEAD
-							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
-=======
-							<div id ="breakTimes" name ="breakTimes">	
 
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
+							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
+
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
@@ -154,12 +151,17 @@ for the schedule organization.
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>
 		</div>
-			<?php
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				prepareData();
-			}
-			?>
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			prepareData();
+		}
+		?>
 		
+		<div class="row">
+			<?php
+			openFile();
+			?>
+		</div>
 
 		<div class="footer">
 			Designed January 7th, 2018<br>
@@ -186,11 +188,6 @@ for the schedule organization.
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
-<<<<<<< HEAD
-=======
-                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
-                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 
                 // manipulate the name/id values of the input inside the new element
                 newInput.children(':first').children(':first').attr('id', 'breakDate' + newNum).attr('name', 'breakDate' + newNum);
@@ -274,10 +271,6 @@ for the schedule organization.
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
-<<<<<<< HEAD
-				//$(".breakTimes")
-=======
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 					fwrite($file, $txt);
 					$txt = $breakDate." ";
 					fwrite($file, $txt);
