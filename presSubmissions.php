@@ -74,7 +74,5 @@
       		grabData();
     	</script>
 
-    	<button class="button" onclick="tableToCSV('members.csv')">Export HTML Table To CSV File</button>
-
 	</body>
 </html>
