@@ -115,12 +115,7 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-<<<<<<< HEAD
 							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
-=======
-							<div id ="breakTimes" name ="breakTimes">	
-
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
@@ -186,11 +181,6 @@ for the schedule organization.
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
-<<<<<<< HEAD
-=======
-                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
-                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 
                 // manipulate the name/id values of the input inside the new element
                 newInput.children(':first').children(':first').attr('id', 'breakDate' + newNum).attr('name', 'breakDate' + newNum);
@@ -265,23 +255,19 @@ for the schedule organization.
 				fwrite($file, $txt);
 				$txt = $abstractDeadline."\n";
 				fwrite($file, $txt);
-				$txt = $startDate." ";
+				$txt = $startDate.",";
 				fwrite($file, $txt);
 				$txt = $startTime."\n";
 				fwrite($file, $txt);
-				$txt = $endDate." ";
+				$txt = $endDate.",";
 				fwrite($file, $txt);
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
-<<<<<<< HEAD
-				//$(".breakTimes")
-=======
->>>>>>> a94091db8956862186d35449b0cca94dc5d1330f
 					fwrite($file, $txt);
-					$txt = $breakDate." ";
+					$txt = $breakDate.",";
 					fwrite($file, $txt);
-					$txt = $breakStart." ";
+					$txt = $breakStart.",";
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
