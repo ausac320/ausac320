@@ -6,8 +6,14 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-$roomsArray = []; //global array where each index is a different room 
+$scheduleArray = []; //global array where each index is a different room 
 $submissionData = createSubmissionsArray($submissionDataFile)
+$presLength = 5;
+$eventStartTime = 6*60;//start @ 6:00
+$eventEndTime = 10*60;//end @ 10:00
+$breakStartTime = 8*60;//break start @ 8:00
+$breakEndTime = 9*60;//break end @ 9:00
+$numOfRooms = 5;
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -26,23 +32,25 @@ function createSubmissionsArray($fileName){
 	return $submissionData
 }
 
-
-function populate_schedule($startTime, $endTime, $presLength, $numOfRooms, $scheduleMatrix, $submissionsArray){
-	while ($roomNumber = 4; $roomNumber > ($numOfRooms + 4); $roomNumber ++) {# while there is still rooms
+//placing the presentation into the "room"
+function scheduleOrder($breakStartTime, $breakEndTime, $eventStartTime, $eventEndTime, $presLength, $numOfRooms, $scheduleArray, $submissionsArray){
+	while ($roomNumber = 4; $roomNumber < ($numOfRooms + 4); $roomNumber ++) {# while there is still rooms
 		$presEndTime = $startTime + $presLength; #reset the time each time the next room is selected
-		while ($presEndTime > $eventEndTime){ #while the end of the presentation is before the end of the event
-			if ($submissionsArray[0][0] == null) { #checks to see if the professor's submission array is empty
-				array_shift($submissionsArray); #removes the professor array
-				if ($submissionsArray[0] == null){ #checks to see if there are any professor submission arrays
-					export_schedule($scheduleMatrix);
-					break; #stops since there are no more submissions, the schedule is complete!
+		for($i=0; $i < submissionsArray.length()){
+			while ($presEndTime < $breakStartTime){ #while the end of presentations for the first set is before the end of the event
+				if ($submissionsArray[0][6] == null) { #checks to see if the professor's submission array is empty
+					array_shift($submissionsArray); #removes the professor array
+					if ($submissionsArray[0] == null){ #checks to see if there are any professor submission arrays
+						export_schedule($scheduleMatrix);
+						break; #stops since there are no more submissions, the schedule is complete!
+					}
+					else{ #since there is still a professor's submission array, schedule a presentation
+						schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
+					}
 				}
-				else{ #since there is still a professor's submission array, schedule a presentation
+				else{ #since the professor's submission array isnt empty, schedule a presentation
 					schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
 				}
-			}
-			else{ #since the professor's submission array isnt empty, schedule a presentation
-				schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
 			}
 		}
 	}
@@ -50,6 +58,10 @@ function populate_schedule($startTime, $endTime, $presLength, $numOfRooms, $sche
 		echo "Schedule creation failed, not enough time, or rooms granted."
 	}
 }
+
+
+
+
 
 function schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength){
 	$submissionData = array_shift($submissionsArray);
@@ -68,6 +80,13 @@ function schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, 
 		return $presEndTime;
 	}
 }
+
+
+
+
+
+
+
 
 function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$studentConflict = false;
