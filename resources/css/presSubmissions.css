@@ -58,3 +58,8 @@ button#editButton{
 button.round, .button.round {
     border-radius: 1000px; 
 }
+
+td.abstractTitle{
+	text-align: center;
+	background-color: #fff;
+}
