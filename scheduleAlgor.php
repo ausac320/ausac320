@@ -26,30 +26,26 @@ Within that the $Row will have all the information pertaining to that presentati
 */
 
 function createSubmissionsArray($dataFile, $fileLocation){
-	$row=1;
 	$fileWrite = fopen($fileLocation, "w+");
 
-	if (($openFile = fopen($dataFile, "r")) !== FALSE) {
+	if (($subData = fopen($dataFile, "r")) !== FALSE) {
 
-    while (($data = fgetcsv($openFile, "")) !== FALSE) {
+    while (($data = fgetcsv($subData, "")) !== FALSE) {
         foreach($data as &$Row){ //$Row is the variable
         $rowData = str_getcsv($Row, "/"); //parse the items in rows (all the data for each registered submission)
     	}//foreach
-    	$num = count($data);
-        echo "<p> $num fields in column $Row: <br /></p>\n";
-        $row++;
-        for ($c=0; $c < $num; $c++) {
+    	$num = count($Row);
+        for ($c=0; $c < $row; $c++) {
             fwrite($fileWrite, $data[$c]);
         }//for
     }//while
- 	fclose($openFile);
+ 	fclose($subData);
     fclose($fileWrite);
 }//if
-}//createSubmissionsArray
 
 
+/**
 
-	/**
 	$submissionData = str_getcsv($dataFile, "\n"); //parse the rows (every registered submission)
 	foreach($submissionData as &$Row){
 		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
@@ -59,9 +55,8 @@ function createSubmissionsArray($dataFile, $fileLocation){
 	fwrite($fileWrite, $submissionData);
 	fclose($fileWrite);
 	fclose($openFile);
-	
-}
-
+	*/
+}//createSubmissionsArray
 
 function testMethod(){
 	global $submissionsData;
