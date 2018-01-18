@@ -7,16 +7,17 @@ organize it in a way that will be turned into a csv file that will represent the
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 $submissionData = createSubmissionsArray($submissionDataFile);
-testMethod();
-$scheduleArray = []; //global array where each index is a different room 
+				global $fileName;
+				$scheduleArray = []; //global array where each index is a different room 
+				$presLength = 5;
+				$eventStartTime = 6*60;//start @ 6:00
+				$eventEndTime = 10*60;//end @ 10:00
+				$breakStartTime = 8*60;//break start @ 8:00
+				$breakEndTime = 9*60;//break end @ 9:00
+				$numOfRooms = 5;
+				$oralPresRooms;
+				$fileName = "resources/submissionsFolder/TestMethod2.txt"
 
-$presLength = 5;
-$eventStartTime = 6*60;//start @ 6:00
-$eventEndTime = 10*60;//end @ 10:00
-$breakStartTime = 8*60;//break start @ 8:00
-$breakEndTime = 9*60;//break end @ 9:00
-$numOfRooms = 5;
-$oralPresRooms;
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -24,28 +25,19 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
-function createSubmissionsArray($fileName){
 
-	$presReg = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
-	foreach($presReg as &$Row){
-		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
-		//each parse in the row is have these attributes as follows:
-		// studentName || class || category || O.U.R || title || abstract || profName
-	}
-	return $presReg;
-}
+__halt_compiler();
+
 
 function testMethod(){
 	global $submissionsData;
-	$fileName = "resources/submissionsFolder/TestMethod2.txt"
-	$myFile = fopen ($fileName, w+);
+	$file = fopen($fileName, "w+");
 	$results = print_r($submissionsData,true);
 	
 	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($b, true));
 	
 	fclose($myFile);
 }
-__halt_compiler();
 
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
