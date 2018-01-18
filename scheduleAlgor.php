@@ -6,9 +6,10 @@
 */
 
 $filename = "scheduleTest.csv";
-$Data = str_getcsv($fileName, "\n"); //parse the rows 
-foreach($Data as &$Row){
-	$Row = str_getcsv($Row, ";"); //parse the items in rows 
+
+$presentationReg = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
+foreach($presentationReg as &$Row){
+	$Row = str_getcsv($Row, ",", " "); //parse the items in rows (all the data for each registered submission)
 }
 
 
