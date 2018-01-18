@@ -15,7 +15,7 @@ $submissionData = createSubmissionsArray($submissionDataFile);
 				$breakEndTime = 9*60;//break end @ 9:00
 				$numOfRooms = 5;
 				$oralPresRooms;
-				$fileName = "resources/submissionsFolder/TestMethod2.txt"
+				$fileName = "resources/submissionsFolder/TestMethod2.txt";
 
 
 /**
@@ -26,26 +26,31 @@ Within that the $Row will have all the information pertaining to that presentati
 */
 function createSubmissionsArray($fileName){
 	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
-	foreach($presentationReg as &$Row){
+	foreach($submissionData as &$Row){
 		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
 		//each parse in the row is have these attributes as follows:
 		// studentName || class || category || O.U.R || title || abstract || profName
 	}
-	return $submissionData
+	return $submissionData;
+	echo $submissionData;
 }
-
-
-__halt_compiler();
 
 
 function testMethod(){
 	global $submissionsData;
-	$file = fopen($fileName, "w+");
+	if (fopen($fileName, "x") == false){
+		echo "Submission Failed";
+	}
+	else {
+		create_file($submissionsData);
+		echo "Submission Successful";
+	}
+	$file = fopen($fileName, 'w+');
 	$results = print_r($submissionsData,true);
 	
-	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($b, true));
+	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($results, true));
 	
-	fclose($myFile);
+	fclose($file);
 }
 
 //placing the presentation into the "room"
@@ -54,7 +59,7 @@ function placeInRoom($submissionsArray){
 	$oralPresRooms = 4;
 	for($i=0; $i < count($submissionsArray); $i++){
 		if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
-			schedulePlacement($submissionsArray[$i], 0, );
+			schedulePlacement($submissionsArray[$i], 0);
 		}
 		if($submissionArray[$i][2] == "Poster" or "Art"){
 			schedulePlacement($submissionsArray[$i], 1);
@@ -65,7 +70,7 @@ function placeInRoom($submissionsArray){
 		}
 		else{//General oral Presentations go here
 
-			schedulePlacement($submissionsArray[$i], $oralPresRooms)
+			schedulePlacement($submissionsArray[$i], $oralPresRooms);
 					
 			}//else
 		}//forLoop
@@ -81,15 +86,13 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $breakStartTime;
 	global $breakEndTime;
 	global $oralPresRooms;
-	$prevPresRef = count($scheduleArray[$roomNumber][]) -1;
+	$prevPresEndTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
+	$presEndTime = $prevPresEndTime + $presLength;
+	$prevPresRef = count($scheduleArray[$roomNumber]) - 1;
 	if($prevPresRef == 0){//if it's first element in the presentation listing
 		$presentationInfo[] = $presentationStartTime;
 		$presentationInfo[] = $presentationStartTime + $presLength;
 	}
-	$prevPresEndTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
-	$presEndTime = $prevPresEndTime + $presLength
-
-
 	elseif($prevPresEndTime < $breakStartTime){//before the break
 		if( $presEndTime > $breakStartTime){//runs into the break - set to after the break
 			$scheduleArray[$roomNumber][] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
@@ -113,7 +116,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		}
 		else{//what will happen if it doesn't fit.
 			if ($roomNumber > 3) {//this is oral presentations that don't fit.
-				if(count($scheduleArray[])-1 > $oralPresRooms){//there is a new room to go in
+				if(count($scheduleArray)-1 > $oralPresRooms){//there is a new room to go in
 					$oralPresRooms+= 1;
 					schedulePlacement($presentationInfo, $oralPresRooms);
 				}//if
@@ -132,7 +135,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 /**
 WORK ON IT TOMORROW
-*/
+
 
 function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$studentConflict = false;
@@ -167,5 +170,5 @@ function check_for_prof_conflict($scheduleMatrix, $presEndTime, $roomNumber, $nu
 		return $presEndTime;
 	}
 }
-
+*/
 ?>
