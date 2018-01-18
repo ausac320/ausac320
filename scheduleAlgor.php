@@ -6,14 +6,18 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-$scheduleArray = []; //global array where each index is a different room 
-$submissionData = createSubmissionsArray($submissionDataFile)
-$presLength = 5;
-$eventStartTime = 6*60;//start @ 6:00
-$eventEndTime = 10*60;//end @ 10:00
-$breakStartTime = 8*60;//break start @ 8:00
-$breakEndTime = 9*60;//break end @ 9:00
-$numOfRooms = 5;
+$submissionData = createSubmissionsArray($submissionDataFile);
+				global $fileName;
+				$scheduleArray = []; //global array where each index is a different room 
+				$presLength = 5;
+				$eventStartTime = 6*60;//start @ 6:00
+				$eventEndTime = 10*60;//end @ 10:00
+				$breakStartTime = 8*60;//break start @ 8:00
+				$breakEndTime = 9*60;//break end @ 9:00
+				$numOfRooms = 5;
+				$oralPresRooms;
+				$fileName = "resources/submissionsFolder/TestMethod2.txt"
+
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -21,82 +25,105 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
-function createSubmissionsArray($fileName){
 
-	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
-	foreach($presentationReg as &$Row){
-		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
-		//each parse in the row is have these attributes as follows:
-		// studentName || class || category || O.U.R || title || abstract || profName
-	}
-	return $submissionData
+__halt_compiler();
+
+
+function testMethod(){
+	global $submissionsData;
+	$file = fopen($fileName, "w+");
+	$results = print_r($submissionsData,true);
+	
+	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($b, true));
+	
+	fclose($myFile);
 }
-
 
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
-	while ($roomNumber = 4; $roomNumber < ($numOfRooms + 4); $roomNumber ++) {# while there is still rooms
-		$presEndTime = $startTime + $presLength; #reset the time each time the next room is selected
-		for($i=0; $i < $submissionsArray.length(); $i++){
-			if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
-				schedulePresentation($submissionsArray[$i], 1, );
-			}
-			if($submissionArray[$i][2] === "Poster" or "Art"){
-				schedulePresentation($submissionsArray[$i], 0);
+	global $oralPresRooms;
+	$oralPresRooms = 4;
+	for($i=0; $i < count($submissionsArray); $i++){
+		if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
+			schedulePlacement($submissionsArray[$i], 0, );
+		}
+		if($submissionArray[$i][2] == "Poster" or "Art"){
+			schedulePlacement($submissionsArray[$i], 1);
+		}
+		elseif($submissionArray[$i][2] == "Drama"){
+			schedulePlacement($submissionsArray[$i], 2);
 
-			}
-			elseif($submissionArray[$i][2] === "Drama"){
-				schedulePresentation($submissionsArray[$i], 3);
+		}
+		else{//General oral Presentations go here
 
-			}
-			else{//this else will place all other presentations into the other rooms accordingly........ so we will work on this else structure together and then we will do schedule presentation together
-				//we will create a new function that does the calculation for the rooms for the Oral presentations
-				
-				while ($presEndTime < $breakStartTime){ #while the end of presentations for the first set is before the end of the event
-					if ($i > 0) { #checks to see if there is presentation before it.
-						if ($submissionsArray[$i][6] == $submissionsArray[$i-1][6]){ #checks to see if prev prof is same as current
-							schedulePresentation($submissionsArray[$i], 1 );
-							break; #stops since there are no more submissions, the schedule is complete!
-						}//if
-						else{ #since there is still a professor's submission array, schedule a presentation
-							schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-						}//else
-					}//if
-					else{ #since the professor's submission array isnt empty, schedule a presentation
-						schedule_presentation($submissionsArray, $scheduleMatrix, $roomNumber, $presEndTime, $presLength);
-					}//else	
-				}//while
+			schedulePlacement($submissionsArray[$i], $oralPresRooms)
+					
 			}//else
 		}//forLoop
-	}//while
-	if ($submissionsArray[0] != null){ #since there are submissions yet to be scheduled, the schedule creation has failed
-		echo "Schedule creation failed, not enough time, or rooms granted."
+}//placeInRoom
+
+
+
+function schedulePlacement($presentationInfo, $roomNumber){
+	global $scheduleArray;
+	global $eventStartTime;
+	global $eventEndTime;
+	global $presLength;
+	global $breakStartTime;
+	global $breakEndTime;
+	global $oralPresRooms;
+	$prevPresRef = count($scheduleArray[$roomNumber][]) -1;
+	if($prevPresRef == 0){//if it's first element in the presentation listing
+		$presentationInfo[] = $presentationStartTime;
+		$presentationInfo[] = $presentationStartTime + $presLength;
 	}
-}
+	$prevPresEndTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
+	$presEndTime = $prevPresEndTime + $presLength
 
 
-
-
-
-function schedulePresentation($presentationInfo, $roomNumber, $presEndTime, $presLength){
-	$submissionData = array_shift($submissionsArray);
-
-	elseif ($submissionData[Type] == "Drama") { #Drama goes a theatre, "room 3"
-		array_push($scheduleMatrix[3], $submissionData);
+	elseif($prevPresEndTime < $breakStartTime){//before the break
+		if( $presEndTime > $breakStartTime){//runs into the break - set to after the break
+			$scheduleArray[$roomNumber][] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
+			$presentationStartTime = $breakEndTime;
+			$presentationInfo[] = $presentationStartTime;
+			$presentationInfo[] = $presentationStartTime + $presLength;
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+		}
+		else{//it can go before the break
+			$presentationInfo[] = $presentationStartTime;
+			$presentationInfo[] = $presentationStartTime + $presLength;
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put the presentation into the proper room.
+		}
 	}
-	else{ #Oral and musical then go in the booked rooms
-		$scheduleMatrix[$roomNumber][$presEndTime] = $submissionData;
-		check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength);
-		return $presEndTime;
-	}
-}
+	else{//After the break
+		$presentationStartTime = $prevPresEndTime;
+		if($presentationStartTime+$presLength < $eventEndTime){//before the end of the presentation end time
+			$presentationInfo = $presentationStartTime;
+			$presentationInfo = $presentationStartTime + $presLength;
+			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+		}
+		else{//what will happen if it doesn't fit.
+			if ($roomNumber > 3) {//this is oral presentations that don't fit.
+				if(count($scheduleArray[])-1 > $oralPresRooms){//there is a new room to go in
+					$oralPresRooms+= 1;
+					schedulePlacement($presentationInfo, $oralPresRooms);
+				}//if
+			}//if
+			else{//can't resolve... Send to the Conflicts Array
+			$scheduleArray[3][] = $presentationInfo;
+			}//else
+		}//else
+	}//else
+}//schedulePlacement
 
 
 
 
 
 
-
+/**
+WORK ON IT TOMORROW
+*/
 
 function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$studentConflict = false;
