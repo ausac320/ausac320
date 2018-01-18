@@ -20,11 +20,9 @@ foreach ($csvArray as $row){
 /**
 openCSV code was written with the help of this page: http://www.oodlestechnologies.com/blogs/Converting-CSV-file-into-an-Array-in-PHP
 */
-	function openCSV($fileToOpen)
-	{
+	function openCSV($fileToOpen){
     $row = 0;
     $col = 0;
- 
     $fileHandler = @fopen($filename, "r");
     if ($fileHandler) 
     {
@@ -49,7 +47,7 @@ openCSV code was written with the help of this page: http://www.oodlestechnologi
         }
         fclose($fileHandler);
     }
- 
+    //This is where the next function will be called......
     return $results;
 }
 
