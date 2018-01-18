@@ -37,7 +37,8 @@ function createSubmissionsArray($fileName){
 
 function testMethod(){
 	global $submissionsData;
-	$myFile = fopen("resources/submissionsFolder/TestMethod2.txt", w+);
+	$fileName = "resources/submissionsFolder/TestMethod2.txt"
+	$myFile = fopen ($fileName, w+);
 	$results = print_r($submissionsData,true);
 	
 	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($b, true));
