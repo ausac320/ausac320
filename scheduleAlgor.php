@@ -29,11 +29,6 @@ function createSubmissionsArray($fileName){
 }
 
 
-function create_schedule(){
-	create_schedule_matrix(scheduleTimes);
-	populate_schedule_matrix($scheduleMatrix, $submissionsArray);
-}
-
 function populate_schedule($startTime, $endTime, $presLength, $numOfRooms, $scheduleMatrix, $submissionsArray){
 	while ($roomNumber = 4; $roomNumber > ($numOfRooms + 4); $roomNumber ++) {# while there is still rooms
 		$presEndTime = $startTime + $presLength; #reset the time each time the next room is selected
