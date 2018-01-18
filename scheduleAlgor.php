@@ -10,6 +10,8 @@ $filename = "scheduleTest.csv";
 $presentationReg = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
 foreach($presentationReg as &$Row){
 	$Row = str_getcsv($Row, ",", " "); //parse the items in rows (all the data for each registered submission)
+	//each parse in the row is have these attributes as follows:
+	// studentName || class || category || O.U.R || title || abstract || profName
 }
 
 
