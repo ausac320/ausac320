@@ -104,9 +104,7 @@ function createSubTable(data){
 
 	tableBox.appendChild(table);
 	tableDiv.appendChild(tableBox);
-	document.body.appendChild(tableDiv);
-
-	$("tr:odd").css("background-color", "#eaeaea");
+	document.getElementById('submissionsDisplayBox').appendChild(tableDiv);	
 }
 
 function makeEdit(){
