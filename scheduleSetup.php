@@ -156,12 +156,6 @@ for the schedule organization.
 			prepareData();
 		}
 		?>
-		
-		<div class="row">
-			<?php
-			openFile();
-			?>
-		</div>
 
 		<div class="footer">
 			Designed January 7th, 2018<br>

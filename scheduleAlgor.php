@@ -1,8 +1,53 @@
 <?php
 
-function openFile(){
-	$file= fopen("resources/submissionFolder/$fileTitle.txt");
-	echo "file has been opened";
+
+
+
+
+$filename = "scheduleTest.csv";
+$csvArray = ImportCSV2Array($filename);
+
+foreach ($csvArray as $row){
+    echo $row['column1'];
+    echo $row['column2'];
+    echo $row['column3'];
+    echo $row['column4'];
+    echo $row['column5'];
+    echo $row['column6'];
+    echo $row['column7'];
+	}
+
+	function openCSV($fileToOpen)
+	{
+    $row = 0;
+    $col = 0;
+ 
+    $handle = @fopen($filename, "r");
+    if ($handle) 
+    {
+        while (($row = fgetcsv($handle, 4096)) !== false) 
+        {
+            if (empty($fields)) 
+            {
+                $fields = $row;
+                continue;
+            }
+ 
+            foreach ($row as $k=>$value) 
+            {
+                $results[$col][$fields[$k]] = $value;
+            }
+            $col++;
+            unset($row);
+        }
+        if (!feof($handle)) 
+        {
+            echo "Error: unexpected fgets() failn";
+        }
+        fclose($handle);
+    }
+ 
+    return $results;
 }
 
 function create_schedule(){
