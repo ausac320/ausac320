@@ -26,6 +26,7 @@ Within that the $Row will have all the information pertaining to that presentati
 */
 
 function createSubmissionsArray($dataFile, $fileLocation){
+	$row=1;
 	$fileWrite = fopen($fileLocation, "w+");
 
 	if (($subData = fopen($dataFile, "r")) !== FALSE) {
@@ -34,28 +35,15 @@ function createSubmissionsArray($dataFile, $fileLocation){
         foreach($data as &$Row){ //$Row is the variable
         $rowData = str_getcsv($Row, "/"); //parse the items in rows (all the data for each registered submission)
     	}//foreach
-    	$num = count($Row);
-        for ($c=0; $c < $row; $c++) {
+    	$num = count($data);
+        $row++;
+        for ($c=0; $c < $num; $c++) {
             fwrite($fileWrite, $data[$c]);
         }//for
     }//while
  	fclose($subData);
     fclose($fileWrite);
 }//if
-
-
-/**
-
-	$submissionData = str_getcsv($dataFile, "\n"); //parse the rows (every registered submission)
-	foreach($submissionData as &$Row){
-		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
-		//each parse in the row is have these attributes as follows:
-		// studentName || class || category || O.U.R || title || abstract || profName
-	}
-	fwrite($fileWrite, $submissionData);
-	fclose($fileWrite);
-	fclose($openFile);
-	*/
 }//createSubmissionsArray
 
 function testMethod(){
