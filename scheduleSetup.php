@@ -147,7 +147,9 @@ for the schedule organization.
 						</form>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns"></div>
+				<div class="large-2 medium-2 small-2 columns">
+					<button class="button testButton">Press Me To Test Method</button>
+				</div>
 			</div>
 		</div>
 			<?php

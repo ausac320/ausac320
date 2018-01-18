@@ -16,6 +16,7 @@ $eventEndTime = 10*60;//end @ 10:00
 $breakStartTime = 8*60;//break start @ 8:00
 $breakEndTime = 9*60;//break end @ 9:00
 $numOfRooms = 5;
+$oralPresRooms;
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -27,7 +28,7 @@ function createSubmissionsArray($fileName){
 
 	$presReg = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
 	foreach($presReg as &$Row){
-		$Row[] = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
+		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
 		//each parse in the row is have these attributes as follows:
 		// studentName || class || category || O.U.R || title || abstract || profName
 	}
@@ -36,17 +37,19 @@ function createSubmissionsArray($fileName){
 
 function testMethod(){
 	global $submissionsData;
-	$myFile = fopen("resources/submissionsFolder/TestMethod2.txt", w+)
-	$results = print_r($submissionsData,true)
+	$myFile = fopen("resources/submissionsFolder/TestMethod2.txt", w+);
+	$results = print_r($submissionsData,true);
 	
 	file_put_contents('resources/submissionFolder/TestMethod2.txt', print_r($b, true));
 	
 	fclose($myFile);
 }
+__halt_compiler();
 
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
-
+	global $oralPresRooms;
+	$oralPresRooms = 4;
 	for($i=0; $i < count($submissionsArray); $i++){
 		if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
 			schedulePlacement($submissionsArray[$i], 0, );
@@ -60,6 +63,7 @@ function placeInRoom($submissionsArray){
 		}
 		else{//General oral Presentations go here
 
+			schedulePlacement($submissionsArray[$i], $oralPresRooms)
 					
 			}//else
 		}//forLoop
@@ -74,6 +78,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $presLength;
 	global $breakStartTime;
 	global $breakEndTime;
+	global $oralPresRooms;
 	$prevPresRef = count($scheduleArray[$roomNumber][]) -1;
 	if($prevPresRef == 0){//if it's first element in the presentation listing
 		$presentationInfo[] = $presentationStartTime;
@@ -104,18 +109,28 @@ function schedulePlacement($presentationInfo, $roomNumber){
 			$presentationInfo = $presentationStartTime + $presLength;
 			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
 		}
-		else{//put into the listing of conflicts
-			$scheduleArray[4][] = $presentationInfo;
-		}
-	}
-}
+		else{//what will happen if it doesn't fit.
+			if ($roomNumber > 3) {//this is oral presentations that don't fit.
+				if(count($scheduleArray[])-1 > $oralPresRooms){//there is a new room to go in
+					$oralPresRooms+= 1;
+					schedulePlacement($presentationInfo, $oralPresRooms);
+				}//if
+			}//if
+			else{//can't resolve... Send to the Conflicts Array
+			$scheduleArray[3][] = $presentationInfo;
+			}//else
+		}//else
+	}//else
+}//schedulePlacement
 
 
 
 
 
 
-
+/**
+WORK ON IT TOMORROW
+*/
 
 function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
 	$studentConflict = false;
