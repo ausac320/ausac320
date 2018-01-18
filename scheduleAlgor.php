@@ -6,8 +6,7 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-
-$submissionData = createSubmissionsArray($submissionDataFile);
+$fileLocation = "resources/submissionFolder/TestMethod.txt";
 				$scheduleArray = []; //global array where each index is a different room 
 				$presLength = 5;
 				$eventStartTime = 6*60;//start @ 6:00
@@ -16,8 +15,8 @@ $submissionData = createSubmissionsArray($submissionDataFile);
 				$breakEndTime = 9*60;//break end @ 9:00
 				$numOfRooms = 5;
 				$oralPresRooms;
-				$fileLocation = "resources/submissionsFolder/TestMethod.txt";
 
+$submissionData = createSubmissionsArray($submissionDataFile,$fileLocation);
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -25,12 +24,33 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
-function createSubmissionsArray($dataFile){
-	global $submissionsData;
-	global $fileLocation;
-	$openFile = fopen($dataFile, "r");
-	$fileWrite = fopen($fileLocation, "w");
-	$submissionData = str_getcsv($fileName, "\n"); //parse the rows (every registered submission)
+
+function createSubmissionsArray($dataFile, $fileLocation){
+	$row=1;
+	$fileWrite = fopen($fileLocation, "w+");
+
+	if (($openFile = fopen($dataFile, "r")) !== FALSE) {
+
+    while (($data = fgetcsv($openFile, "")) !== FALSE) {
+        foreach($data as &$Row){ //$Row is the variable
+        $rowData = str_getcsv($Row, "/"); //parse the items in rows (all the data for each registered submission)
+    	}//foreach
+    	$num = count($data);
+        echo "<p> $num fields in column $Row: <br /></p>\n";
+        $row++;
+        for ($c=0; $c < $num; $c++) {
+            fwrite($fileWrite, $data[$c]);
+        }//for
+    }//while
+ 	fclose($openFile);
+    fclose($fileWrite);
+}//if
+}//createSubmissionsArray
+
+
+
+	/**
+	$submissionData = str_getcsv($dataFile, "\n"); //parse the rows (every registered submission)
 	foreach($submissionData as &$Row){
 		$Row = str_getcsv($Row, ","); //parse the items in rows (all the data for each registered submission)
 		//each parse in the row is have these attributes as follows:
