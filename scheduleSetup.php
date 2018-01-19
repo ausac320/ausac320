@@ -162,7 +162,7 @@ for the schedule organization.
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">
-					<h3> Please Place Augustana Logo Here </h3>
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
 				</div>
 				<div class="large-4 medium-4 small-4 columns"></div>
 				<div class="large-4 medium-4 small-4 columns contactInfo">

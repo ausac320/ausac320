@@ -65,7 +65,7 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">
-					<h3> Please Place Augustana Logo Here </h3>
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
 				</div>
 				<div class="large-4 medium-4 small-4 columns"></div>
 				<div id="contact" class="large-4 medium-4 small-4 columns contactInfo"></div>
