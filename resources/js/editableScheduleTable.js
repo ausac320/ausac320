@@ -87,6 +87,8 @@ function createScheduleTable(data){
 
 		//the slices have to be (1, -2) the first time a file get's passed in
 		//if it wasn't created using fputcsv as the formatting will be off. 
+		//the slices to change are the only slice in the if == 1 and change the 
+		//second slice in the elseif
 		if(rowCells.length == 1){
 			innerEle = document.createElement('td');
 			innerEle.className = "success callout makeEdit format";
