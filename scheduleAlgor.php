@@ -8,7 +8,7 @@ organize it in a way that will be turned into a csv file that will represent the
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 $fileLocation = "resources/submissionFolder/TestMethod.txt";
 				$submissionArray = []; //global array where each index is a different room 
-				$scheduleArray = [];
+				$scheduleArray = [["1"]["2"]["3"]];
 				$presLength = 5;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
@@ -87,7 +87,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $oralPresRooms;
 	$count = 0;
 
-	foreach ($scheduleArray[$roomNumber] as $type) {
+	foreach ($scheduleArray as $type) {
     	$count+= count($type);
 	}
 	if($count > 0){
@@ -145,7 +145,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 function exportCSV($scheduleArray){
 	$fp = fopen('resources/submissionFolder/scheduleFinal.csv', 'w+');
 foreach($scheduleArray as $fields){
-	fputcsv($fp, array("Volvo", "BMW", "Toyota"));
+	fputcsv($fp, ("car" "bike" "phone"));
 }
 fclose($fp);
 
