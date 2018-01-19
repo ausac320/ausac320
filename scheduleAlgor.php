@@ -6,9 +6,10 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-$fileLocation = "resources/submissionFolder/TestMethod.txt";
-				$submissionArray = []; //global array where each index is a different room 
-				$scheduleArray = [["1"]["2"]["3"]];
+				$data;
+				$submissionArray = createSubmissionsArray($submissionDataFile);
+				$roomsArray =  array();//array that holds an array of submissions
+				$scheduleArray = array($submissionArray);//holds the array of submissions
 				$presLength = 5;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
@@ -16,8 +17,7 @@ $fileLocation = "resources/submissionFolder/TestMethod.txt";
 				$breakEndTime = 9*60;//break end @ 9:00
 				$numOfRooms = 5;
 				$oralPresRooms;
-
-$submissionData = createSubmissionsArray($submissionDataFile,$fileLocation);
+				
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -26,29 +26,51 @@ When moving through all the elements of $presentationReg those are all the prese
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
 
-function createSubmissionsArray($dataFile, $fileLocation){
+function createSubmissionsArray($dataFile){
 	global $submissionArray;
-	$row=1;
-	$fileWrite = fopen($fileLocation, "w+");
-	if (($subData = fopen($dataFile, "r")) !== FALSE) {
-    while (($data = fgetcsv($subData, "")) !== FALSE) {
-        foreach($data as &$Row){ //$Row is the variable
-        $rowData = str_getcsv($Row, "/"); //parse the items in rows (all the data for each registered submission)
-    	}//foreach
-    	$num = count($data);
+	global $scheduleArray;
+	global $data;
+	$submissionArray = array();
+	$scheduleArray = array();
+$row = 1;
+if (($handle = fopen($dataFile, "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        //echo "<p> $num fields in line $row: <br /></p>\n";
         $row++;
         for ($c=0; $c < $num; $c++) {
-            fwrite($fileWrite, $data[$c]);
-        }//for
-        $submissionArray = $data;
+            $scheduleArray[$c] = $data[$c];
+            //echo $scheduleArray[$c] . ", ";
+        }
+        for($i=0; $i < count($scheduleArray); $i++){
+        	$submissionArray[$i] = $scheduleArray;
+        	//echo $submissionArray[$i][$i]. ", ";
+        }
+        for($j=0; $j < count($submissionArray); $j++){
+        	$roomsArray[$j] = $submissionArray;
+        	//echo $roomsArray[$j][$j][$j];
+        }
+        writeFile($roomsArray);
 
-    }//while
- 	fclose($subData);
-    fclose($fileWrite);
-}//if
-placeInRoom($data);
+    }
+    //exportCSV($scheduleArray[]);
+    fclose($handle);
+}
+//return $scheduleArray;
 }//createSubmissionsArray
 
+function array_2_csv($array) {
+$csv = array();
+foreach ($array as $item=>$val) {
+    if (is_array($val)) { 
+        $csv[] = $this->array_2_csv($val);
+        $csv[] = "\n";
+    } else {
+        $csv[] = $val;
+    }
+}
+return implode(';', $csv);
+}
 
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
@@ -57,7 +79,7 @@ function placeInRoom($submissionsArray){
 	global $scheduleArray;
 	$oralPresRooms = 4;
 	for($i=0; $i < count($submissionsArray); $i++){
-		if($submissionArray[$i][3] === "Yes"){//is an OUR Pres
+		if($submissionArray[$i] === "Yes"){//is an OUR Pres
 			schedulePlacement($submissionsArray[$i], 0);
 		}
 		if($submissionsArray[$i][2] === "Poster" or "Art"){
@@ -72,7 +94,6 @@ function placeInRoom($submissionsArray){
 					
 			}//else
 		}//forLoop
-		exportCSV($scheduleArray);
 }//placeInRoom
 
 
@@ -142,11 +163,20 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	}//else
 }//schedulePlacement
 
-function exportCSV($scheduleArray){
-	$fp = fopen('resources/submissionFolder/scheduleFinal.csv', 'w+');
-foreach($scheduleArray as $fields){
-	fputcsv($fp, ("car" "bike" "phone"));
-}
+
+function writeFile($roomsArray){
+	global $data;
+	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
+		//for($i=0; $i< count($roomsArray); $i++){
+			//echo $roomsArray[$i]. ", ";
+			//for($j=0; $j< count($roomsArray[$i]); $j++){
+				//echo $roomsArray[$j][$j]. ", ";
+				//for($h=0; $h< count($data); $h++){
+					echo $roomsArray[0][1][1];
+		//fwrite($fp, $fields);	
+				//}
+	//}
+//}
 fclose($fp);
 
 }
