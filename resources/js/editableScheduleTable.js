@@ -35,7 +35,7 @@ function createScheduleTable(data){
 	editButton = document.createElement("button");
 	editButton.id = "scheduleEditButton";
 	editButton.className = "button round warning small-2 columns";
-	//editButton.setAttribute("onclick", "makeEdit()");
+	editButton.setAttribute("onclick", "makeEdit()");
 	editButton.innerHTML = "Edit Schedule";
 	headingBox.appendChild(editButton);
 	tableDiv.appendChild(headingBox);
@@ -182,4 +182,52 @@ function createScheduleTable(data){
 	tableDiv.appendChild(tableBox);
 	document.getElementById('importantScheduleHolder').appendChild(tableDiv);	
 
+}
+
+function makeEdit(){
+	var buttonID = document.getElementById('scheduleEditButton');
+	var currentText = buttonID.innerHTML;
+	buttonID.innerHTML = "Save Changes";
+	buttonID.className = "button round small-2 columns";
+	//buttonID.setAttribute("onclick", "tableToCSV()");
+	var edit = document.getElementsByClassName('makeEdit');
+	for(var x=0; x<edit.length; x++){
+		edit[x].setAttribute("contenteditable", "true");
+		edit[x].style.border = "1px solid #1779ba";
+		edit[x].style.backgroundColor = "#d7ecfa";
+	}
+	var abstractDisplay = document.getElementsByClassName('changeDisplay');
+	for(var i=0; i<abstractDisplay.length; i++){
+		abstractDisplay[i].setAttribute("contenteditable", "true");
+		abstractDisplay[i].style.display = "";
+		abstractDisplay[i].style.border = "1px solid #1779ba";
+		abstractDisplay[i].style.backgroundColor = "#d7ecfa";
+	}
+	var abstractTitle = document.getElementsByClassName('abstractTitle');
+	for(var y=0; y<abstractTitle.length; y++){
+		abstractTitle[y].style.display = "";	
+	}
+}
+
+
+function tableToCSV(){
+	var finalCSV = [];
+	var totalRows = document.querySelectorAll("table tr");
+	var tableRow = [];
+	var profName;
+
+	for(var i = 1; i < totalRows.length; i++){
+		var tableRow = [];
+		var tableColms = totalRows[i].querySelectorAll("td");
+
+		for(var x = 0; x < tableColms.length; x++){
+			tableRow.push(tableColms[x].innerHTML);
+		}
+		finalCSV.push(tableRow);
+
+		//profName = tableColms[tableColms.length -1].innerHTML;
+
+	}
+	sendArrayToPHP(finalCSV);
+	window.location.href=window.location.href;
 }
