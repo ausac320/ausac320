@@ -165,7 +165,6 @@ function createSubTable(data){
 
 function makeEdit(){
 	var buttonID = document.getElementById('editButton');
-	var currentText = buttonID.innerHTML;
 	buttonID.innerHTML = "Save Changes";
 	buttonID.className = "button round small-2 columns";
 
