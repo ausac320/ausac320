@@ -70,7 +70,7 @@ function placeInRoom($submissionArray){
 	else{//General oral Presentations go here
 		$presRoom = $oralPresRoom;
 	}//else
-	$scheduleArray = schedulePlacement($submissionArray, $presRoom);
+	schedulePlacement($submissionArray, $presRoom);
 	return $scheduleArray;
 }//placeInRoom
 
@@ -88,30 +88,29 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	}
 	elseif(empty($scheduleArray[$roomNumber])){
 		$presLocation = 0;
-		echo"====one\n";
+		echo"====This is the First Presentation in room: $roomNumber\n";
 	}
 	else{
 	$presLocation = count($scheduleArray[$roomNumber]);
-	echo"====two $presLocation\n";
+	echo"====Presentation Number in Schedule: $presLocation\n";
 	}
 
 	if($presLocation > 0){
 		$prevPresRef = $presLocation - 1;
-		echo"====three";
-		echo"$prevPresRef is prev Pres\n";
+		echo"====There is a presentation before this one.\n";
 	}
 	else{
 		$prevPresRef = -1;
-		echo"====four\n";
+		echo"====There is no one before Current Presentation\n";
 	}
 
 	if($prevPresRef > -1){
-		//$presStartTime = $scheduleArray[$roomNumber][$prevPresRef][8];//get the last presentation's end time
+		$presStartTime = $scheduleArray[$roomNumber][$prevPresRef][8];//get the last presentation's end time
 		echo"====five $presStartTime \n";
 	}
 	else{
 		$presStartTime = $eventStartTime;
-		echo"====six\n";
+		echo"====This is the First Presentation of the day at: $presStartTime.\n";
 	}
 
 	$presEndTime = $presStartTime += $presLength;
