@@ -37,7 +37,7 @@ to the program being hosted offline and not a live site.
 		<div class="header">
 			<div class="row.fullsize">
 				<div class="small-4 columns">
-					<img src="resources/images/SAC Logo.png" alt="SAC Logo" >
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
 				</div>
 				<div class="small-8 columns">
 					<h1>
@@ -65,7 +65,7 @@ to the program being hosted offline and not a live site.
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">
-					<img src="resources/images/UA-AUG-COLOUR [Converted].png" alt="Augustana Logo" >
+					<img src="resources/images/UA-AUG-COLOUR [Converted1].png" alt="Augustana Logo" >
 				</div>
 				<div class="large-4 medium-4 small-4 columns">
 					<p>
