@@ -6,16 +6,19 @@ organize it in a way that will be turned into a csv file that will represent the
 */
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
+
 				$scheduleArray = array();//this will be the final array where the schedule will be stored
 				$presLength = 25;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
 				$breakStartTime = 8*60;//break start @ 8:00
 				$breakEndTime = 9*60;//break end @ 9:00
+
 				$numOfPresRooms = 5;
 				$oralPresRoom = 4;
 				$presStartTime;
 				$scheduleArray= createSubmissionsArray($submissionDataFile);
+
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -23,6 +26,7 @@ and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
+
 
 function createSubmissionsArray($dataFile){
 	$submissionArray = array();
