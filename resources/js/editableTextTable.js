@@ -20,6 +20,7 @@ function addButtonToHomeAdmin(){
 	var contactTitle = document.createElement('h3');
 	contactTitle.className = "small-10 columns";
 	contactTitle.innerHTML = "Contact Information";
+	contactTitle.style.textDecoration = "underline";
 	contactRow.appendChild(contactTitle);
 
 	var editContact = document.createElement('button');

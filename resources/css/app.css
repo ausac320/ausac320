@@ -70,3 +70,7 @@ button.round, .button.round {
 div.footerSpace{
 	padding-top: 10px;
 }
+
+h3.underline{
+	text-decoration: underline;
+}
