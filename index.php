@@ -46,7 +46,7 @@ to the program being hosted offline and not a live site.
 				<div class="g-signin2" data-onsuccess="onSignIn" required>
 				</div>
 			
-				<input name="username" type="text" placeholder="CCID">
+				<input name="username" type="text" placeholder="Username">
 				<input name="password" type = "password" placeholder="Password">
 				<input value="Submit" type="submit">
 				<ul>
@@ -56,16 +56,67 @@ to the program being hosted offline and not a live site.
 		</div>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<h3> Please Place Augustana Logo Here </h3>
+				</div>
+				<div class="large-4 medium-4 small-4 columns">
+					<p>
+						Designed January 7th, 2018<br>
+  						by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+  					</p>
+				</div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == 'POST'){
+			$userName = ($_POST["username"]);
+			$password = ($_POST["password"]);
+			get_user_and_password_data();
+			check_username_and_password($userName, $password, $dataArray);
+		}
+		?>
 
 		<script src="resources/js/vendor/jquery.js"></script>
-    <script src="resources/js/vendor/what-input.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="resources/js/index.js"></script>
-    <script src="resources/js/app.js"></script>
+    	<script src="resources/js/index.js"></script>
+    	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabContactTextData();
+		</script>
+
 	</body>
 </html>
+
+<?php
+function get_user_and_password_data(){
+	$file = fopen("resources/data/userInfo.txt", "r");
+	$fileData = fread($file, filesize($file));
+	$dataArray = explode("\n",$fileData, 3);
+	return $dataArray;
+}
+
+function check_username_and_password($userName, $password, $dataArray){
+	while ($dataArray[$i] != null) {
+		$i = 0; 
+		$i++;
+		if ($userName == $dataArray[$i][0] and $password == $dataArray[$i][1]) {
+			$_SESSION['userName'] = $username;
+			$_SESSION['permission'] = $dataArray[$i][2];
+			return $_SESSION;
+		}
+		else{
+			return $_SESSION;
+		}
+	}
+
+}
+?>

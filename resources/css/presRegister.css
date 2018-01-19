@@ -9,9 +9,5 @@
 div#registerPageField{
 	margin: 0px;
 	height: 80%;
-}
-
-div#newSubmission{
-	height: 500px;
 	overflow: auto;
 }

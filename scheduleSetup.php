@@ -148,7 +148,9 @@ for the schedule organization.
 						</form>
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns"></div>
+				<div class="large-2 medium-2 small-2 columns">
+					<button class="button testButton">Press Me To Test Method</button>	
+				</div>
 			</div>
 		</div>
 		<?php
@@ -158,17 +160,28 @@ for the schedule organization.
 		?>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<h3> Please Place Augustana Logo Here </h3>
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
 
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
     	<script src="resources/js/scheduleSetup.js"></script>
     	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabContactTextData();
+		</script>
     	
 <!--
 	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
@@ -274,4 +287,4 @@ for the schedule organization.
 					fwrite($file, $txt);
 				fclose($file);
 			}
-		?>
+?>
