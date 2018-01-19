@@ -15,11 +15,19 @@ $('body').on('focus', '[contenteditable]', function() {
 
 //To limit clutter, only add edit button to home
 function addButtonToHomeAdmin(){
+	var contactRow = document.createElement('div');
+	contactRow.className = "row";
+	var contactTitle = document.createElement('h3');
+	contactTitle.className = "small-10 columns";
+	contactTitle.innerHTML = "Contact Information";
+	contactRow.appendChild(contactTitle);
+
 	var editContact = document.createElement('button');
-	editContact.className = "button round ";
-	editContact.innerHTML = "Edit Contact Info";
-	document.getElementById('contact').appendChild(editContact);
-	//grabTextData();
+	editContact.className = "button round warning small-2 columns";
+	editContact.innerHTML = "Edit";
+	contactRow.appendChild(editContact);
+	document.getElementById('contact').appendChild(contactRow);
+	grabTextData();
 }
 
 function grabTextData(){
@@ -40,11 +48,14 @@ function createContactInfo(data){
 	}
 
 	paragraph.innerHTML = contactString;
-	addButtonToHomeAdmin();
-	document.getElementById('contact').appendChild(paragraph);
+	var location = document.getElementsByClassName('contactInfo');
+	location[0].appendChild(paragraph);
+	
 }
 
 function editContact(){
 	var buttonID = document.getElementById('editButton');
+	buttonID.innerHTML = "Save Changes";
+	buttonID.className = "button round";
 }
 

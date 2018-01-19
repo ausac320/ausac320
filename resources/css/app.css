@@ -66,3 +66,7 @@ ul#navMenu a{
 button.round, .button.round {
     border-radius: 1000px; 
 }
+
+div.footerSpace{
+	padding-top: 10px;
+}
