@@ -85,13 +85,15 @@ function createScheduleTable(data){
 		tabRow = document.createElement('tr');
 		rowCells = allRows[x].split(',');
 
+		//the slices have to be (1, -2) the first time a file get's passed in
+		//if it wasn't created using fputcsv as the formatting will be off. 
 		if(rowCells.length == 1){
 			innerEle = document.createElement('td');
-			innerEle.className = "alert callout makeEdit format";
+			innerEle.className = "success callout makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
 			innerEle.setAttribute("colspan", "5");
 			if(rowCells[0].charAt(0) == '"'){
-				innerEle.innerHTML = rowCells[0].slice(1, -2);
+				innerEle.innerHTML = rowCells[0].slice(1, -1);
 			}
 			else{
 				innerEle.innerHTML = rowCells[0];
@@ -115,62 +117,118 @@ function createScheduleTable(data){
 			innerEle.setAttribute("contenteditable", "false");
 			innerEle.setAttribute("colspan", "2");
 			if(rowCells[1].charAt(0) == '"'){
-				innerEle.innerHTML = rowCells[1].slice(1, -2);
+				innerEle.innerHTML = rowCells[1].slice(1, -1);
 			}
 			else{
 				innerEle.innerHTML = rowCells[1];
 			}
 			tabRow.appendChild(innerEle);
 		}
-		else{
-			for(var z=0; z<5; z++){
-				innerEle = document.createElement('td');
-				innerEle.className = "makeEdit format";
-				innerEle.setAttribute("contenteditable", "false");
+		else{//This is the situation that it is the first time the graph has been sent to the 
+			 //display so it needs to account for all the extra data 
+			if(rowCells.length == 2 > 5){
+				for(var z=0; z<5; z++){
+					innerEle = document.createElement('td');
+					innerEle.className = "makeEdit format";
+					innerEle.setAttribute("contenteditable", "false");
 
-				switch(z){
-					case 0://Student Name
-						if(rowCells[0].charAt(0) == '"'){
-							innerEle.innerHTML = rowCells[0].slice(1, -1);
-						}
-						else{
-							innerEle.innerHTML = rowCells[0];
-						}
-						break;
-					case 1://Professor Name
-						if(rowCells[6].charAt(0) == '"'){
-							innerEle.innerHTML = rowCells[6].slice(1, -1);
-						}
-						else{
-							innerEle.innerHTML = rowCells[6];
-						}
-						break;
-					case 2://Class
-						if(rowCells[1].charAt(0) == '"'){
-							innerEle.innerHTML = rowCells[1].slice(1, -1);
-						}
-						else{
-							innerEle.innerHTML = rowCells[1];
-						}
-						break;
-					case 3://Title 
-						if(rowCells[4].charAt(0) == '"'){
-							innerEle.innerHTML = rowCells[4].slice(1, -1);
-						}
-						else{
-							innerEle.innerHTML = rowCells[4];
-						}
-						break;
-					case 4://Times
-						if(rowCells[7].charAt(0) == '"'){
-							innerEle.innerHTML = rowCells[7].slice(1, -2);
-						}
-						else{
-							innerEle.innerHTML = rowCells[7];
-						}
-						break;
+					switch(z){
+						case 0://Student Name
+							if(rowCells[0].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[0].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[0];
+							}
+							break;
+						case 1://Professor Name
+							if(rowCells[6].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[6].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[6];
+							}
+							break;
+						case 2://Class
+							if(rowCells[1].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[1].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[1];
+							}
+							break;
+						case 3://Title 
+							if(rowCells[4].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[4].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[4];
+							}
+							break;
+						case 4://Times
+							if(rowCells[7].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[7].slice(1, -2);
+							}
+							else{
+								innerEle.innerHTML = rowCells[7];
+							}
+							break;
+					}
+				tabRow.appendChild(innerEle);
 				}
-			tabRow.appendChild(innerEle);
+			}//if statement
+			//This is the situation where the graph has already been created and all that is 
+			//left is the neccasary data to make the graph. 
+			else{
+				for(var z=0; z<5; z++){
+					innerEle = document.createElement('td');
+					innerEle.className = "makeEdit format";
+					innerEle.setAttribute("contenteditable", "false");
+
+					switch(z){
+						case 0://Student Name
+							if(rowCells[0].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[0].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[0];
+							}
+							break;
+						case 1://Professor Name
+							if(rowCells[1].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[1].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[1];
+							}
+							break;
+						case 2://Class
+							if(rowCells[2].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[2].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[2];
+							}
+							break;
+						case 3://Title 
+							if(rowCells[3].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[3].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[3];
+							}
+							break;
+						case 4://Times
+							if(rowCells[4].charAt(0) == '"'){
+								innerEle.innerHTML = rowCells[4].slice(1, -1);
+							}
+							else{
+								innerEle.innerHTML = rowCells[4];
+							}
+							break;
+					}
+				tabRow.appendChild(innerEle);
+				}
 			}	
 		}
 
@@ -186,26 +244,14 @@ function createScheduleTable(data){
 
 function makeEdit(){
 	var buttonID = document.getElementById('scheduleEditButton');
-	var currentText = buttonID.innerHTML;
 	buttonID.innerHTML = "Save Changes";
 	buttonID.className = "button round small-2 columns";
-	//buttonID.setAttribute("onclick", "tableToCSV()");
+	buttonID.setAttribute("onclick", "tableToCSV()");
 	var edit = document.getElementsByClassName('makeEdit');
 	for(var x=0; x<edit.length; x++){
 		edit[x].setAttribute("contenteditable", "true");
 		edit[x].style.border = "1px solid #1779ba";
 		edit[x].style.backgroundColor = "#d7ecfa";
-	}
-	var abstractDisplay = document.getElementsByClassName('changeDisplay');
-	for(var i=0; i<abstractDisplay.length; i++){
-		abstractDisplay[i].setAttribute("contenteditable", "true");
-		abstractDisplay[i].style.display = "";
-		abstractDisplay[i].style.border = "1px solid #1779ba";
-		abstractDisplay[i].style.backgroundColor = "#d7ecfa";
-	}
-	var abstractTitle = document.getElementsByClassName('abstractTitle');
-	for(var y=0; y<abstractTitle.length; y++){
-		abstractTitle[y].style.display = "";	
 	}
 }
 
@@ -213,8 +259,6 @@ function makeEdit(){
 function tableToCSV(){
 	var finalCSV = [];
 	var totalRows = document.querySelectorAll("table tr");
-	var tableRow = [];
-	var profName;
 
 	for(var i = 1; i < totalRows.length; i++){
 		var tableRow = [];
@@ -225,9 +269,16 @@ function tableToCSV(){
 		}
 		finalCSV.push(tableRow);
 
-		//profName = tableColms[tableColms.length -1].innerHTML;
-
 	}
 	sendArrayToPHP(finalCSV);
 	window.location.href=window.location.href;
+}
+
+function sendArrayToPHP(data){
+	$.ajax({
+		type: "POST",
+		url: "createScheduleCSV.php",
+		data: {array : JSON.stringify(data)},
+		dataType: "json",
+	});
 }
