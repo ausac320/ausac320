@@ -32,7 +32,7 @@ div.footer {
 	min-height: 10%;
 	background-color: #007c41;
 	color: #fff;
-	text-align: center;
+	text-align: center;*/
 	padding-top: 10px;
 	border-top: 2px solid #ffdb05;
 }
@@ -62,3 +62,7 @@ ul#navMenu a{
 	color: #fff;
 }
 /* -------------------- */
+
+button.round, .button.round {
+    border-radius: 1000px; 
+}
