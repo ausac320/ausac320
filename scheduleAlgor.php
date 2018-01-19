@@ -4,33 +4,25 @@ This is where all the schedule building logic is going to be written.
 All functions here will pertain to getting the data that is submitted and will 
 organize it in a way that will be turned into a csv file that will represent the schedule. 
 */
-
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-
 				$scheduleArray = array();//this will be the final array where the schedule will be stored
 				$presLength = 25;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
 				$breakStartTime = 8*60;//break start @ 8:00
 				$breakEndTime = 9*60;//break end @ 9:00
-
 				$numOfPresRooms = 5;
 				$oralPresRoom = 4;
 				$presStartTime;
 				$scheduleArray= createSubmissionsArray($submissionDataFile);
-
-
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
 and will turn the csv file back into an array representation.
 When moving through all the elements of $presentationReg those are all the presentations that were submitted.
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
-
-
 function createSubmissionsArray($dataFile){
 	$submissionArray = array();
-
 $row = 1;
 if (($handle = fopen($dataFile, "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -42,7 +34,6 @@ if (($handle = fopen($dataFile, "r")) !== FALSE) {
         $row++;
         //writeFile($submissionArray);    
     }
-
     fclose($handle);
 }
 	foreach($submissionArray as &$person){
@@ -50,12 +41,9 @@ if (($handle = fopen($dataFile, "r")) !== FALSE) {
     	placeInRoom($person);
     	}//place each row into a room
 }//createSubmissionsArray
-
-
 //placing the presentation into the "room"
 function placeInRoom($submissionArray){
 	global $scheduleArray, $oralPresRoom;
-
 	if($submissionArray[3] == "Yes"){//is an OUR Pres
 		$presRoom=0;
 	}
@@ -73,9 +61,6 @@ function placeInRoom($submissionArray){
 	$scheduleArray = schedulePlacement($submissionArray, $presRoom);
 	return $scheduleArray;
 }//placeInRoom
-
-
-
 function schedulePlacement($presentationInfo, $roomNumber){
 	global $scheduleArray,$eventStartTime,$eventEndTime,$presLength,$breakStartTime,$breakEndTime,$oralPresRooms,$numOfRooms, $presStartTime, $presEndTime;//final array
 	$prevPresRef;
@@ -84,7 +69,6 @@ function schedulePlacement($presentationInfo, $roomNumber){
 			$presentationInfo[7] = "$breakStartTime";
 			$presentationInfo[8] = "$breakEndTime";
 			$scheduleArray[$roomNumber][] = $presentationInfo;
-
 	}
 	elseif(empty($scheduleArray[$roomNumber])){
 		$presLocation = 0;
@@ -94,7 +78,6 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	$presLocation = count($scheduleArray[$roomNumber]);
 	echo"====two $presLocation\n";
 	}
-
 	if($presLocation > 0){
 		$prevPresRef = $presLocation - 1;
 		echo"====three";
@@ -104,7 +87,6 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		$prevPresRef = -1;
 		echo"====four\n";
 	}
-
 	if($prevPresRef > -1){
 		//$presStartTime = $scheduleArray[$roomNumber][$prevPresRef][8];//get the last presentation's end time
 		echo"====five $presStartTime \n";
@@ -113,13 +95,11 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		$presStartTime = $eventStartTime;
 		echo"====six\n";
 	}
-
 	$presEndTime = $presStartTime += $presLength;
 	echo $presEndTime;
 	if($prevPresRef == -1){//if it's first element in the presentation listing
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
-
 		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put in the presentation into the proper room. 
 		$presStartTime += $presLength;
 		echo"====seven\n";
@@ -144,7 +124,6 @@ function schedulePlacement($presentationInfo, $roomNumber){
 			echo"====twelve\n";			
 			}//else
 		}//else
-
 	}
 	elseif( $presEndTime > $breakStartTime){//ends after the break
 		$scheduleArray[$roomNumber][$presLocation] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
@@ -163,12 +142,6 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		}
 	//writeFile($scheduleArray);
 }//schedulePlacement
-
-
-
-
-
-
 function writeFile($data){
 	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
 		for($i=0; $i< count($data); $i++){
@@ -180,11 +153,8 @@ function writeFile($data){
 			
 		}
 fclose($fp);
-
 }
-
 /**
-
 function checkForStudentConflict($scheduleArray, $roomNumber, $numOfRooms){
 	$conflictStatus = false;
 	$studentName = 0; #This is because the student name is stored constantly in the first element
