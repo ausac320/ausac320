@@ -15,6 +15,7 @@ $('body').on('focus', '[contenteditable]', function() {
 
 function grabScheduleData(){
 	$.ajax({
+  	//url: 'resources/data/schedule.csv',
   	url: 'resources/data/testSchedule.csv',
   	dataType: 'text',
   	cache: false
@@ -95,6 +96,7 @@ function createScheduleTable(data){
 			innerEle.setAttribute("contenteditable", "false");
 			innerEle.setAttribute("colspan", "5");
 			if(rowCells[0].charAt(0) == '"'){
+				//innerEle.innerHTML = rowCells[0].slice(1, -2);
 				innerEle.innerHTML = rowCells[0].slice(1, -1);
 			}
 			else{
@@ -119,6 +121,7 @@ function createScheduleTable(data){
 			innerEle.setAttribute("contenteditable", "false");
 			innerEle.setAttribute("colspan", "2");
 			if(rowCells[1].charAt(0) == '"'){
+				//innerEle.innerHTML = rowCells[1].slice(1, -2);
 				innerEle.innerHTML = rowCells[1].slice(1, -1);
 			}
 			else{
@@ -128,7 +131,7 @@ function createScheduleTable(data){
 		}
 		else{//This is the situation that it is the first time the graph has been sent to the 
 			 //display so it needs to account for all the extra data 
-			if(rowCells.length == 2 > 5){
+			if(rowCells.length > 5){
 				for(var z=0; z<5; z++){
 					innerEle = document.createElement('td');
 					innerEle.className = "makeEdit format";
