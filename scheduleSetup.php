@@ -115,13 +115,9 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-<<<<<<< HEAD
-							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
-=======
 
 							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
 
->>>>>>> e8e3aee398c615a5f72525dac937c1b36b6d62f8
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
