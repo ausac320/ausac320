@@ -61,11 +61,12 @@
 			</div>
 
 			<div class="footer">
-				<div class="row">
-					<div class="large-8 medium-8 small-8 columns">
+				<div class="row footerSpace">
+					<div class="large-4 medium-4 small-4 columns">
 						<h3> Please Place Augustana Logo Here </h3>
 					</div>
-					<div id="contact" class="large-4 medium-4 small-4 columns">
+					<div class="large-4 medium-4 small-4 columns"></div>
+					<div class="large-4 medium-4 small-4 columns contactInfo">
 						<h3>Contact Information</h3>
 					</div>
 				</div>

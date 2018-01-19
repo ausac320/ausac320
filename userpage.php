@@ -151,15 +151,26 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 		</div>
 			
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<h3> Please Place Augustana Logo Here </h3>
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+				<div id="contact" class="large-4 medium-4 small-4 columns contactInfo"></div>
+			</div>
 		</div>
 
 
 		<script src="resources/js/vendor/jquery.js"></script>
-    <script src="resources/js/vendor/what-input.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="resources/js/app.js"></script>
+    	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableTextTable.js"></script>
+
+    	<script type="text/javascript")>
+			addButtonToHomeAdmin();
+		</script>
+
 	</body>
 </html>

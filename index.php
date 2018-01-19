@@ -56,8 +56,20 @@ to the program being hosted offline and not a live site.
 		</div>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<h3> Please Place Augustana Logo Here </h3>
+				</div>
+				<div class="large-4 medium-4 small-4 columns">
+					<p>
+						Designed January 7th, 2018<br>
+  						by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+  					</p>
+				</div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3>Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
 		<script src="resources/js/vendor/jquery.js"></script>
@@ -66,5 +78,11 @@ to the program being hosted offline and not a live site.
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="resources/js/index.js"></script>
     	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableTextTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabTextData();
+		</script>
+
 	</body>
 </html>
