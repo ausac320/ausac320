@@ -32,7 +32,6 @@
 				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
-
 		<div id="submissionPageField" class="callout secondary">
 			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
@@ -138,7 +137,6 @@
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
 		</div>
-
 		<div class="footer">
 			Designed January 7th, 2018<br>
   			by Sheldon Grundberg, Alex Ho, and Connor Maschke.

@@ -53,20 +53,20 @@ Contained is a form for submitting presentation information to the "database" (i
 						Presentation Registration Page
 						<form method="POST">
 							<input name="studentName" type="text" placeholder="Student's name" pattern="[A-za-z'- .]{1,}" required>
-							<input name="courseName" type="text" placeholder="Course name (ex. AUMAT250)" pattern="[A-Z0-9]{8}" required>
+							<input name="courseName" type="text" placeholder="Course name (ex. AUMAT250)" pattern="[A-Z0-9 ]{8-9}" required>
 							<input name="profName" type="text" placeholder="Professor's name" pattern="[A-za-z'- .]{1,}" required>
 							<div>
 								Presentation Type:
-								<input name="presentationType" type="radio" value="oral" required>Oral
-								<input name="presentationType" type="radio" value="poster" required>Poster
-								<input name="presentationType" type="radio" value="art" required>Art
-								<input name="presentationType" type="radio" value="drama" required>Drama
-								<input name="presentationType" type="radio" value="music" required>Music
+								<input name="presentationType" type="radio" value="Oral" required>Oral
+								<input name="presentationType" type="radio" value="Poster" required>Poster
+								<input name="presentationType" type="radio" value="Art" required>Art
+								<input name="presentationType" type="radio" value="Drama" required>Drama
+								<input name="presentationType" type="radio" value="Music" required>Music
 							</div>
 							<div>
 								Would you like to nominate the student for the Outstanding Undergraduate Research Award?:
-								<input name="OURStatus" type="radio" value="yes" required>Yes
-								<input name="OURStatus" type="radio" value="no" required>No
+								<input name="OURStatus" type="radio" value="Yes" required>Yes
+								<input name="OURStatus" type="radio" value="No" required>No
 							</div>
 							<textarea name="titleOfPresentation" placeholder="Title of presentation" rows="2" required></textarea> 
 							<textarea name="studentAbstract" placeholder="Student's abstract" rows="6"></textarea>
