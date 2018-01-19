@@ -74,7 +74,7 @@
 		<script src="resources/js/vendor/foundation.js"></script>
     	<script src="resources/js/app.js"></script>
     	<script src="resources/js/editableSubTable.js"></script>
-    	<script src="resources/js/editableTextTable.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript">
       		grabData();

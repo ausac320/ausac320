@@ -87,7 +87,7 @@ to the program being hosted offline and not a live site.
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="resources/js/index.js"></script>
     	<script src="resources/js/app.js"></script>
-    	<script src="resources/js/editableTextTable.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript")>
 			grabTextData();
