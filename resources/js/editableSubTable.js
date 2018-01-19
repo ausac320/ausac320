@@ -15,7 +15,8 @@ $('body').on('focus', '[contenteditable]', function() {
 
 function grabData(){
 	$.ajax({
-  	url: 'resources/data/testsave.csv',
+  	//url: 'resources/data/testsave.csv',
+  	url: 'resources/submissionFolder/Mike Myers.csv',
   	dataType: 'text',
   	cache: false
 	}).done(createSubTable);
