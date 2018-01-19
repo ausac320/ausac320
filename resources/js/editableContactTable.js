@@ -14,7 +14,7 @@ $('body').on('focus', '[contenteditable]', function() {
 });
 
 //To limit clutter, only add edit button to home
-function addButtonToHomeAdmin(){
+function addContactEditButtonToHomeAdmin(){
 	var contactRow = document.createElement('div');
 	contactRow.className = "row";
 	var contactTitle = document.createElement('h3');
@@ -25,15 +25,17 @@ function addButtonToHomeAdmin(){
 
 	var editContact = document.createElement('button');
 	editContact.className = "button round warning small-2 columns";
+	editContact.id = "contactEditButton";
 	editContact.innerHTML = "Edit";
+	editContact.setAttribute("onclick", "editContact()")
 	contactRow.appendChild(editContact);
 	document.getElementById('contact').appendChild(contactRow);
-	grabTextData();
+	grabContactTextData();
 }
 
-function grabTextData(){
+function grabContactTextData(){
 	$.ajax({
-  	url: 'resources/data/test.txt',
+  	url: 'resources/data/contact.txt',
   	dataType: 'text',
 	}).done(createContactInfo);
 }
@@ -43,6 +45,7 @@ function createContactInfo(data){
 	var contactString = "";
 
 	var paragraph = document.createElement('p');
+	paragraph.id = "contactArea";
 
 	for(var i=0; i<allRows.length; i++){
 		contactString = contactString + allRows[i] + "<br>";
@@ -50,13 +53,29 @@ function createContactInfo(data){
 
 	paragraph.innerHTML = contactString;
 	var location = document.getElementsByClassName('contactInfo');
-	location[0].appendChild(paragraph);
-	
+	location[0].appendChild(paragraph);	
 }
 
 function editContact(){
-	var buttonID = document.getElementById('editButton');
-	buttonID.innerHTML = "Save Changes";
-	buttonID.className = "button round";
+	var buttonID = document.getElementById('contactEditButton');
+	buttonID.innerHTML = "Save";
+	buttonID.className = "button round small-2 columns";
+	buttonID.setAttribute("onclick", "sendStringToPHP()")
+	var contactEdit = document.getElementById('contactArea');
+	contactEdit.setAttribute("contenteditable", "true");
+	contactEdit.style.border = "1px solid #1779ba";
+	contactEdit.style.backgroundColor = "#1779ba";
 }
 
+function sendStringToPHP(){
+	transferString = document.getElementById('contactArea').innerHTML;
+
+	$.ajax({
+		type: "POST",
+		url: "saveContact.php",
+		data: {string : JSON.stringify(transferString)},
+		dataType: "json"
+	});
+
+	window.location.href=window.location.href;
+}
