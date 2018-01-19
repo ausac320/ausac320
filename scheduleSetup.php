@@ -277,8 +277,10 @@ for the schedule organization.
 				fwrite($file, $txt);
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
-				$txt = $presTimeSlot."\n";
-					fwrite($file, $txt);
+				$txt = $presTimeSlot." ";
+				fwrite($file, $txt);
+				$txt = $oralRoomNum."\n";
+				fwrite($file, $txt);
 					$txt = $breakDate.",";
 					fwrite($file, $txt);
 					$txt = $breakStart.",";

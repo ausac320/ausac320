@@ -5,7 +5,7 @@ All functions here will pertain to getting the data that is submitted and will
 organize it in a way that will be turned into a csv file that will represent the schedule. 
 */
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
-				$scheduleArray = array();//this will be the final array where the schedule will be stored
+				$scheduleArray = array(array(array()));//this will be the final array where the schedule will be stored
 				$presLength = 25;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
@@ -14,7 +14,9 @@ $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is th
 				$numOfPresRooms = 5;
 				$oralPresRoom = 4;
 				$presStartTime;
-				$scheduleArray= createSubmissionsArray($submissionDataFile);
+				$scheduleArray=createSubmissionsArray($submissionDataFile);
+				var_dump($scheduleArray);
+
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
 and will turn the csv file back into an array representation.
@@ -22,6 +24,7 @@ When moving through all the elements of $presentationReg those are all the prese
 Within that the $Row will have all the information pertaining to that presentation submission.
 */
 function createSubmissionsArray($dataFile){
+	global $scheduleArray;
 	$submissionArray = array();
 $row = 1;
 if (($handle = fopen($dataFile, "r")) !== FALSE) {
@@ -58,8 +61,7 @@ function placeInRoom($submissionArray){
 	else{//General oral Presentations go here
 		$presRoom = $oralPresRoom;
 	}//else
-	$scheduleArray = schedulePlacement($submissionArray, $presRoom);
-	return $scheduleArray;
+	schedulePlacement($submissionArray, $presRoom);
 }//placeInRoom
 function schedulePlacement($presentationInfo, $roomNumber){
 	global $scheduleArray,$eventStartTime,$eventEndTime,$presLength,$breakStartTime,$breakEndTime,$oralPresRooms,$numOfRooms, $presStartTime, $presEndTime;//final array
@@ -140,13 +142,16 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		$presStartTime += $presLength;
 		echo"====nine\n";
 		}
-	//writeFile($scheduleArray);
+		var_dump($scheduleArray);
+	writeFile($scheduleArray);
 }//schedulePlacement
 function writeFile($data){
+	echo "WRITE FILE HAS ACCESSED";
 	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
+	echo"FILE HAS BEEN OPENED";
 		for($i=0; $i< count($data); $i++){
 			for($j=0; $j <= count($data[$i]); $j++){
-				foreach($data[$i] as &$fields){
+				foreach($data[$i][$j] as &$fields){
 				   	fwrite($fp, $fields);
 		 		}
 			}
