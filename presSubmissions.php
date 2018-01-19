@@ -32,7 +32,6 @@
 				<a href="index.php">Augustana Student Academic Conference</a>
 			</h1>
 		</div>
-
 		<div id="submissionPageField" class="callout secondary">
 			<div class="row.fullsize">
 				<div class="large-2 medium-2 small-2 columns">
@@ -58,7 +57,6 @@
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
 		</div>
-
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">

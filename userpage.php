@@ -146,10 +146,16 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 						</div> 
 					</div>
 				</div>
-				<div class="large-2 medium-2 small-2 columns"></div>
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+						<li>
+				  			<a onclick="compile_schedule();">Compile Schedule</a>
+				  		</li>
+				  	</ul>
+				</div>
 			</div>	
 		</div>
-			
+
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">
@@ -171,6 +177,5 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
     	<script type="text/javascript")>
 			addButtonToHomeAdmin();
 		</script>
-
 	</body>
 </html>

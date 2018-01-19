@@ -46,7 +46,7 @@ to the program being hosted offline and not a live site.
 				<div class="g-signin2" data-onsuccess="onSignIn" required>
 				</div>
 			
-				<input name="username" type="text" placeholder="CCID">
+				<input name="username" type="text" placeholder="Username">
 				<input name="password" type = "password" placeholder="Password">
 				<input value="Submit" type="submit">
 				<ul>
@@ -72,6 +72,15 @@ to the program being hosted offline and not a live site.
 			</div>
 		</div>
 
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == POST){
+			$userName = ($_POST["username"]);
+			$password = ($_POST["password"]);
+			get_user_and_password_data();
+			check_username_and_password($userName, $password, $dataArray);
+		}
+		?>
+
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
@@ -86,3 +95,28 @@ to the program being hosted offline and not a live site.
 
 	</body>
 </html>
+
+<?php
+function get_user_and_password_data(){
+	$file = fopen("resources/data/userInfo.txt", "r");
+	$fileData = fread($file, filesize($file));
+	$dataArray = explode("\n",$fileData, 3);
+	return $dataArray;
+}
+
+function check_username_and_password($userName, $password, $dataArray){
+	while ($dataArray[$i] != null) {
+		$i = 0; 
+		$i++;
+		if ($userName == $dataArray[$i][0] and $password == $dataArray[$i][1]) {
+			$_SESSION['userName'] = $username;
+			$_SESSION['permission'] = $dataArray[$i][2];
+			return $_SESSION;
+		}
+		else{
+			return $_SESSION;
+		}
+	}
+
+}
+?>
