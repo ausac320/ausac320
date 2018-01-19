@@ -106,22 +106,22 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 	if($prevPresRef > -1){
 		$presStartTime = $scheduleArray[$roomNumber][$prevPresRef][8];//get the last presentation's end time
-		echo"====Presentation will be at $presStartTime \n";
+		echo"==Presentation will be at $presStartTime \n";
 	}
 	else{
 		$presStartTime = $eventStartTime;
-		echo"====This is the First Presentation of the day at: $presStartTime.\n";
+		echo"====This is the First Presentation of the day at: $presStartTime \n";
 	}
 
-	$presEndTime = $presStartTime += $presLength;
-	echo "Presentation ends at $presEndTime\n";
+	$presEndTime = $presStartTime + $presLength;
+	echo "====Presentation ends at $presEndTime\n";
 	if($prevPresRef == -1){//if it's first element in the presentation listing
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
 
 		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put in the presentation into the proper room. 
 		$presStartTime += $presLength;
-		echo"====seven\n";
+		echo"====Placed $presentationInfo[0] into schedule.\n";
 	}
 	elseif($presStartTime>$breakEndTime){
 		if($presEndTime < $eventEndTime){//before the end of the presentation end time
@@ -129,18 +129,21 @@ function schedulePlacement($presentationInfo, $roomNumber){
 			$presentationInfo[8] = "$presEndTime";
 			$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put in the presentation into the proper room. 
 			$presStartTime += $presLength;
-			echo"====ten\n";
+			echo"====$presentationInfo[0] has a presentation that ends before the end of the Day\n";
 		}
 		else{//what will happen if it doesn't fit.
 			if ($roomNumber > 3) {//oral presentation didn't fit
 				if($roomNumber-4 < $numOfRooms+4 ){//there is a new room to go in
+					echo "=====Presentation will surpass the day limit \n";
+					echo "====Try placing $presentationInfo[0] in room $roomNumber\n";
+
 					schedulePlacement($presentationInfo, $roomNumber+=1);
-					echo"====eleven\n";
+
 				}//if
 			}//if
 			else{//can't resolve... Send to the Conflicts Array
 			$scheduleArray[3][] = $presentationInfo;
-			echo"====twelve\n";			
+			echo"====Found a conflict we cannot resolve... Sorry\n";			
 			}//else
 		}//else
 
@@ -148,17 +151,17 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	elseif( $presEndTime > $breakStartTime){//ends after the break
 		$scheduleArray[$roomNumber][$presLocation] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
 		$presStartTime = $breakEndTime;
+		$presEndTime = $presStartTime + $presLength;
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
 		$scheduleArray[$roomNumber][$presLocation+1] = $presentationInfo;//put in the presentation into the proper room. 
-		echo"====eight \n";
+		echo"====We will place $presentationInfo[0] after the break at $breakEndTime \n";
 		}
 	else{//it can go before the break
 		$presentationInfo[7] = "$presStartTime";
-		$presentationInfo[8] = "presEndTime";
+		$presentationInfo[8] = "$presEndTime";
 		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put the presentation into the proper room.
-		$presStartTime += $presLength;
-		echo"====nine\n";
+		echo"====$presentationInfo[0] was placed before the break.\n";
 		}
 	//writeFile($scheduleArray);
 }//schedulePlacement
