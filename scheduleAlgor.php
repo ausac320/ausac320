@@ -52,21 +52,21 @@ placeInRoom($submissionArray);
 //placing the presentation into the "room"
 function placeInRoom($submissionsArray){
 	global $oralPresRooms;
+	global $submissionArray;
 	$oralPresRooms = 4;
-	for($i=0; $i < count($submissionsArray); $i++){
-		if($submissionsArray[$i][3] == "Y"){//is an OUR Pres
+	for($i=0; $i < count($submissionArray); $i++){
+		if($submissionArray[$i][3] == "Y"){//is an OUR Pres
 			schedulePlacement($submissionsArray[$i], 0);
 		}
-		if($submissionsArray[$i][2] == "Poster" or "Art"){
+		if($submissionArray[$i][2] == "Poster" or "Art"){
 			schedulePlacement($submissionsArray[$i], 1);
 		}
-		elseif($submissionsArray[$i][2] == "Drama"){
+		elseif($submissionArray[$i][2] == "Drama"){
 			schedulePlacement($submissionsArray[$i], 2);
-
 		}
 		else{//General oral Presentations go here
 
-			schedulePlacement($submissionsArray[$i], $oralPresRooms);
+			schedulePlacement($submissionArray[$i], $oralPresRooms);
 					
 			}//else
 		}//forLoop
@@ -83,31 +83,36 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $breakEndTime;
 	global $oralPresRooms;
 	$prevPresRef = count($scheduleArray[$roomNumber]) - 1;
+	if($prevPresRef > 0){
 	$presStartTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
+	}
+	else{
+		$presStartTime = $eventStartTime;
+	}
 	$presEndTime = $presStartTime + $presLength;
 	if($prevPresRef == 0){//if it's first element in the presentation listing
-		$presentationInfo[] = $presStartTime;
-		$presentationInfo[] = $presStartTime + $presLength;
+		$presentationInfo = $presStartTime;
+		$presentationInfo = $presStartTime + $presLength;
 	}
 	elseif($presStartTime < $breakStartTime){//before the break
 		if( $presEndTime > $breakStartTime){//runs into the break - set to after the break
-			$scheduleArray[$roomNumber][] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
+			$scheduleArray[$roomNumber] = array("Break Time", ($breakEndTime - $breakStartTime));//add the Break Time
 			$presentationStartTime = $breakEndTime;
-			$presentationInfo[] = "$presStartTime";
-			$presentationInfo[] = "$presStartTime + $presLength";
-			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+			$presentationInfo = "$presStartTime";
+			$presentationInfo = "$presStartTime + $presLength";
+			$scheduleArray[$roomNumber] = $presentationInfo;//put in the presentation into the proper room. 
 		}
 		else{//it can go before the break
-			$presentationInfo[] = "$presStartTime";
-			$presentationInfo[] = "$presStartTime + $presLength";
-			$scheduleArray[$roomNumber][] = $presentationInfo;//put the presentation into the proper room.
+			$presentationInfo = "$presStartTime";
+			$presentationInfo = "$presStartTime + $presLength";
+			$scheduleArray[$roomNumber] = $presentationInfo;//put the presentation into the proper room.
 		}
 	}
 	else{//After the break
 		if($presStartTime+$presLength < $eventEndTime){//before the end of the presentation end time
 			$presentationInfo = "$presStartTime";
 			$presentationInfo = "$presStartTime + $presLength";
-			$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+			$scheduleArray[$roomNumber] = $presentationInfo;//put in the presentation into the proper room. 
 		}
 		else{//what will happen if it doesn't fit.
 			if ($roomNumber > 3) {//this is oral presentations that don't fit.
@@ -117,7 +122,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 				}//if
 			}//if
 			else{//can't resolve... Send to the Conflicts Array
-			$scheduleArray[3][] = $presentationInfo;
+			$scheduleArray[3] = $presentationInfo;
 			}//else
 		}//else
 	}//else
