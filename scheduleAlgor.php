@@ -106,7 +106,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 	if($prevPresRef > -1){
 		$presStartTime = $scheduleArray[$roomNumber][$prevPresRef][8];//get the last presentation's end time
-		echo"====five $presStartTime \n";
+		echo"====Presentation will be at $presStartTime \n";
 	}
 	else{
 		$presStartTime = $eventStartTime;
@@ -114,7 +114,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	}
 
 	$presEndTime = $presStartTime += $presLength;
-	echo $presEndTime;
+	echo "Presentation ends at $presEndTime\n";
 	if($prevPresRef == -1){//if it's first element in the presentation listing
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
