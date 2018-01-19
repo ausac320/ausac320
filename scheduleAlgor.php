@@ -16,7 +16,20 @@ $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is th
 				$oralPresRoom = 4;
 				createSubmissionsArray($submissionDataFile);
 				for($i=0; $i < count($scheduleArray); $i++){
-					writeFile($scheduleArray[$i]);
+					if(isset($scheduleArray[$i]) === true && $var === '') {
+						break;
+
+					}
+					else{
+						for($j=0; $j < count($scheduleArray[$i]); $j++){
+							if(isset($scheduleArray[$i][$j]) === true && $var === '') {
+								break;
+							}
+							else{
+								writeFile($scheduleArray[$i][$j]);
+							}
+						}
+					}
 				}
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -77,16 +90,16 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	$prevPresRef;
 	echo "$presentationInfo[0] is in schedulePlacement.\n";
 	if(empty($scheduleArray[$roomNumber])){
-		$presCount = 0;
+		$presLocation = 0;
 		echo"====one\n";
 	}
 	else{
-	$presCount = count($scheduleArray[$roomNumber][]);
+	$presLocation = count($scheduleArray[$roomNumber]);
 	echo"====two\n ";
 	}
 
-	if($presCount > 0){
-		$prevPresRef = ;
+	if($presLocation > 0){
+		$prevPresRef = $presLocation - 1;
 		echo"$prevPresRef is prev Pres\n";
 	}
 	else{
@@ -109,7 +122,8 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	//array_push($presentationInfo, "$presStartTime", "$presEndTime");
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
-		$scheduleArray[$roomNumber][] = $presentationInfo;//put in the presentation into the proper room. 
+
+		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put in the presentation into the proper room. 
 		echo"====seven\n";
 	}
 
@@ -124,7 +138,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	elseif($presEndTime < $breakStartTime){//it can go before the break
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "presEndTime";
-		$scheduleArray[$roomNumber] = $presentationInfo;//put the presentation into the proper room.
+		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put the presentation into the proper room.
 		echo"====nine\n";
 		}
 	
