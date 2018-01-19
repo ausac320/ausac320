@@ -212,8 +212,7 @@ function tableToCSV(){
 			for(var x = 0; x < tableColms.length - 2; x++){
 				tableRow.push(tableColms[x].innerHTML);
 			}
-			//slide removes the new line at the end of prof name so it doesn't
-			//get written in.
+
 			profName = tableColms[tableColms.length -1].innerHTML;
 		}
 
