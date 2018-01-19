@@ -35,16 +35,9 @@ to the program being hosted offline and not a live site.
 	
 	<body>
 		<div class="header">
-			<div class="row.fullsize">
-				<div class="small-4 columns">
-					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
-				</div>
-				<div class="small-8 columns">
-					<h1>
-						<a href="index.php">Augustana Student Academic Conference</a>
-					</h1>
-				</div>
-			</div>
+			<h1>
+				<a href="index.php">Augustana Student Academic Conference</a>
+			</h1>
 		</div>
 
 		<div id="loginField" class="callout secondary">
@@ -65,7 +58,7 @@ to the program being hosted offline and not a live site.
 		<div class="footer">
 			<div class="row footerSpace">
 				<div class="large-4 medium-4 small-4 columns">
-					<img src="resources/images/UA-AUG-COLOUR [Converted1].png" alt="Augustana Logo" >
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
 				</div>
 				<div class="large-4 medium-4 small-4 columns">
 					<p>
