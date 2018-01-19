@@ -15,7 +15,6 @@ $('body').on('focus', '[contenteditable]', function() {
 
 function grabData(){
 	$.ajax({
-  	//url: 'resources/data/testsave.csv',
   	url: 'resources/submissionFolder/Mike Myers.csv',
   	dataType: 'text',
   	cache: false
@@ -56,7 +55,7 @@ function createSubTable(data){
 		switch(i){
 				case 0:
 					head.innerHTML = "Name";
-					head.setAttribute("style", "width:20%");
+					head.setAttribute("style", "width:15%");
 					break;
 				case 1:
 					head.innerHTML = "Class";
@@ -72,7 +71,7 @@ function createSubTable(data){
 					break;
 				case 4:
 					head.innerHTML = "Title";
-					head.setAttribute("style", "width:40%");
+					head.setAttribute("style", "width:45%");
 					break;
 				case 5:
 					head.innerHTML = "Abstract";
