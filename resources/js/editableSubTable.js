@@ -17,6 +17,7 @@ function grabData(){
 	$.ajax({
   	url: 'resources/data/testsave.csv',
   	dataType: 'text',
+  	cache: false
 	}).done(createSubTable);
 }
 
