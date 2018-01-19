@@ -8,6 +8,7 @@ organize it in a way that will be turned into a csv file that will represent the
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 $fileLocation = "resources/submissionFolder/TestMethod.txt";
 				$submissionArray = []; //global array where each index is a different room 
+				$scheduleArray = [];
 				$presLength = 5;
 				$eventStartTime = 6*60;//start @ 6:00
 				$eventEndTime = 10*60;//end @ 10:00
@@ -45,7 +46,7 @@ function createSubmissionsArray($dataFile, $fileLocation){
  	fclose($subData);
     fclose($fileWrite);
 }//if
-placeInRoom($submissionArray);
+placeInRoom($data);
 }//createSubmissionsArray
 
 
@@ -53,15 +54,16 @@ placeInRoom($submissionArray);
 function placeInRoom($submissionsArray){
 	global $oralPresRooms;
 	global $submissionArray;
+	global $scheduleArray;
 	$oralPresRooms = 4;
-	for($i=0; $i < count($submissionArray); $i++){
-		if($submissionArray[$i][3] == "Y"){//is an OUR Pres
+	for($i=0; $i < count($submissionsArray); $i++){
+		if($submissionArray[$i][3] === "Yes"){//is an OUR Pres
 			schedulePlacement($submissionsArray[$i], 0);
 		}
-		if($submissionArray[$i][2] == "Poster" or "Art"){
+		if($submissionsArray[$i][2] === "Poster" or "Art"){
 			schedulePlacement($submissionsArray[$i], 1);
 		}
-		elseif($submissionArray[$i][2] == "Drama"){
+		elseif($submissionsArray[$i][2] === "Drama"){
 			schedulePlacement($submissionsArray[$i], 2);
 		}
 		else{//General oral Presentations go here
@@ -70,6 +72,7 @@ function placeInRoom($submissionsArray){
 					
 			}//else
 		}//forLoop
+		exportCSV($scheduleArray);
 }//placeInRoom
 
 
@@ -82,7 +85,18 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $breakStartTime;
 	global $breakEndTime;
 	global $oralPresRooms;
-	$prevPresRef = count($scheduleArray[$roomNumber]) - 1;
+	$count = 0;
+
+	foreach ($scheduleArray[$roomNumber] as $type) {
+    	$count+= count($type);
+	}
+	if($count > 0){
+		$prevPresRef = $count - 1;
+	}
+	else{
+		$prevPresRef = 0;
+	}
+
 	if($prevPresRef > 0){
 	$presStartTime = $scheduleArray[$roomNumber][$prevPresRef-1][8];//get the last presentation's end time
 	}
@@ -127,6 +141,15 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		}//else
 	}//else
 }//schedulePlacement
+
+function exportCSV($scheduleArray){
+	$fp = fopen('resources/submissionFolder/scheduleFinal.csv', 'w+');
+foreach($scheduleArray as $fields){
+	fputcsv($fp, array("Volvo", "BMW", "Toyota"));
+}
+fclose($fp);
+
+}
 
 
 
