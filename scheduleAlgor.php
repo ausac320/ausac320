@@ -47,10 +47,11 @@ if (($handle = fopen($dataFile, "r")) !== FALSE) {
         	//echo $submissionArray[$i][$i]. ", ";
         }
         for($j=0; $j < count($submissionArray); $j++){
-        	$roomsArray[$j] = $submissionArray;
-        	//echo $roomsArray[$j][$j][$j];
+        	$allSubArray[$j] = $submissionArray;//holds all submissions 
+        	//echo $allSubArray[$j][$j][$j];//prints out everything on one line
         }
-        writeFile($roomsArray);
+    
+        writeFile($allSubArray);
 
     }
     //exportCSV($scheduleArray[]);
@@ -166,15 +167,16 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 function writeFile($roomsArray){
 	global $data;
-	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
+	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w');
 		//for($i=0; $i< count($roomsArray); $i++){
 			//echo $roomsArray[$i]. ", ";
 			//for($j=0; $j< count($roomsArray[$i]); $j++){
 				//echo $roomsArray[$j][$j]. ", ";
-				//for($h=0; $h< count($data); $h++){
-					echo $roomsArray[0][1][1];
-		//fwrite($fp, $fields);	
-				//}
+				for($h=0; $h < count($data); $h++){
+					echo $roomsArray[$h][$h][$h];
+					fwrite($fp, $roomsArray[$h][$h][$h]."\n");
+				}
+
 	//}
 //}
 fclose($fp);
