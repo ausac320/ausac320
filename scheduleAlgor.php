@@ -16,7 +16,6 @@ $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is th
 				$oralPresRoom = 4;
 				$presStartTime;
 				$scheduleArray= createSubmissionsArray($submissionDataFile);
-								writeFile($scheduleArray);
 
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
@@ -77,7 +76,13 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	global $scheduleArray,$eventStartTime,$eventEndTime,$presLength,$breakStartTime,$breakEndTime,$oralPresRooms,$numOfRooms, $presStartTime, $presEndTime;//final array
 	$prevPresRef;
 	echo "$presentationInfo[0] is in schedulePlacement.\n";
-	if(empty($scheduleArray[$roomNumber])){
+	if($roomNumber == 2){
+			$presentationInfo[7] = "$breakStartTime";
+			$presentationInfo[8] = "$breakEndTime";
+			$scheduleArray[$roomNumber][] = $presentationInfo;
+
+	}
+	elseif(empty($scheduleArray[$roomNumber])){
 		$presLocation = 0;
 		echo"====one\n";
 	}
@@ -152,7 +157,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		$presStartTime += $presLength;
 		echo"====nine\n";
 		}
-	return $scheduleArray;
+	//writeFile($scheduleArray);
 }//schedulePlacement
 
 
@@ -160,12 +165,15 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 
 
-function writeFile($array){
-	$fp = fopen('resources/submissionFolder/scheduleFinal.csv', 'w');
-		for($i=0; $i <count($array); $i++){
-			foreach($array[$i] as $fields){
-    			fputcsv($fp, $fields);
+function writeFile($data){
+	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
+		for($i=0; $i< count($data); $i++){
+			for($j=0; $j <= count($data[$i]); $j++){
+				foreach($data[$i] as &$fields){
+				   	fwrite($fp, $fields);
+		 		}
 			}
+			
 		}
 fclose($fp);
 
