@@ -113,6 +113,10 @@ for the schedule organization.
 										Presentation Time Slots (minutes)
 										<input type="number" name="presTimeSlot" placeholder ="25" required>
 									</label>
+									<label>
+										Number of Rooms
+										<input type="number" name="numberofRooms" placeholder ="4" required>
+									</label>
 								</div>
 							</div>
 							<div id ="breakTimes" name ="breakTimes">	
@@ -148,6 +152,7 @@ for the schedule organization.
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
+					
 					<button class="button testButton">Press Me To Test Method</button>
 				</div>
 			</div>
@@ -221,65 +226,67 @@ for the schedule organization.
 	</body>
 </html>
 
-		<?php
-		function prepareData(){
-				global $fileName;
-				$termSelect = test_input($_POST["termSelect"]);
-				$startDate = test_input($_POST["startDate"]);
-				$startTime = test_input($_POST["startTime"]);
-				$endDate = test_input($_POST["endDate"]);
-				$endTime = test_input($_POST["endTime"]);
-				$presTimeSlot = test_input($_POST["presTimeSlot"]);
-				$regEndDate = test_input($_POST["regEndDate"]);
-				$abstractDeadline = test_input($_POST["abstractDeadline"]);
-				$breakDate = test_input($_POST["breakDate"]);
-				$breakStart = test_input($_POST["breakStart"]);
-				$breakEnd = test_input($_POST["breakEnd"]);
-				$fileTitle= "$termSelect". " " ."$startDate"; 
-				$fileName = "resources/submissionFolder/$fileTitle.txt";
+<?php
+	function prepareData(){
+		global $fileName;
+		$termSelect = testInput($_POST["termSelect"]);
+		$startDate = testInput($_POST["startDate"]);
+		$startTime = testInput($_POST["startTime"]);
+		$endDate = testInput($_POST["endDate"]);
+		$endTime = testInput($_POST["endTime"]);
+		$presTimeSlot = testInput($_POST["presTimeSlot"]);
+		$numberofRooms = testInput($_POST["numberofRooms"]);
+		$regEndDate = testInput($_POST["regEndDate"]);
+		$abstractDeadline = testInput($_POST["abstractDeadline"]);
+		$breakDate = testInput($_POST["breakDate"]);
+		$breakStart = testInput($_POST["breakStart"]);
+		$breakEnd = testInput($_POST["breakEnd"]);
+		$fileTitle= "$termSelect". " " ."$startDate"; 
+		$fileName = "resources/submissionFolder/$fileTitle.txt";
+		if (fopen($fileName, "x") == false){
+			echo "Submission Failed";
+		}
+		else {
+			createFile($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate,$numberofRooms, $abstractDeadline, $breakDate, $breakStart, $breakEnd);
+			echo "Submission Successful";
+		}
+	}
 
-				if (fopen($fileName, "x") == false){
-					echo "Submission Failed";
-				}
-				else {
-					create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate, $breakStart, $breakEnd);
-					echo "Submission Successful";
-				}
-			}
+	function testInput($data) {
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		$data = trim($data); 
+		return $data;
+	}
 
-			function test_input($data) {
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				$data = trim($data); 
-				return $data;
-			}
-
-			function create_file($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot, $regEndDate, $abstractDeadline, $breakDate, $breakStart, $breakEnd) {
-				global $fileName;
-				$file = fopen ($fileName, "w+");
-				$txt = $termSelect."\n";
-				fwrite($file, $txt);
-				$txt = $regEndDate."\n";
-				fwrite($file, $txt);
-				$txt = $abstractDeadline."\n";
-				fwrite($file, $txt);
-				$txt = $startDate." ";
-				fwrite($file, $txt);
-				$txt = $startTime."\n";
-				fwrite($file, $txt);
-				$txt = $endDate." ";
-				fwrite($file, $txt);
-				$txt = $endTime."\n";
-				fwrite($file, $txt);
-				$txt = $presTimeSlot."\n";
-					fwrite($file, $txt);
-					$txt = $breakDate." ";
-					fwrite($file, $txt);
-					$txt = $breakStart." ";
-					fwrite($file, $txt);
-					$txt = $breakEnd."\n";
-					fwrite($file, $txt);
-				fclose($file);
-			}
+	function createFile($termSelect, $startDate, $startTime, $endDate, $endTime, $presTimeSlot,$numberofRooms, $regEndDate, $abstractDeadline, $breakDate, $breakStart, $breakEnd) {
+		global $fileName;
+		$file = fopen ($fileName, "w+");
+		$txt = $termSelect."\n";
+		fwrite($file, $txt);
+		$txt = $regEndDate."\n";
+		fwrite($file, $txt);
+		$txt = $abstractDeadline."\n";
+		fwrite($file, $txt);
+		$txt = $startDate." ";
+		fwrite($file, $txt);
+		$txt = $startTime."\n";
+		fwrite($file, $txt);
+		$txt = $endDate." ";
+		fwrite($file, $txt);
+		$txt = $endTime."\n";
+		fwrite($file, $txt);
+		$txt = $presTimeSlot."\n";
+		fwrite($file, $txt);
+		$txt = $numberofRooms."\n";
+		fwrite($file, $txt);	
+		$txt = $breakDate." ";
+		fwrite($file, $txt);
+		$txt = $breakStart." ";
+		fwrite($file, $txt);
+		$txt = $breakEnd."\n";
+		fwrite($file, $txt);
+		fclose($file);
+	}//createFile
 ?>
 
