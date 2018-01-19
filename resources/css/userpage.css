@@ -24,3 +24,15 @@ div#importantDisplay{
 h4#usersName{
 	text-align: right;
 }
+
+tr.hidden{
+	display: none;
+}
+
+td.format{
+  padding: 20px;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  background-color: #fff;
+}

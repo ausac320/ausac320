@@ -49,7 +49,7 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns">
+				<div class="large-8 medium-8 small-8 columns"><!-- slam table here -->
 					<h4 id="usersName">
 						User's Name Displays Here
 					</h4>
