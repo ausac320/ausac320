@@ -15,7 +15,7 @@ $('body').on('focus', '[contenteditable]', function() {
 
 function grabData(){
 	$.ajax({
-  	url: 'testsave.csv',
+  	url: 'resources/data/testsave.csv',
   	dataType: 'text',
 	}).done(createSubTable);
 }
@@ -80,9 +80,9 @@ function createSubTable(data){
 	}
 	table.appendChild(tabRow1);
 
-	//Added -1 to allRows.length because with the .split("\n") there is a 
-	//hidden row at the bottom that it grabs and ends up creating an extra
-	//'tr'
+	//When the program create a .csv file at the end it adds in an extra line for the 
+	//carriage return so we have to have -1 here so it doesn't show it, however the 
+	//incoming file needs to have that extra line or the last line will be lost on export
 	for(var x=0; x<allRows.length - 1; x++){
 		tabRow2 = document.createElement('tr');
 		rowCells = allRows[x].split(',');
@@ -213,7 +213,7 @@ function tableToCSV(){
 			}
 			//slide removes the new line at the end of prof name so it doesn't
 			//get written in.
-			profName = tableColms[tableColms.length -1].innerHTML.slice(0, -1);;
+			profName = tableColms[tableColms.length -1].innerHTML;
 		}
 
 		//i starts at 1 to avoid header row and we only want it so save 
