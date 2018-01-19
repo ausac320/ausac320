@@ -1,5 +1,18 @@
 //Head Of File
 
+$('body').on('focus', '[contenteditable]', function() {
+    var $this = $(this);
+    $this.data('before', $this.html());
+    return $this;
+}).on('blur keyup paste input', '[contenteditable]', function() {
+    var $this = $(this);
+    if ($this.data('before') !== $this.html()) {
+        $this.data('before', $this.html());
+        $this.trigger('change');
+    }
+    return $this;
+});
+
 function grabData(){
 	$.ajax({
   	url: 'testsave.csv',
@@ -163,9 +176,6 @@ function makeEdit(){
 		edit[x].setAttribute("contenteditable", "true");
 		edit[x].style.border = "1px solid #1779ba";
 		edit[x].style.backgroundColor = "#d7ecfa";
-		edit[x].addEventListener("input", function(){
-			edit[x].value = edit[x].innerHTML;
-		});
 	}
 	var abstractDisplay = document.getElementsByClassName('changeDisplay');
 	for(var i=0; i<abstractDisplay.length; i++){
