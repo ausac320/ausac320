@@ -115,20 +115,21 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-							<div id ="breakTimes" name ="breakTimes">	
+
+							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
 
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
-								   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
+								   		<input type="date" name="breakDate" id="breakDate1" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
 							 		</div>
 									<div class="large-4 medium-4 small-4 columns">
 								        Break Start Time: 
-								        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
+								        <input type="time" name="breakStart" id="breakStart1" required pattern="HH:MM" required/>
 								    </div>
 								    <div class="large-4 medium-4 small-4 columns">    
 								    	Break End Time: 
-								    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
+								    	<input type="time" name="breakEnd" id="breakEnd1" required pattern="HH:MM" required/>
 									</div>
 								 </div>	
 							</div> 
@@ -152,12 +153,11 @@ for the schedule organization.
 				</div>
 			</div>
 		</div>
-			<?php
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				prepareData();
-			}
-			?>
-		
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			prepareData();
+		}
+		?>
 
 		<div class="footer">
 			<div class="row footerSpace">
@@ -189,20 +189,17 @@ for the schedule organization.
 -->
     	<script type="text/javascript">
         $(document).ready(function() {
-        	var breakList = ["1"];
             $('#btnAdd').click(function() {
                 var num     = $('.clonedInput').length ; // how many "duplicatable" input fields we currently have
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
-                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
-                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
 
                 // manipulate the name/id values of the input inside the new element
-                newInput.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);				
- 				//add the newElem to the list which will be used to print to text in php
- 				breakList.push('input'+newNum);
+                newInput.children(':first').children(':first').attr('id', 'breakDate' + newNum).attr('name', 'breakDate' + newNum);
+                newInput.children('nth-child(2)').children(':first').attr('id', 'breakStart' + newNum).attr('name', 'breakStart' + newNum);
+                newInput.children('nth-child(3)').children(':first').attr('id', 'breakEnd' + newNum).attr('name', 'breakEnd' + newNum);
                 // insert the new element after the last "duplicatable" input field
                 $('#input' + num).after(newInput); 
                 // enable the "remove" button
@@ -215,9 +212,7 @@ for the schedule organization.
             $('#btnDel').click(function() {
                 var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
                 $('#input' + num).remove();     // remove the last element
-                breakList.pop();
-                console.log(breakList);
- 
+
                 // enable the "add" button
                 $('#btnAdd').attr('disabled','');
  
@@ -274,19 +269,19 @@ for the schedule organization.
 				fwrite($file, $txt);
 				$txt = $abstractDeadline."\n";
 				fwrite($file, $txt);
-				$txt = $startDate." ";
+				$txt = $startDate.",";
 				fwrite($file, $txt);
 				$txt = $startTime."\n";
 				fwrite($file, $txt);
-				$txt = $endDate." ";
+				$txt = $endDate.",";
 				fwrite($file, $txt);
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
 					fwrite($file, $txt);
-					$txt = $breakDate." ";
+					$txt = $breakDate.",";
 					fwrite($file, $txt);
-					$txt = $breakStart." ";
+					$txt = $breakStart.",";
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
