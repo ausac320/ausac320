@@ -50,20 +50,12 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 					</ul>
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
-					<h4>
+					<h4 id="usersName">
 						User's Name Displays Here
 					</h4>
-					<div id="importantDisplay"> 
-						Deadlines and Important Dates:
-						<ul>
-							<li>
-								Prototype Deadline - January 12, 2018
-							</li>
-							<li>
-								Final Product - January 19, 2018
-							</li>
-						</ul>
-					</div>
+
+					<div id="importantDisplay" class="deadlines"></div>
+
 					<div class="schedule">
 						<div>
 							<div class="row">
@@ -172,10 +164,13 @@ Contained on this page is a chart and a text box. The chart is our "schedule" an
 		<script src="resources/js/vendor/foundation.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="resources/js/app.js"></script>
-    	<script src="resources/js/editableTextTable.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+    	<script src="resources/js/editableImportantTable.js"></script>
+
 
     	<script type="text/javascript")>
-			addButtonToHomeAdmin();
+			addContactEditButtonToHomeAdmin();
+			addImportantEditButtonToHomeAdmin();
 		</script>
 	</body>
 </html>
