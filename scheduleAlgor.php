@@ -15,23 +15,9 @@ $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is th
 				$numOfPresRooms = 5;
 				$oralPresRoom = 4;
 				$presStartTime;
-				createSubmissionsArray($submissionDataFile);
+				$scheduleArray= createSubmissionsArray($submissionDataFile);
+								writeFile($scheduleArray);
 
-				for($i=0; $i < count($scheduleArray); $i++){
-					if(isset($scheduleArray[$i]) === true && $var === '') {
-						break 1;
-					}
-					else{
-						for($j=0; $j < count($scheduleArray[$i]); $j++){
-							if(count($scheduleArray[$i][$j]) == 0) {
-								break 1;
-							}
-							else{
-								writeFile($scheduleArray[$i][$j]);
-							}
-						}
-					}
-				}
 /**
 createSubmissionArray() takes the csv file (how we are storing without the use of a database)
 and will turn the csv file back into an array representation.
@@ -82,6 +68,7 @@ function placeInRoom($submissionArray){
 		$presRoom = $oralPresRoom;
 	}//else
 	$scheduleArray = schedulePlacement($submissionArray, $presRoom);
+	return $scheduleArray;
 }//placeInRoom
 
 
@@ -174,60 +161,46 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 
 function writeFile($array){
-	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w');
-				for($h=0; $h < count($array); $h++){//loop through all presentations of room
-					for($i=0; $i < count($array[$h]); $i++){
-						fwrite($fp, $array[$h][$i]);
-					}
-				}
-			
-
-	//}
-//}
+	$fp = fopen('resources/submissionFolder/scheduleFinal.csv', 'w');
+		for($i=0; $i <count($array); $i++){
+			foreach($array[$i] as $fields){
+    			fputcsv($fp, $fields);
+			}
+		}
 fclose($fp);
 
 }
 
-
-
-
-
-
 /**
-WORK ON IT TOMORROW
 
-
-function check_for_student_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
-	$studentConflict = false;
-	$studentName = 0; #This is because the student name is stored constantly in the first element 
+function checkForStudentConflict($scheduleArray, $roomNumber, $numOfRooms){
+	$conflictStatus = false;
+	$studentName = 0; #This is because the student name is stored constantly in the first element
+	$presentationPeriod = sizeof($scheduleArray[$roomNumber]); 
 	while ($compareRoom = 4; $compareRoom < ($numOfRooms + 4); $compareRoom++) { #since our booked rooms start at 4
-		if($scheduleMatrix[$roomNumber][$presEndTime][$studentName] == $scheduleMatrix[$compareRoom][$presEndTime][$studentName]
+		if($scheduleArray[$roomNumber][$presentationPeriod][$studentName] == $scheduleArray[$compareRoom][$presentationPeriod][$studentName]
 		and $roomNumber != $compareRoom){ #If the student is the same in the two presentations and they arent the same one
-			$studentConflict = true;
-			array_push($scheduleMatrix[2][$presEndTime], $scheduleMatrix[$roomNumber][$presEndTime]); #Move it to the "conflict room", "room 2"
-			$scheduleMatrix[$roomNumber][$presEndTime] = null; #remove the conflicting presentation from the schedule
+			$conflict = true;
+			return $conflictStatus;
 		}	
 	}
 	if ($studentConflict == false) { #Then we check for professor conflicts
-		check_for_prof_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength);
-		return $presEndTime;
+		check_for_prof_conflict($scheduleArray, $roomNumber, $numOfRooms, $conflictStatus);
+		return $conflictStatus;
 	}
 }
-
-function check_for_prof_conflict($scheduleMatrix, $presEndTime, $roomNumber, $numOfRooms, $presLength){
-	$profConflict = false;
+function check_for_prof_conflict($scheduleArray, $roomNumber, $numOfRooms, $conflictStatus){
 	$profName = 5; #This is because like our student name, the professor name is constantly stored in the last element
+	$presentationPeriod = sizeof($scheduleArray[$roomNumber]);
 	while ($compareRoom = 4; $compareRoom < ($numOfRooms + 4); $compareRoom++) {
-		if($scheduleMatrix[$roomNumber][$presEndTime][$profName] == $scheduleMatrix[$compareRoom][$presEndTime][$profName]
+		if($scheduleMatrix[$roomNumber][$presentationPeriod][$profName] == $scheduleMatrix[$compareRoom][$presentationPeriod][$profName]
 		and $roomNumber != $compareRoom){ #If the professor is the same in the two presentations and they arent the same one
-			$profConflict = true;
-			array_push($scheduleMatrix[][$presEndTime], $scheduleMatrix[$roomNumber][$presEndTime]); #Move it to the "conflict room"
-			$scheduleMatrix[$roomNumber][$presEndTime] = null; #remove the conflicting presentation from the schedule
+			$conflict = true;
+			return $conflictStatus;
 		}	
 	}
 	if ($profConflict == false) { #if there is no conflict the schedule has been successfully booked and the time period moves forward
-		$presEndTime = $presEndTime + $presLength;
-		return $presEndTime;
+		return $conflictStatus;
 	}
 }
 */
