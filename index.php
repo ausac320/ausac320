@@ -73,7 +73,7 @@ to the program being hosted offline and not a live site.
 		</div>
 
 		<?php
-		if ($_SERVER["REQUEST_METHOD"] == POST){
+		if ($_SERVER["REQUEST_METHOD"] == 'POST'){
 			$userName = ($_POST["username"]);
 			$password = ($_POST["password"]);
 			get_user_and_password_data();
@@ -90,7 +90,7 @@ to the program being hosted offline and not a live site.
     	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript")>
-			grabTextData();
+			grabContactTextData();
 		</script>
 
 	</body>

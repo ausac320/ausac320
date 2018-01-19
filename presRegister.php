@@ -104,7 +104,7 @@ Contained is a form for submitting presentation information to the "database" (i
     	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript")>
-			grabTextData();
+			grabContactTextData();
 		</script>
 
 	</body>

@@ -72,7 +72,7 @@ register the user which will not allow user to be able to authenticate.
     	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript")>
-			grabTextData();
+			grabContactTextData();
 		</script>
 		
 	</body>

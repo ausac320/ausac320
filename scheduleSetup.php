@@ -180,7 +180,7 @@ for the schedule organization.
     	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript")>
-			grabTextData();
+			grabContactTextData();
 		</script>
     	
 <!--

@@ -80,7 +80,7 @@
       		grabData();
     	</script>
     	<script type="text/javascript")>
-			grabTextData();
+			grabContactTextData();
 		</script>
 
 	</body>
