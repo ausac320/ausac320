@@ -166,7 +166,7 @@ for the schedule organization.
 				</div>
 				<div class="large-4 medium-4 small-4 columns"></div>
 				<div class="large-4 medium-4 small-4 columns contactInfo">
-					<h3>Contact Information</h3>
+					<h3 class="underline">Contact Information</h3>
 				</div>
 			</div>
 		</div>

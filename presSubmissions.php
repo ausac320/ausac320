@@ -27,48 +27,46 @@
 	</head>
 
 	<body>
-		<div>
-			<div class="header">
-				<h1>
-					<a href="index.php">Augustana Student Academic Conference</a>
-				</h1>
-			</div>
+		<div class="header">
+			<h1>
+				<a href="index.php">Augustana Student Academic Conference</a>
+			</h1>
+		</div>
 
-			<div id="submissionPageField" class="callout secondary">
-				<div class="row.fullsize">
-					<div class="large-2 medium-2 small-2 columns">
-						<ul id="navMenu">
-					  		<li>
-					  			<a href="userpage.php" >Home</a>
-					  		</li>
-					  		<li>
-					  			<a href="presRegister.php" >Register</a>
-					  		</li>
-					  		<li class="active">
-					  			<a href="presSubmissions.php" >Submissions</a>
-					  		</li>
-					  		<li>
-					  			<a href="scheduleSetup.php" >Schedule Setup</a>
-					  		</li>
-					  		<li>
-					  			<a href="index.php" onclick="signOut();">Sign out</a>
-					  		</li>
-						</ul>
-					</div>
-					<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns"></div>					
-					<div class="large-2 medium-2 small-2 columns"></div>
-				</div>	
-			</div>
+		<div id="submissionPageField" class="callout secondary">
+			<div class="row.fullsize">
+				<div class="large-2 medium-2 small-2 columns">
+					<ul id="navMenu">
+				  		<li>
+				  			<a href="userpage.php" >Home</a>
+				  		</li>
+				  		<li>
+				  			<a href="presRegister.php" >Register</a>
+				  		</li>
+				  		<li class="active">
+				  			<a href="presSubmissions.php" >Submissions</a>
+				  		</li>
+				  		<li>
+				  			<a href="scheduleSetup.php" >Schedule Setup</a>
+				  		</li>
+				  		<li>
+				  			<a href="index.php" onclick="signOut();">Sign out</a>
+				  		</li>
+					</ul>
+				</div>
+				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns"></div>					
+				<div class="large-2 medium-2 small-2 columns"></div>
+			</div>	
+		</div>
 
-			<div class="footer">
-				<div class="row footerSpace">
-					<div class="large-4 medium-4 small-4 columns">
-						<h3> Please Place Augustana Logo Here </h3>
-					</div>
-					<div class="large-4 medium-4 small-4 columns"></div>
-					<div class="large-4 medium-4 small-4 columns contactInfo">
-						<h3>Contact Information</h3>
-					</div>
+		<div class="footer">
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<h3> Please Place Augustana Logo Here </h3>
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
 				</div>
 			</div>
 		</div>
