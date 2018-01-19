@@ -17,7 +17,10 @@ div.schedule{
 }
 
 div#importantDisplay{
-	border: 3px solid #000;
 	margin-top: 5px;
 	padding: 5px;	
+}
+
+h4#usersName{
+	text-align: right;
 }
