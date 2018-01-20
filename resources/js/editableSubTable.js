@@ -13,6 +13,16 @@ $('body').on('focus', '[contenteditable]', function() {
     return $this;
 });
 
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
+
 function grabSubmissionData(){
 	$.ajax({
   	url: 'resources/submissionFolder/Mike Myers.csv',
@@ -20,6 +30,16 @@ function grabSubmissionData(){
   	cache: false
 	}).done(createSubTable);
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 function createSubTable(data){
 	var allRows = data.split("\n");
@@ -163,6 +183,16 @@ function createSubTable(data){
 	document.getElementById('submissionsDisplayBox').appendChild(tableDiv);	
 }
 
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
+
 function makeEdit(){
 	var buttonID = document.getElementById('editButton');
 	buttonID.innerHTML = "Save Changes";
@@ -189,6 +219,16 @@ function makeEdit(){
 		abstractTitle[y].style.display = "";	
 	}
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 function tableToCSV(){
 	var finalCSV = [];
@@ -225,6 +265,16 @@ function tableToCSV(){
 	sendArrayToPHP(finalCSV);
 	window.location.href=window.location.href;
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 function sendArrayToPHP(data){
 

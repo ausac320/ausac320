@@ -13,6 +13,16 @@ $('body').on('focus', '[contenteditable]', function() {
     return $this;
 });
 
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
+
 function grabScheduleData(){
 	$.ajax({
   	//url: 'resources/data/schedule.csv',
@@ -21,6 +31,16 @@ function grabScheduleData(){
   	cache: false
 	}).done(createScheduleTable);
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 function createScheduleTable(data){
 	var allRows = data.split("\n");
@@ -247,6 +267,16 @@ function createScheduleTable(data){
 
 }
 
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
+
 function makeEdit(){
 	var buttonID = document.getElementById('scheduleEditButton');
 	buttonID.innerHTML = "Save Changes";
@@ -259,6 +289,16 @@ function makeEdit(){
 		edit[x].style.backgroundColor = "#d7ecfa";
 	}
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 
 function tableToCSV(){
@@ -278,6 +318,16 @@ function tableToCSV(){
 	sendArrayToPHP(finalCSV);
 	window.location.href=window.location.href;
 }
+
+/**
+ * addImportantEditButtonToHomeAdmin()
+ * 
+ * Creates the edit button only when the account is a user.
+ * It will also call the grabImportantTextData method to start
+ * grabbing data for contact display.
+ *
+ * @params {type} var Description
+ */
 
 function sendArrayToPHP(data){
 	$.ajax({
