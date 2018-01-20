@@ -1,25 +1,25 @@
 /**
- * editableContactTable.js
+ * editableScheduleTable.js
  *
- * This file contains all the functionality to be able to grab the previously saved
- * text for the contact display field and then create the field and populate it.
- * It also has the functionality behind the edit button and the calls to the php function
- * for saving.
+ * This file contains all the functionality to be able to grab the previously saved sac schedule
+ * for this semester and turn it into a displayable table that is fully editable when the edit 
+ * button is pressed. It also has the functionality to turn the table into a doubled nested array
+ * so it can be passed to a php file which will use that to create a properly formatted .csv file
  *
  * Methods:
- * addContactEditButtonToHomeAdmin() - add edit button for admin
- * grabContactTextData() - grab data for text field
- * createContactInfo() - create contact text field
- * editContact() - functionality behind edit button
- * sendStringToPHP() - sends text field to php function to save
+ * grabScheduleData() - grab data for schedule table
+ * createScheduleTable() - create schedule table
+ * makeEdit() - functionality behind edit button
+ * tableToCSV() - turns a table html element into a double nested array for .csv formatting
+ * sendArrayToPHP() - sends double nested array to php function to save
  *
  * Bugs:
- * Editable text field produces errors when trying to remove the \n at the end of a line or 
- * if you add a new line to the text field.
+ * - Currently when it uses a file it has formatted, sometimes over time it will lose a bit 
+ *   of the formatting and the slices won't remove part of the quotes at the end of each .csv line
+ *   and the quotes will continue to get added and grow exponentially. (Quotation Monster Bug)
  *
  * Status:
- * Editable text for deadline is setup and outputs the appropriate file but causes 
- * issues using said file to reloop through, so does not display changes currently. 
+ * Implemented but has a few noted high priority bugs to fix before shipping
  */
 
 // Static method that when a field is contenteditable it will constantly
@@ -40,14 +40,11 @@ $('body').on('focus', '[contenteditable]', function() {
 });
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * grabScheduleData()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
- *
- * @params {type} var Description
+ * Grabs the text data from a .csv file and sends it to the create function.
  */
+
 
 function grabScheduleData(){
 	$.ajax({
@@ -59,13 +56,15 @@ function grabScheduleData(){
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * createScheduleTable()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Creates the html that actually displays the submissions table
  *
- * @params {type} var Description
+ * It creates as well as formats all of the <table> section that we create 
+ * where every row of the table is equal to a row in the .csv file and also
+ * implements hidden headers.
+ *
+ * @params {text} - data - the previously saved sac schedule
  */
 
 function createScheduleTable(data){
@@ -86,8 +85,10 @@ function createScheduleTable(data){
 	editButton.innerHTML = "Edit Schedule";
 	headingBox.appendChild(editButton);
 	tableDiv.appendChild(headingBox);
+
 	//----------------------------------------------------
 
+	//Hidden headers for formatting purposes only
 	tableBox = document.createElement("div");
 	tableBox.className = "row";
 	tableBox.id = "finalSchedule";
@@ -136,7 +137,7 @@ function createScheduleTable(data){
 		//if it wasn't created using fputcsv as the formatting will be off. 
 		//the slices to change are the only slice in the if == 1 and change the 
 		//second slice in the elseif
-		if(rowCells.length == 1){
+		if(rowCells.length == 1){//room 
 			innerEle = document.createElement('td');
 			innerEle.className = "success callout makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
@@ -150,7 +151,7 @@ function createScheduleTable(data){
 			}
 			tabRow.appendChild(innerEle);	
 		}
-		else if(rowCells.length == 2){
+		else if(rowCells.length == 2){//break + time
 			innerEle = document.createElement('td');
 			innerEle.className = "warning callout makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
@@ -175,8 +176,12 @@ function createScheduleTable(data){
 			}
 			tabRow.appendChild(innerEle);
 		}
-		else{//This is the situation that it is the first time the graph has been sent to the 
-			 //display so it needs to account for all the extra data 
+		else{//must be a student then
+
+			//This is the situation that it is the first time the graph has been sent to the 
+			//display so it needs to account for all the extra data so it has to use different
+			//hard coded locations to find then comapred to once it has been formatted
+
 			if(rowCells.length > 5){
 				for(var z=0; z<5; z++){
 					innerEle = document.createElement('td');
@@ -228,6 +233,7 @@ function createScheduleTable(data){
 				tabRow.appendChild(innerEle);
 				}
 			}//if statement
+
 			//This is the situation where the graph has already been created and all that is 
 			//left is the neccasary data to make the graph. 
 			else{
@@ -280,27 +286,28 @@ function createScheduleTable(data){
 					}
 				tabRow.appendChild(innerEle);
 				}
-			}	
-		}
+			}//else	
+		}//outer else
 
 		table.appendChild(tabRow);
 
-	}
+	}//for loop
 
 	tableBox.appendChild(table);
 	tableDiv.appendChild(tableBox);
 	document.getElementById('importantScheduleHolder').appendChild(tableDiv);	
 
-}
+}//createScheduleTable
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * makeEdit()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Functionality of edit button.
  *
- * @params {type} var Description
+ * Creates new appearance for edit button as well as new functionality for
+ * it through css and html manipulation. It will also make all of the content
+ * in the makeEdit classes change to show that they are editable and allow for 
+ * for editing.
  */
 
 function makeEdit(){
@@ -317,20 +324,16 @@ function makeEdit(){
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * tableToCSV()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
- *
- * @params {type} var Description
+ * Turns a table html element into a double nested array for csv format.
  */
-
 
 function tableToCSV(){
 	var finalCSV = [];
 	var totalRows = document.querySelectorAll("table tr");
 
+	//start at one to avoid grabbing hidden header formatting row
 	for(var i = 1; i < totalRows.length; i++){
 		var tableRow = [];
 		var tableColms = totalRows[i].querySelectorAll("td");
@@ -342,17 +345,16 @@ function tableToCSV(){
 
 	}
 	sendArrayToPHP(finalCSV);
-	window.location.href=window.location.href;
+	window.location.href=window.location.href;//reloads the page
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * sendArray()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Takes an array of the information from the user page and sends it 
+ * to a php function to save it. 
  *
- * @params {type} var Description
+ * @params {array} - data - double nested array that contains all of the schedule data 
  */
 
 function sendArrayToPHP(data){

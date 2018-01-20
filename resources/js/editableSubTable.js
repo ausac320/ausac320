@@ -14,10 +14,16 @@
  * sendArrayToPHP() - sends double nested array to php function to save
  *
  * Bugs:
- * - 
+ * - When quote’s are given inside of a submission they are displayed as having two sets 
+ *   of quotations for an unknown reason. Will also grow exponentially. (Quotation Monster Bug)
+ * - There is an error with the hidden professors fields in submissions where after a certain 
+ *   event happening, not sure if x amount of changes or submissions. But it begins to add 
+ *   quotes to the end of the professor's name and they grow exponentially. (Quotation Monster Bug)
+ * - Due to how the createSubTable looks at data, any cell input starting with a quotation mark 
+ *   will potentially have that quotation mark removed as well as the last character of the field.
  *
  * Status:
- * Implemented but has few noted high priority bugs to fix before shipping
+ * Implemented but has a few noted high priority bugs to fix before shipping
  */
 
 // Static method that when a field is contenteditable it will constantly
@@ -138,6 +144,7 @@ function createSubTable(data){
 			innerEle = document.createElement('td');
 			innerEle.className = "makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
+			//possible location of Quotation Monster Bug for inputs with quotes
 			if(rowCells[i].charAt(0) == '"'){//remove quotations if it has them from string
 				innerEle.innerHTML = rowCells[i].slice(1, -1);
 			}
@@ -162,6 +169,7 @@ function createSubTable(data){
 		//------------------------
 
 		//Creates hidden prof so that we can save the values for when we write to csv later
+		//location of Quotation Monster Bug
 		innerEle = document.createElement('td');
 		innerEle.className = "hidden";
 		if(rowCells[rowCells.length -1].charAt(0) == '"'){

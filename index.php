@@ -97,6 +97,8 @@ to the program being hosted offline and not a live site.
 </html>
 
 <?php
+//Sheldon's User Login System
+
 function get_user_and_password_data(){
 	$file = fopen("resources/data/userInfo.txt", "r");
 	$fileData = fread($file, filesize($file));
