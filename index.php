@@ -56,12 +56,24 @@ to the program being hosted offline and not a live site.
 		</div>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
+				</div>
+				<div class="large-4 medium-4 small-4 columns">
+					<p>
+						Designed January 7th, 2018<br>
+  						by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+  					</p>
+				</div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
 		<?php
-		if ($_SERVER["REQUEST_METHOD"] == POST){
+		if ($_SERVER["REQUEST_METHOD"] == 'POST'){
 			$userName = ($_POST["username"]);
 			$password = ($_POST["password"]);
 			get_user_and_password_data();
@@ -75,6 +87,12 @@ to the program being hosted offline and not a live site.
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
     	<script src="resources/js/index.js"></script>
     	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabContactTextData();
+		</script>
+
 	</body>
 </html>
 

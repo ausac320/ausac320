@@ -115,20 +115,21 @@ for the schedule organization.
 									</label>
 								</div>
 							</div>
-							<div id ="breakTimes" name ="breakTimes">	
+
+							<div class ="breakTimes" id ="breakTimes" name ="breakTimes">	
 
 								<div id="input1" style="margin-bottom:4px;" class="clonedInput">
 						    		<div class="large-4 medium-4 small-4 columns">
 						    			Break Date
-								   		<input type="date" name="breakDate" id="breakDate" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
+								   		<input type="date" name="breakDate" id="breakDate1" max= "9999-12-31" min="1111-01-01" required pattern="YYYY/MM/DD" required/>
 							 		</div>
 									<div class="large-4 medium-4 small-4 columns">
 								        Break Start Time: 
-								        <input type="time" name="breakStart" id="breakStart" required pattern="HH:MM" required/>
+								        <input type="time" name="breakStart" id="breakStart1" required pattern="HH:MM" required/>
 								    </div>
 								    <div class="large-4 medium-4 small-4 columns">    
 								    	Break End Time: 
-								    	<input type="time" name="breakEnd" id="breakEnd" required pattern="HH:MM" required/>
+								    	<input type="time" name="breakEnd" id="breakEnd1" required pattern="HH:MM" required/>
 									</div>
 								 </div>	
 							</div> 
@@ -148,29 +149,39 @@ for the schedule organization.
 					</div>
 				</div>
 				<div class="large-2 medium-2 small-2 columns">
-					<button class="button testButton">Press Me To Test Method</button>
+					<button class="button testButton">Press Me To Test Method</button>	
 				</div>
 			</div>
 		</div>
-			<?php
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				prepareData();
-			}
-			?>
-		
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			prepareData();
+		}
+		?>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
 
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
 		<script src="resources/js/vendor/foundation.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
     	<script src="resources/js/scheduleSetup.js"></script>
     	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabContactTextData();
+		</script>
     	
 <!--
 	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
@@ -178,20 +189,17 @@ for the schedule organization.
 -->
     	<script type="text/javascript">
         $(document).ready(function() {
-        	var breakList = ["1"];
             $('#btnAdd').click(function() {
                 var num     = $('.clonedInput').length ; // how many "duplicatable" input fields we currently have
                 var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
  
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newInput = $('#input' + num).clone().attr('id', 'input' + newNum);
-                var newBreakStart = $('#breakStart' + num).clone().attr('id', 'breakStart' + newNum);
-                var newBreakEnd = $('#breakEnd' + num).clone().attr('id', 'breakEnd'+newNum);
 
                 // manipulate the name/id values of the input inside the new element
-                newInput.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);				
- 				//add the newElem to the list which will be used to print to text in php
- 				breakList.push('input'+newNum);
+                newInput.children(':first').children(':first').attr('id', 'breakDate' + newNum).attr('name', 'breakDate' + newNum);
+                newInput.children('nth-child(2)').children(':first').attr('id', 'breakStart' + newNum).attr('name', 'breakStart' + newNum);
+                newInput.children('nth-child(3)').children(':first').attr('id', 'breakEnd' + newNum).attr('name', 'breakEnd' + newNum);
                 // insert the new element after the last "duplicatable" input field
                 $('#input' + num).after(newInput); 
                 // enable the "remove" button
@@ -204,9 +212,7 @@ for the schedule organization.
             $('#btnDel').click(function() {
                 var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
                 $('#input' + num).remove();     // remove the last element
-                breakList.pop();
-                console.log(breakList);
- 
+
                 // enable the "add" button
                 $('#btnAdd').attr('disabled','');
  
@@ -263,23 +269,22 @@ for the schedule organization.
 				fwrite($file, $txt);
 				$txt = $abstractDeadline."\n";
 				fwrite($file, $txt);
-				$txt = $startDate." ";
+				$txt = $startDate.",";
 				fwrite($file, $txt);
 				$txt = $startTime."\n";
 				fwrite($file, $txt);
-				$txt = $endDate." ";
+				$txt = $endDate.",";
 				fwrite($file, $txt);
 				$txt = $endTime."\n";
 				fwrite($file, $txt);
 				$txt = $presTimeSlot."\n";
 					fwrite($file, $txt);
-					$txt = $breakDate." ";
+					$txt = $breakDate.",";
 					fwrite($file, $txt);
-					$txt = $breakStart." ";
+					$txt = $breakStart.",";
 					fwrite($file, $txt);
 					$txt = $breakEnd."\n";
 					fwrite($file, $txt);
 				fclose($file);
 			}
 ?>
-

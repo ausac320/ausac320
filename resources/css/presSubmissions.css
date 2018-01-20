@@ -9,11 +9,6 @@
 div#submissionPageField{
 	margin: 0px;
 	height: 80%;
-}
-
-div#submissionsDisplayBox{
-	border: 3px solid #000;
-	height: 500px;
 	overflow: auto;
 }
 
@@ -26,4 +21,40 @@ div#subHead{
 div#editSubs{
 	padding-top: 0px;
 	padding-right: 0px;
+}
+
+th.format{
+  padding: 10px;
+}
+
+td.format{
+  padding: 20px;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  background-color: #fff;
+}
+
+td.changeDisplay{
+  padding: 20px;
+  text-align: left;
+}
+
+table#subTable{
+  padding: 0px;
+}
+
+button#editButton{
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+
+td.abstractTitle{
+	text-align: center;
+	background-color: #fff;
+}
+
+td.hidden{
+	display: none;
 }
