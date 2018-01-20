@@ -1,11 +1,10 @@
 /**
-	scheduleSetup.js	
+	scheduleSetup.js
+
+	This small set of code is the handler for the test button which when pressed will execute the schedule building 
+	algorithm.	
 */
 
-/**
-This small set of code is the handler for then the test button is pressed which will execute the schedule building 
-algorithm
-*/
 $(document).ready(function(){
 	$('.testButton').click(function(){
 		$.ajax({			
