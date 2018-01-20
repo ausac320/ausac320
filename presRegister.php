@@ -1,11 +1,11 @@
 <!--
 AUCSC 320 - Augustana Student Academic Conference
 
-Documentation by Sheldon Grundberg on January 12, 2018
+Documentation by Sheldon Grundberg on January 19, 2018
 
-presRegister.php is the presentation registration page, which will be displayed when the user clicks on the register button of the navigation column.
+presRegister.php is the Presentation Registration Page, which will be displayed when the user clicks on the register button of the navigation column.
 
-Contained is a form for submitting presentation information to the "database" (in the case of this project, it will most likely be a file directory). Currently this form has no logic attached to it for submitting the information.
+The page contains a form for gathering data for presentation submissions, it then saves the submitted data as into a CSV file so that it can be accessed by the edit-able tables of the submissions page.
 -->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -79,7 +79,7 @@ Contained is a form for submitting presentation information to the "database" (i
 			</div>	
 		</div>
 		
-		<?php
+		<?php #If the form is submitted php code will begin
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			prepare_variables();
 		}
@@ -100,7 +100,7 @@ Contained is a form for submitting presentation information to the "database" (i
 
 <?php
 
-	function prepare_variables() {
+	function prepare_variables() { #sets the variables  and calls to create/write the file
 		$studentName = test_input($_POST["studentName"]);
 		$courseName = test_input($_POST["courseName"]);
 		$presentationType = test_input($_POST["presentationType"]);
@@ -116,7 +116,7 @@ Contained is a form for submitting presentation information to the "database" (i
 
 	}
 
-	function test_input($data) {
+	function test_input($data) { #removes odd characters from the input recieved
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data);
 		$data = trim($data); 
@@ -124,7 +124,7 @@ Contained is a form for submitting presentation information to the "database" (i
 	}
 
 	function create_file($studentName, $courseName, $profName, $presentationType, $OURStatus, $titleOfPresentation, 
-		$studentAbstract, $fileName) {
+		$studentAbstract, $fileName) { #writes the inputs to the file and then starts the next line for the next line.
 		$file = fopen ($fileName, "a+");
 		$txt = $studentName.",";
 		fwrite($file, $txt);
@@ -143,7 +143,7 @@ Contained is a form for submitting presentation information to the "database" (i
 		fclose($file);
 	}
 
-	function add_to_scheduling($courseName, $profName, $studentName){
+	function add_to_scheduling($courseName, $profName, $studentName){ #Writes vital info of multiple submissions so they can be gathered. INCOMPLETE 
 		$file = fopen("resources/submissionFolder/registeredSubmissions.csv", "a+");
 		$txt = $courseName."\n";
 		fwrite($file, $txt);
