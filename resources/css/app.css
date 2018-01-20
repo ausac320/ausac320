@@ -41,6 +41,10 @@ div.footer {
 	width: 100%;
 }
 
+div.footerSpace{
+	padding-top: 10px;
+}
+
 /* Side Navigation Menu */
 ul#navMenu{
 	border: 2px solid #000;
@@ -65,10 +69,6 @@ ul#navMenu a{
 
 button.round, .button.round {
     border-radius: 1000px; 
-}
-
-div.footerSpace{
-	padding-top: 10px;
 }
 
 h3.underline{

@@ -13,7 +13,7 @@ $('body').on('focus', '[contenteditable]', function() {
     return $this;
 });
 
-function grabData(){
+function grabSubmissionData(){
 	$.ajax({
   	url: 'resources/submissionFolder/Mike Myers.csv',
   	dataType: 'text',

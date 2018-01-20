@@ -4,7 +4,8 @@
 	Description: 
 	This page is for the user to be able to see all of their student submissions
 	in one place as well as the information that was submitted for those students.
-	If the information needs to be editted, there is an included edit button. 
+	If the information needs to be editted, there is an included edit button along
+	with it's functionality.
 
 	File Contents:
 	This file contains the layout elements for the design of the submissions page 
@@ -53,6 +54,7 @@
 				  		</li>
 					</ul>
 				</div>
+				<!-- where table gets placed -->
 				<div id="submissionsDisplayBox" class="large-8 medium-8 small-8 columns"></div>					
 				<div class="large-2 medium-2 small-2 columns"></div>
 			</div>	
@@ -77,10 +79,10 @@
     	<script src="resources/js/editableContactTable.js"></script>
 
     	<script type="text/javascript">
-      		grabData();
+      		grabSubmissionData(); //creates submissions table
     	</script>
     	<script type="text/javascript")>
-			grabContactTextData();
+			grabContactTextData(); //creates contact field in footer
 		</script>
 
 	</body>

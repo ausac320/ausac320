@@ -1,11 +1,15 @@
 <!--
-AUCSC 320 - Augustana Student Academic Conference
+	userpage.php
+	
+	Description: 
+	This page is for the user to be able to see important dates and deadlines as well as edit them if they have 
+	admin privileges as well as being able to edit the contact information in the footer if they have said privileges.
+	This page will also contain the editable final schedule which will only be displayed once it has be created 
+	using the admin settings. It also has editablity if you have admin privileges.
 
-Documentation by Sheldon Grundberg on January 19, 2018
-
-userpage.php is The Home Page that displays after the user sucessfully logs in. This page will also be displayed when users click the "Home" button of the navigation column
-
-The Home Page contains three features, the display of the current schedule, the important dates and deadlines text box (which is editable with the click of a button), and it also features the edit button for the contacts text box at the bottom of the page. 
+	File Contents:
+	This file contains the layout elements for the design of the home page as well as calls for the functionality
+	creation. Namely the editable text field, editable contact info, and the editable final schedule table.
 -->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -49,11 +53,13 @@ The Home Page contains three features, the display of the current schedule, the 
 				  		</li>
 					</ul>
 				</div>
-				<div class="large-8 medium-8 small-8 columns"><!-- slam table here -->
+				<div class="large-8 medium-8 small-8 columns">
 					<h4 id="usersName">User's Name Displays Here</h4>
 
+					<!-- place important dates here -->
 					<div id="importantDisplay" class="deadlines"></div>
 
+					<!-- place schedule here -->
 					<div id="importantScheduleHolder" class="schedule"></div>
 
 				</div>
@@ -68,10 +74,11 @@ The Home Page contains three features, the display of the current schedule, the 
 					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
 				</div>
 				<div class="large-4 medium-4 small-4 columns"></div>
+
+				<!-- place contact here -->
 				<div id="contact" class="large-4 medium-4 small-4 columns contactInfo"></div>
 			</div>
 		</div>
-
 
 		<script src="resources/js/vendor/jquery.js"></script>
     	<script src="resources/js/vendor/what-input.js"></script>
@@ -84,9 +91,9 @@ The Home Page contains three features, the display of the current schedule, the 
 
 
     	<script type="text/javascript")>
-			addContactEditButtonToHomeAdmin();
-			addImportantEditButtonToHomeAdmin();
-			grabScheduleData();
+			addContactEditButtonToHomeAdmin(); //creates edit button contact for admins
+			addImportantEditButtonToHomeAdmin(); //creates edit button important dates for admins
+			grabScheduleData(); //begins process of creating displayed schedule
 		</script>
 	</body>
 </html>
