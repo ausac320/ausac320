@@ -1,3 +1,18 @@
+
+/**
+index.js 
+This file strictly is dealing with the authentication of the page.
+currently authentication is being trusted to google sign in due to it being the most secure
+without having to create all the security on the web developer side. 
+All authentication is taken care of with the google.api 
+*/
+
+
+
+
+
+
+
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.

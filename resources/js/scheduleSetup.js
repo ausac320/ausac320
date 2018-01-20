@@ -1,8 +1,11 @@
 /**
-	scheduleSetup.js
-	This is where the logic will be implemented for setting up the schedule.	
+	scheduleSetup.js	
 */
 
+/**
+This small set of code is the handler for then the test button is pressed which will execute the schedule building 
+algorithm
+*/
 $(document).ready(function(){
 	$('.testButton').click(function(){
 		$.ajax({			

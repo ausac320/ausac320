@@ -186,7 +186,10 @@ for the schedule organization.
 <!--
 	Sourced this code from http://charlie.griefer.com/blog/2009/09/17/jquery-dynamically-adding-form-elements/index.html
 	has been modified in order for program to use proper information
+	
+	The main functionality of this underlying code was used in order for the program to dynamically generate additional text fields as required.
 -->
+
     	<script type="text/javascript">
         $(document).ready(function() {
             $('#btnAdd').click(function() {
@@ -227,6 +230,13 @@ for the schedule organization.
 	</body>
 </html>
 
+
+	
+
+	<!-- 
+	This prepare Data is used in order to save the information that was gathered on the page from the user. 
+	It will take all information that was submitted by the user through the form that was generated on the schedule setup web page. 
+	->
 		<?php
 		function prepareData(){
 				global $fileName;

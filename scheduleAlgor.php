@@ -7,6 +7,11 @@ organize it in a way that will be turned into a csv file that will represent the
 
 $submissionDataFile = "resources/submissionFolder/scheduleTest.csv";//this is the file that contains the submission data
 
+/**
+All data that has been hard coded in thise file will be imported and read from a database when it is to be implemented 
+with real life applicantions. 
+All data that was set was to test the code.
+*/
 				$scheduleArray = array();//this will be the final array where the schedule will be stored
 				$presLength = 25;
 				$eventStartTime = 6*60;//start @ 6:00
@@ -75,7 +80,10 @@ function placeInRoom($submissionArray){
 }//placeInRoom
 
 
-
+/**
+schedule Placement is the function that will be taking care of all the error checking while the program parses through all the rooms and tries to 
+place a presentation into the right place. 
+*/
 function schedulePlacement($presentationInfo, $roomNumber){
 	global $scheduleArray,$eventStartTime,$eventEndTime,$presLength,$breakStartTime,$breakEndTime,$oralPresRooms,$numOfRooms, $presStartTime, $presEndTime;//final array
 	$prevPresRef;
@@ -83,7 +91,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 	if($roomNumber == 2){
 			$presentationInfo[7] = "$breakStartTime";
 			$presentationInfo[8] = "$breakEndTime";
-			$scheduleArray[$roomNumber][] = $presentationInfo;
+			$scheduleArray[$roomNumber][] = "$presentationInfo";
 
 	}
 	elseif(empty($scheduleArray[$roomNumber])){
@@ -127,7 +135,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		if($presEndTime < $eventEndTime){//before the end of the presentation end time
 			$presentationInfo[7] = "$presStartTime";
 			$presentationInfo[8] = "$presEndTime";
-			$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put in the presentation into the proper room. 
+			$scheduleArray[$roomNumber][$presLocation] = "$presentationInfo";//put in the presentation into the proper room. 
 			$presStartTime += $presLength;
 			echo"====$presentationInfo[0] has a presentation that ends before the end of the Day\n";
 		}
@@ -142,7 +150,7 @@ function schedulePlacement($presentationInfo, $roomNumber){
 				}//if
 			}//if
 			else{//can't resolve... Send to the Conflicts Array
-			$scheduleArray[3][] = $presentationInfo;
+			$scheduleArray[3][] = "$presentationInfo";
 			echo"====Found a conflict we cannot resolve... Sorry\n";			
 			}//else
 		}//else
@@ -154,13 +162,13 @@ function schedulePlacement($presentationInfo, $roomNumber){
 		$presEndTime = $presStartTime + $presLength;
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
-		$scheduleArray[$roomNumber][$presLocation+1] = $presentationInfo;//put in the presentation into the proper room. 
+		$scheduleArray[$roomNumber][$presLocation+1] = "$presentationInfo";//put in the presentation into the proper room. 
 		echo"====We will place $presentationInfo[0] after the break at $breakEndTime \n";
 		}
 	else{//it can go before the break
 		$presentationInfo[7] = "$presStartTime";
 		$presentationInfo[8] = "$presEndTime";
-		$scheduleArray[$roomNumber][$presLocation] = $presentationInfo;//put the presentation into the proper room.
+		$scheduleArray[$roomNumber][$presLocation] = "$presentationInfo";//put the presentation into the proper room.
 		echo"====$presentationInfo[0] was placed before the break.\n";
 		}
 	//writeFile($scheduleArray);
@@ -169,7 +177,12 @@ function schedulePlacement($presentationInfo, $roomNumber){
 
 
 
-
+/**
+writeFile will be used to write the schedule into the database once it is implemented.
+The code that was written in this function was not so important as the logic that was used
+in order to create the schedule and will need to be rewritten in order for it to work 
+properly with a database. 
+*/
 
 function writeFile($data){
 	$fp = fopen('resources/submissionFolder/scheduleFinal.txt', 'w+');
