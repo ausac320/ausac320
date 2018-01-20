@@ -155,7 +155,7 @@ The page contains a form for gathering data for presentation submissions, it the
 		fclose($file);
 	}
 
-	function add_to_scheduling($courseName, $profName, $studentName){ #Writes vital info of multiple submissions so they can be gathered. INCOMPLETE 
+	function add_to_scheduling($courseName, $profName, $studentName){ #Writes vital info of multiple submissions so they can be gathered. INCOMPLETE FUNCTION
 		$file = fopen("resources/submissionFolder/registeredSubmissions.csv", "a+");
 		$txt = $courseName."\n";
 		fwrite($file, $txt);
