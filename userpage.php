@@ -1,3 +1,16 @@
+<!--
+	userpage.php
+	
+	Description: 
+	This page is for the user to be able to see important dates and deadlines as well as edit them if they have 
+	admin privileges as well as being able to edit the contact information in the footer if they have said privileges.
+	This page will also contain the editable final schedule which will only be displayed once it has be created 
+	using the admin settings. It also has editablity if you have admin privileges.
+
+	File Contents:
+	This file contains the layout elements for the design of the home page as well as calls for the functionality
+	creation. Namely the editable text field, editable contact info, and the editable final schedule table.
+-->
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -41,112 +54,46 @@
 					</ul>
 				</div>
 				<div class="large-8 medium-8 small-8 columns">
-					<h4>
-						User's Name Displays Here
-					</h4>
-					<div class="schedule">
-						<div>
-							<div class="row">
-								<div class="subHead">
-									Schedule
-								</div>
-							</div>
-							<div>
-								<table>
-									<thead>
-										<tr>
-											<th width="150">Time</th>
-											<th width="150">Type</th>
-											<th width="200">Professor</th>
-											<th width="200">Student</th>
-											<th width="100">Class</th>
-											<th width="200">Title</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>2:00 p.m. Feb 7</td>
-											<td>Oral</td>
-											<td>Palo, Rani-Villem</td>
-											<td>Sheldon Grundberg</td>
-											<td>AUHIS 250</td>
-											<td>The Minutemen: The first American Army</td>
-										</tr>
-										<tr>
-											<td>2:00 p.m. Feb 7</td>
-											<td>Music</td>
-											<td>Alexander, Carpenter</td>
-											<td>Alex Ho</td>
-											<td>AUMUS 410</td>
-											<td>Abba on Violin</td>
-										</tr>
-										<tr>
-											<td>3:00 p.m. Feb 7</td>
-											<td>Poster</td>
-											<td>Professor Professor</td>
-											<td>Connor Maschke</td>
-											<td>AUABC 120</td>
-											<td>The Presentation</td>
-										</tr>
-										<tr>
-											<td>4:00 p.m. Feb 7</td>
-											<td>BREAK</td>
-											<td>N/A</td>
-											<td>N/A</td>
-											<td>N/A</td>
-											<td>N/A</td>
-										</tr>
-										<tr>
-											<td>5:00 p.m. Feb 7</td>
-											<td>Poster</td>
-											<td>Neil Hepburn</td>
-											<td>Sheldon Grundberg</td>
-											<td>AUECO 101</td>
-											<td>Microeconomics and You</td>
-										</tr>
-										<tr>
-											<td>5:00 p.m. Feb 7</td>
-											<td>Oral</td>
-											<td>Professor Professor</td>
-											<td>Connor Maschke</td>
-											<td>AUABC 240</td>
-											<td>The Presentation: The Second</td>
-										</tr>
-										<tr>
-											<td>5:00 p.m. Feb 7</td>
-											<td>Oral</td>
-											<td>Professor Professor</td>
-											<td>Alex Ho</td>
-											<td>AUABC 250</td>
-											<td>The Presentation: The Final</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div> 
-					</div>
-					<div id="importantDisplay"> 
-						Deadlines and Important Dates:
-						<ul>
-							<li>
-								Prototype Deadline - January 12, 2018
-							</li>
-							<li>
-								Final Product - January 19, 2018
-							</li>
-						</ul>
-					</div>
+					<h4 id="usersName">User's Name Displays Here</h4>
+
+					<!-- place important dates here -->
+					<div id="importantDisplay" class="deadlines"></div>
+
+					<!-- place schedule here -->
+					<div id="importantScheduleHolder" class="schedule"></div>
+
 				</div>
-				<div class="large-2 medium-2 small-2 columns"></div>
+				<div class="large-2 medium-2 small-2 columns">
+				</div>
 			</div>	
 		</div>
-			
+
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+
+				<!-- place contact here -->
+				<div id="contact" class="large-4 medium-4 small-4 columns contactInfo"></div>
+			</div>
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="resources/js/vendor/jquery.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+    	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+    	<script src="resources/js/editableImportantTable.js"></script>
+    	<script src="resources/js/editableScheduleTable.js"></script>
+
+
+    	<script type="text/javascript")>
+			addContactEditButtonToHomeAdmin(); //creates edit button contact for admins
+			addImportantEditButtonToHomeAdmin(); //creates edit button important dates for admins
+			grabScheduleData(); //begins process of creating displayed schedule
+		</script>
 	</body>
 </html>

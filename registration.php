@@ -54,11 +54,26 @@ register the user which will not allow user to be able to authenticate.
 		</div>
 
 		<div class="footer">
-			Designed January 7th, 2018<br>
-  			by Sheldon Grundberg, Alex Ho, and Connor Maschke.
+			<div class="row footerSpace">
+				<div class="large-4 medium-4 small-4 columns">
+					<img src="resources/images/SAC Logo-1.png" alt="SAC Logo" >
+				</div>
+				<div class="large-4 medium-4 small-4 columns"></div>
+				<div class="large-4 medium-4 small-4 columns contactInfo">
+					<h3 class="underline">Contact Information</h3>
+				</div>
+			</div>
 		</div>
 
-		<script src="js/vendor/foundation.js"></script>
-    	<script src="js/app.js"></script>
+		<script src="resources/js/vendor/jquery.js"></script>
+    	<script src="resources/js/vendor/what-input.js"></script>
+		<script src="resources/js/vendor/foundation.js"></script>
+    	<script src="resources/js/app.js"></script>
+    	<script src="resources/js/editableContactTable.js"></script>
+
+    	<script type="text/javascript")>
+			grabContactTextData();
+		</script>
+		
 	</body>
 </html>

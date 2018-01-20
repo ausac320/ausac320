@@ -32,13 +32,17 @@ div.footer {
 	min-height: 10%;
 	background-color: #007c41;
 	color: #fff;
-	text-align: center;
+	text-align: center;*/
 	padding-top: 10px;
 	border-top: 2px solid #ffdb05;
 }
 
 .fullsizerow{
 	width: 100%;
+}
+
+div.footerSpace{
+	padding-top: 10px;
 }
 
 /* Side Navigation Menu */
@@ -62,3 +66,12 @@ ul#navMenu a{
 	color: #fff;
 }
 /* -------------------- */
+
+button.round, .button.round {
+    border-radius: 1000px; 
+}
+
+h3.underline{
+	text-decoration: underline;
+}
+
