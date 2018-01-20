@@ -1,26 +1,46 @@
-//Head Of File
+/**
+ * editableSubTable.js
+ *
+ * This file contains all the functionality to be able to grab the previously saved submissions
+ * for a given professor and turn it into a table that has the ability to be changed to become 
+ * editable via button click as well as the ability to save all the data in the edited table back
+ * to the file it got it from.
+ *
+ * Methods:
+ * grabSubmissionData() - grab data for submissions table
+ * createSubTable() - create submissions table
+ * makeEdit() - functionality behind edit button
+ * tableToCSV() - turns a table html element into a double nested array for .csv formatting
+ * sendArrayToPHP() - sends double nested array to php function to save
+ *
+ * Bugs:
+ * - 
+ *
+ * Status:
+ * Implemented but has few noted high priority bugs to fix before shipping
+ */
+
+// Static method that when a field is contenteditable it will constantly
+// save the innerHTML to whatever the new innerHTML is on certain keystrokes
+// such as keyup, paste, input, etc.
 
 $('body').on('focus', '[contenteditable]', function() {
     var $this = $(this);
-    $this.data('before', $this.html());
+    $this.data('before', $this.html());//old data
     return $this;
 }).on('blur keyup paste input', '[contenteditable]', function() {
     var $this = $(this);
-    if ($this.data('before') !== $this.html()) {
+    if ($this.data('before') !== $this.html()) {//did innerhtml data change?
         $this.data('before', $this.html());
-        $this.trigger('change');
+        $this.trigger('change');//if so then change
     }
     return $this;
 });
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * grabSubmissionData()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
- *
- * @params {type} var Description
+ * Grabs the text data from a .csv file and sends it to the create function.
  */
 
 function grabSubmissionData(){
@@ -32,13 +52,15 @@ function grabSubmissionData(){
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * createSubTable()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Creates the html that actually displays the submissions table
  *
- * @params {type} var Description
+ * It creates as well as formats all of the <table> section that we create 
+ * where every row of the table is equal to a row in the .csv file and also
+ * implements headers and hidden data storing. 
+ *
+ * @params {text} - data - the previously saved student submissions by a teacher
  */
 
 function createSubTable(data){
@@ -61,6 +83,7 @@ function createSubTable(data){
 	tableDiv.appendChild(headingBox);
 
 	/**----------------------------------*/
+	//Headers
 	tableBox = document.createElement("div");
 	tableBox.className = "row";
 	table = document.createElement('table');
@@ -115,7 +138,7 @@ function createSubTable(data){
 			innerEle = document.createElement('td');
 			innerEle.className = "makeEdit format";
 			innerEle.setAttribute("contenteditable", "false");
-			if(rowCells[i].charAt(0) == '"'){
+			if(rowCells[i].charAt(0) == '"'){//remove quotations if it has them from string
 				innerEle.innerHTML = rowCells[i].slice(1, -1);
 			}
 			else{
@@ -123,11 +146,12 @@ function createSubTable(data){
 			}
 			tabRow2.appendChild(innerEle);
 		}
-		//Abstract Display Yes/no
+		//Abstract Display Yes/no-----
 		innerEle = document.createElement('td');
 		innerEle.className = "format";
+
 		//Empty last still have ""\ from the csv file
-		//use i since i iterates to abstract and then stops in for loop
+		//use i since i iterates to abstract and then stops, in for loop
 		if(rowCells[i].length > 3){
 			innerEle.innerHTML = "Yes";
 		}
@@ -136,7 +160,8 @@ function createSubTable(data){
 		}
 		tabRow2.appendChild(innerEle);
 		//------------------------
-		//Creates hidden prof so that we can save the values for csv write to
+
+		//Creates hidden prof so that we can save the values for when we write to csv later
 		innerEle = document.createElement('td');
 		innerEle.className = "hidden";
 		if(rowCells[rowCells.length -1].charAt(0) == '"'){
@@ -176,21 +201,22 @@ function createSubTable(data){
 		//------------------------
 
 		table.appendChild(innerRow);
-	}
+	}//for loop
 
 	tableBox.appendChild(table);
 	tableDiv.appendChild(tableBox);
 	document.getElementById('submissionsDisplayBox').appendChild(tableDiv);	
-}
+}//createSubTable
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * makeEdit()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Functionality of edit button.
  *
- * @params {type} var Description
+ * Creates new appearance for edit button as well as new functionality for
+ * it through css and html manipulation. It will also make all of the content
+ * in the makeEdit classes change to show that they are editable and allow for 
+ * for editing. It will also display previously hidden fields for the abstract. 
  */
 
 function makeEdit(){
@@ -198,15 +224,15 @@ function makeEdit(){
 	buttonID.innerHTML = "Save Changes";
 	buttonID.className = "button round small-2 columns";
 
-	//window.location.href=window.location.href
-	//or onClick="window.location.reload()"
 	buttonID.setAttribute("onclick", "tableToCSV()");
+	//make appropriate content editable
 	var edit = document.getElementsByClassName('makeEdit');
 	for(var x=0; x<edit.length; x++){
 		edit[x].setAttribute("contenteditable", "true");
 		edit[x].style.border = "1px solid #1779ba";
 		edit[x].style.backgroundColor = "#d7ecfa";
 	}
+	//show hidden row
 	var abstractDisplay = document.getElementsByClassName('changeDisplay');
 	for(var i=0; i<abstractDisplay.length; i++){
 		abstractDisplay[i].setAttribute("contenteditable", "true");
@@ -214,6 +240,7 @@ function makeEdit(){
 		abstractDisplay[i].style.border = "1px solid #1779ba";
 		abstractDisplay[i].style.backgroundColor = "#d7ecfa";
 	}
+	//don't make abstract title editable
 	var abstractTitle = document.getElementsByClassName('abstractTitle');
 	for(var y=0; y<abstractTitle.length; y++){
 		abstractTitle[y].style.display = "";	
@@ -221,25 +248,26 @@ function makeEdit(){
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * tableToCSV()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Turns a table html element into a double nested array for csv format.
  *
- * @params {type} var Description
+ * Has limitations on what it will grab as well since their are certain
+ * row aspects that get saved that we do not need such as if a abstract
+ * is present or not. 
  */
 
 function tableToCSV(){
 	var finalCSV = [];
 	var totalRows = document.querySelectorAll("table tr");
 	var tableRow = [];
-	var profName;
+	var profName;//prof needs to be at end of each rows data
 
 	for(var i = 1; i < totalRows.length; i++){
 		
 		var tableColms = totalRows[i].querySelectorAll("td");
 
+		//length == 2 means that it is a hidden row 
 		//Only grabs the actual abstract, not the word abstract
 		if(tableColms.length==2){
 			tableRow.push(tableColms[1].innerHTML);
@@ -263,21 +291,19 @@ function tableToCSV(){
 		}
 	}
 	sendArrayToPHP(finalCSV);
-	window.location.href=window.location.href;
+	window.location.href=window.location.href;//reloads the page
 }
 
 /**
- * addImportantEditButtonToHomeAdmin()
+ * sendArrayToPHP()
  * 
- * Creates the edit button only when the account is a user.
- * It will also call the grabImportantTextData method to start
- * grabbing data for contact display.
+ * Takes an array of the information from the submissions page and sends it 
+ * to a php function to save it. 
  *
- * @params {type} var Description
+ * @params {array} - data - double nested array that contains all of the submission data 
  */
 
 function sendArrayToPHP(data){
-
 	$.ajax({
 		type: "POST",
 		url: "createCSV.php",
@@ -285,4 +311,3 @@ function sendArrayToPHP(data){
 		dataType: "json",
 	});
 }
-	

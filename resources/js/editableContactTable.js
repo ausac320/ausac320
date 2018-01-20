@@ -43,6 +43,7 @@ $('body').on('focus', '[contenteditable]', function() {
  * addContactEditButtonToHomeAdmin()
  * 
  * Creates the edit button only when the account is a user.
+ *
  * It will also call the grabContactTextData method to start
  * grabbing data for contact display. Only add edit button
  * to home page to eleminate clutter.
@@ -87,6 +88,7 @@ function grabContactTextData(){
  * createContactInfo()
  * 
  * Creates the html that actually displays the text.
+ *
  * It creates as well as formats all of the <P> section for the text
  * and adds in html linebreaks for all the .txt line feeds.
  *
@@ -115,6 +117,7 @@ function createContactInfo(data){
  * editContact()
  * 
  * Functionality of edit button.
+ *
  * Creates new appearance for edit button as well as new functionality for
  * it through css and html manipulation.
  */

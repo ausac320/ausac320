@@ -1,14 +1,40 @@
-//Head Of File
+/**
+ * editableContactTable.js
+ *
+ * This file contains all the functionality to be able to grab the previously saved
+ * text for the contact display field and then create the field and populate it.
+ * It also has the functionality behind the edit button and the calls to the php function
+ * for saving.
+ *
+ * Methods:
+ * addContactEditButtonToHomeAdmin() - add edit button for admin
+ * grabContactTextData() - grab data for text field
+ * createContactInfo() - create contact text field
+ * editContact() - functionality behind edit button
+ * sendStringToPHP() - sends text field to php function to save
+ *
+ * Bugs:
+ * Editable text field produces errors when trying to remove the \n at the end of a line or 
+ * if you add a new line to the text field.
+ *
+ * Status:
+ * Editable text for deadline is setup and outputs the appropriate file but causes 
+ * issues using said file to reloop through, so does not display changes currently. 
+ */
+
+// Static method that when a field is contenteditable it will constantly
+// save the innerHTML to whatever the new innerHTML is on certain keystrokes
+// such as keyup, paste, input, etc.
 
 $('body').on('focus', '[contenteditable]', function() {
     var $this = $(this);
-    $this.data('before', $this.html());
+    $this.data('before', $this.html());//old data
     return $this;
 }).on('blur keyup paste input', '[contenteditable]', function() {
     var $this = $(this);
-    if ($this.data('before') !== $this.html()) {
+    if ($this.data('before') !== $this.html()) {//did innerhtml data change?
         $this.data('before', $this.html());
-        $this.trigger('change');
+        $this.trigger('change');//if so then change
     }
     return $this;
 });
